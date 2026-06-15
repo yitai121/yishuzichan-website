@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Sitemap: https://yishuzichan.cc/sitemap.xml
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /

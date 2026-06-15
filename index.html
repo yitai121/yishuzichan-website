@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亿数 — AI驱动的数实融合生态平台 | 以数兴商，链接未来</title>
+<meta name="description" content="亿数是AI驱动的数实融合生态平台，以数兴商，打造10800家AI数字新品牌。亿数资产合规运营，五证齐全，星火·链网接入，国标起草单位。旗下亿象、出发吧夏天、疯狂路亚三大生态。">
+<meta name="keywords" content="亿数,亿数资产,亿数ES,ES,数实融合,AI生态,数字品牌,数字资产,星火链网,亿象,出发吧夏天,疯狂路亚,数字藏品平台">
+<meta name="author" content="亿数">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://yishuzichan.cc/">
+<link rel="icon" href="./images/yishu-logo-es-only.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="亿数 — AI驱动的数实融合生态平台">
+<meta property="og:description" content="亿数是AI驱动的数实融合生态平台，以数兴商，打造10800家AI数字新品牌。合规运营，五证齐全，星火·链网接入。">
+<meta property="og:url" content="https://yishuzichan.cc/">
+<meta property="og:site_name" content="亿数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yishuzichan.cc/images/yishu-og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="亿数 — AI驱动的数实融合生态平台">
+<meta name="twitter:description" content="亿数是AI驱动的数实融合生态平台，以数兴商，打造10800家AI数字新品牌。">
+<meta name="twitter:image" content="https://yishuzichan.cc/images/yishu-og-cover.png">
+
+<!-- 结构化数据 JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "亿数",
+  "alternateName": ["亿数ES", "ES", "亿数资产"],
+  "url": "https://yishuzichan.cc/",
+  "logo": "https://yishuzichan.cc/images/yishu-logo-nav.png",
+  "description": "亿数是AI驱动的数实融合生态平台，以数兴商，打造10800家AI数字新品牌。",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "杭州",
+      "addressRegion": "浙江",
+      "addressCountry": "CN"
+    }
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@yishues.com",
+    "contactType": "business"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "亿数",
+  "url": "https://yishuzichan.cc/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://yishuzichan.cc/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "亿数",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CNY"
+  }
+}
+</script>
+<style>
+/* ========== TOKENS ========== */
+:root {
+  --brand: #5B5FC7;
+  --brand-light: #7B7FD9;
+  --brand-dark: #4A4EA8;
+  --brand-glow: rgba(91,95,199,0.35);
+  --gold: #D4AF37;
+  --gold-light: #E8C94A;
+  --gold-dim: rgba(212,175,55,0.15);
+  --surface-0: #050810;
+  --surface-1: #0A0F1E;
+  --surface-2: #111827;
+  --surface-3: #1A2238;
+  --surface-4: #232D45;
+  --text-primary: #F0F2F8;
+  --text-secondary: rgba(240,242,248,0.6);
+  --text-tertiary: rgba(240,242,248,0.35);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-glow: rgba(91,95,199,0.2);
+  --glass-bg: rgba(10,15,30,0.72);
+  --glass-border: rgba(255,255,255,0.08);
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-lg: 0 12px 24px rgba(0,0,0,0.5), 0 6px 8px rgba(0,0,0,0.3);
+  --shadow-glow: 0 0 40px var(--brand-glow), 0 0 80px rgba(91,95,199,0.15);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --max-width: 1200px;
+  --nav-height: 64px;
+}
+
+/* ========== RESET ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font); background: var(--surface-0); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+
+/* ========== UTILITIES ========== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
+.section-pad { padding: var(--space-20) 0; }
+.text-brand { color: var(--brand); }
+.text-gold { color: var(--gold); }
+.text-secondary { color: var(--text-secondary); }
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-badge, .hero-title span, .hero-desc, .hero-actions { opacity: 1 !important; transform: none !important; }
+}
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-height);
+  background: rgba(5,8,16,0.82);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
+}
+.nav.scrolled {
+  background: rgba(5,8,16,0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.nav-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--space-6);
+}
+.nav-logo { display: flex; align-items: center; gap: var(--space-3); }
+.nav-logo img {
+  height: 32px; 
+  width: auto; 
+  object-fit: contain;
+  object-position: left center;
+}
+.nav-logo span { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.nav-links { display: flex; align-items: center; gap: var(--space-8); }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  transition: color 0.2s var(--ease-smooth);
+  position: relative;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
+  background: var(--brand); transition: width 0.3s var(--ease-spring);
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-5); border-radius: var(--radius-full);
+  background: var(--brand); color: white; font-size: 14px; font-weight: 600;
+  transition: all 0.25s var(--ease-spring);
+}
+.nav-cta:hover { background: var(--brand-light); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.nav-mobile-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; }
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+/* Hero Immersive Background */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: var(--surface-0);
+}
+
+/* Layer 1: Deep Space Gradients */
+.hero-gradient-layer {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 20%, rgba(91,95,199,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 30%, rgba(91,95,199,0.15) 0%, transparent 45%),
+    radial-gradient(ellipse 100% 60% at 50% 80%, rgba(91,95,199,0.1) 0%, transparent 40%),
+    radial-gradient(ellipse 50% 30% at 70% 70%, rgba(212,175,55,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse 40% 50% at 30% 60%, rgba(91,95,199,0.12) 0%, transparent 50%);
+}
+
+/* Layer 2: Particle Grid Animation */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 2;
+  background-image:
+    linear-gradient(rgba(91,95,199,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91,95,199,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 70%);
+  animation: grid-drift 20s linear infinite;
+}
+@keyframes grid-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+/* Layer 3: Geometric ES Shapes */
+.hero-geometric {
+  position: absolute; inset: 0; z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-geo-shape {
+  position: absolute;
+  border: 1px solid rgba(91,95,199,0.15);
+  border-radius: 4px;
+}
+.hero-geo-shape-1 {
+  width: 300px; height: 300px;
+  top: 15%; right: 10%;
+  transform: rotate(45deg);
+  animation: geo-rotate-1 30s linear infinite;
+}
+.hero-geo-shape-2 {
+  width: 200px; height: 200px;
+  top: 25%; right: 20%;
+  animation: geo-rotate-2 25s linear infinite reverse;
+}
+.hero-geo-shape-3 {
+  width: 150px; height: 150px;
+  bottom: 20%; left: 5%;
+  border-radius: 50%;
+  border-color: rgba(212,175,55,0.1);
+  animation: geo-pulse 8s ease-in-out infinite;
+}
+.hero-geo-shape-4 {
+  width: 100px; height: 100px;
+  bottom: 30%; left: 15%;
+  transform: rotate(30deg);
+  animation: geo-rotate-1 20s linear infinite reverse;
+}
+@keyframes geo-rotate-1 {
+  0% { transform: rotate(45deg); }
+  100% { transform: rotate(405deg); }
+}
+@keyframes geo-rotate-2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes geo-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Layer 4: Particle Canvas */
+.hero-particles {
+  position: absolute; inset: 0; z-index: 4;
+  pointer-events: none;
+}
+
+/* Layer 5: Ambient Glow Pulse */
+.hero-glow {
+  position: absolute; inset: 0; z-index: 5;
+  pointer-events: none;
+}
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+.hero-glow-orb-1 {
+  width: 400px; height: 400px;
+  top: 10%; left: 20%;
+  background: rgba(91,95,199,0.2);
+  animation-delay: 0s;
+}
+.hero-glow-orb-2 {
+  width: 300px; height: 300px;
+  bottom: 20%; right: 15%;
+  background: rgba(212,175,55,0.12);
+  animation-delay: -3s;
+}
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Hero Content */
+.hero-inner {
+  position: relative; z-index: 10;
+  max-width: var(--max-width); margin: 0 auto; width: 100%;
+  padding: var(--space-16) var(--space-6);
+}
+.hero-content { 
+  max-width: 640px; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Hero Badge Animation */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-1) var(--space-4) var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--gold-dim);
+  border: 1px solid rgba(212,175,55,0.25);
+  font-size: 13px; font-weight: 500; color: var(--gold-light);
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: badge-enter 0.8s var(--ease-entrance) 0.2s forwards;
+}
+@keyframes badge-enter {
+  to { opacity: 1; transform: translateX(0); }
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); animation: pulse-gold 2s ease-in-out infinite;
+}
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* Hero Title Animation */
+.hero-title {
+  font-size: clamp(40px, 6vw, 72px); font-weight: 800;
+  line-height: 1.1; letter-spacing: -0.03em;
+  margin-bottom: var(--space-6);
+}
+.hero-title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.hero-title-line:nth-child(1) { animation: title-line-enter 0.8s var(--ease-entrance) 0.4s forwards; }
+.hero-title-line:nth-child(2) { animation: title-line-enter 0.8s var(--ease-entrance) 0.5s forwards; }
+.hero-title-line:nth-child(3) { animation: title-line-enter 0.8s var(--ease-entrance) 0.6s forwards; }
+@keyframes title-line-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-title .brand { color: var(--brand); }
+.hero-title .highlight {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--gold) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero Description Animation */
+.hero-desc {
+  font-size: 18px; line-height: 1.8; color: var(--text-secondary);
+  margin-bottom: var(--space-10); max-width: 520px;
+  margin-left: auto; margin-right: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: desc-enter 0.8s var(--ease-entrance) 0.8s forwards;
+}
+@keyframes desc-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Actions Animation */
+.hero-actions { 
+  display: flex; gap: var(--space-4); flex-wrap: wrap; 
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: actions-enter 0.8s var(--ease-spring) 1s forwards;
+}
+@keyframes actions-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.btn-primary {
+  position: relative;
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 16px 32px; border-radius: var(--radius-md);
+  background: var(--brand); color: white;
+  font-size: 16px; font-weight: 600;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-spring);
+}
+.btn-primary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s var(--ease-smooth);
+}
+.btn-primary:hover {
+  background: var(--brand-light); transform: translateY(-3px); box-shadow: var(--shadow-glow);
+}
+.btn-primary:hover::before { transform: translateX(100%); }
+.btn-primary svg { width: 18px; height: 18px; transition: transform 0.2s var(--ease-spring); }
+.btn-primary:hover svg { transform: translateX(4px); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 16px 32px; border-radius: var(--radius-md);
+  background: transparent; color: var(--text-primary);
+  font-size: 16px; font-weight: 500;
+  border: 1px solid var(--border-glow);
+  transition: all 0.3s var(--ease-smooth);
+}
+.btn-secondary:hover { 
+  border-color: var(--brand); 
+  background: rgba(91,95,199,0.1);
+  transform: translateY(-2px);
+}
+
+/* ========== STATS ========== */
+.stats {
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-1);
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(91,95,199,0.03), transparent);
+  animation: stats-shimmer 8s ease-in-out infinite;
+}
+@keyframes stats-shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8); text-align: center;
+}
+.stat-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.stat-item.visible {
+  animation: stat-enter 0.6s var(--ease-entrance) forwards;
+}
+.stat-item:nth-child(1).visible { animation-delay: 0ms; }
+.stat-item:nth-child(2).visible { animation-delay: 150ms; }
+.stat-item:nth-child(3).visible { animation-delay: 300ms; }
+.stat-item:nth-child(4).visible { animation-delay: 450ms; }
+@keyframes stat-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.stat-number {
+  font-size: 36px; font-weight: 800; letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-primary), var(--brand-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label { font-size: 14px; color: var(--text-secondary); margin-top: var(--space-2); }
+
+/* ========== ABOUT ========== */
+.about { background: var(--surface-0); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+  align-items: center;
+}
+.about-image {
+  position: relative; border-radius: var(--radius-2xl); overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.about-image.visible {
+  animation: about-img-enter 0.8s var(--ease-entrance) forwards;
+}
+@keyframes about-img-enter {
+  to { opacity: 1; transform: translateX(0); }
+}
+.about-image img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+.about-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,8,16,0.6) 0%, transparent 40%);
+}
+.section-label {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: 13px; font-weight: 600; color: var(--brand);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+.section-label::before {
+  content: ''; width: 20px; height: 2px; background: var(--brand); border-radius: 1px;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 40px); font-weight: 800;
+  line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
+}
+.section-desc {
+  font-size: 16px; line-height: 1.8; color: var(--text-secondary);
+  margin-bottom: var(--space-8);
+}
+.about-content {
+  opacity: 0;
+  transform: translateX(50px);
+}
+.about-content.visible {
+  animation: about-content-enter 0.8s var(--ease-entrance) forwards;
+}
+.about-content.visible .about-feature {
+  animation: about-feature-enter 0.6s var(--ease-entrance) forwards;
+  opacity: 0;
+  transform: translateX(30px);
+}
+.about-content.visible .about-feature:nth-child(1) { animation-delay: 0.2s; }
+.about-content.visible .about-feature:nth-child(2) { animation-delay: 0.35s; }
+.about-content.visible .about-feature:nth-child(3) { animation-delay: 0.5s; }
+@keyframes about-content-enter {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes about-feature-enter {
+  to { opacity: 1; transform: translateX(0); }
+}
+.about-features { display: flex; flex-direction: column; gap: var(--space-5); }
+.about-feature {
+  display: flex; gap: var(--space-4); align-items: flex-start;
+}
+.about-feature-icon {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--radius-md);
+  background: rgba(91,95,199,0.1); border: 1px solid var(--border-glow);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s var(--ease-spring);
+}
+.about-feature:hover .about-feature-icon {
+  background: rgba(91,95,199,0.2);
+  transform: scale(1.05);
+}
+.about-feature-icon svg { width: 20px; height: 20px; color: var(--brand); }
+.about-feature-title { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.about-feature-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ========== PRODUCTS ========== */
+.products { background: var(--surface-1); }
+.products-header { 
+  text-align: center; max-width: 600px; margin: 0 auto var(--space-12);
+  opacity: 0;
+  transform: translateY(30px);
+}
+.products-header.visible {
+  animation: section-header-enter 0.8s var(--ease-entrance) forwards;
+}
+@keyframes section-header-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.products-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-5);
+}
+.product-card {
+  position: relative; padding: var(--space-8) var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  text-align: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(40px) rotateX(10deg);
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-smooth), border-color 0.3s var(--ease-smooth), background 0.3s var(--ease-smooth);
+}
+.product-card.visible {
+  animation: product-card-enter 0.7s var(--ease-entrance) forwards;
+}
+.product-card:nth-child(1).visible { animation-delay: 0ms; }
+.product-card:nth-child(2).visible { animation-delay: 100ms; }
+.product-card:nth-child(3).visible { animation-delay: 200ms; }
+.product-card:nth-child(4).visible { animation-delay: 300ms; }
+.product-card:nth-child(5).visible { animation-delay: 400ms; }
+@keyframes product-card-enter {
+  to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+.product-card::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+  opacity: 0; transition: opacity 0.3s var(--ease-smooth);
+}
+.product-card:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+  border-color: var(--border-glow);
+  box-shadow: 0 20px 40px rgba(91,95,199,0.2), 0 0 60px rgba(91,95,199,0.1);
+  background: var(--surface-3);
+}
+.product-card:hover::before { opacity: 1; }
+.product-icon {
+  width: 56px; height: 56px; border-radius: var(--radius-lg);
+  margin: 0 auto var(--space-5);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  background: linear-gradient(135deg, rgba(91,95,199,0.15), rgba(91,95,199,0.05));
+  border: 1px solid var(--border-glow);
+  transition: all 0.3s var(--ease-spring);
+}
+.product-card:hover .product-icon {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(91,95,199,0.3);
+}
+.product-name { font-size: 17px; font-weight: 700; margin-bottom: var(--space-2); }
+.product-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ========== ECOSYSTEM ========== */
+.ecosystem { background: var(--surface-0); }
+.ecosystem-header { 
+  text-align: center; max-width: 600px; margin: 0 auto var(--space-12);
+  opacity: 0;
+  transform: translateY(30px);
+}
+.ecosystem-header.visible {
+  animation: section-header-enter 0.8s var(--ease-entrance) forwards;
+}
+.ecosystem-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.eco-card {
+  position: relative; border-radius: var(--radius-2xl); overflow: hidden;
+  min-height: 380px;
+  border: 1px solid var(--border-subtle);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.5s var(--ease-spring), box-shadow 0.4s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
+}
+.eco-card.visible {
+  animation: eco-card-enter 0.8s var(--ease-entrance) forwards;
+}
+.eco-card:nth-child(1).visible { animation-delay: 0ms; transform-origin: left center; }
+.eco-card:nth-child(2).visible { animation-delay: 150ms; transform-origin: center; }
+.eco-card:nth-child(3).visible { animation-delay: 300ms; transform-origin: right center; }
+@keyframes eco-card-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.eco-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-glow);
+}
+.eco-card-bg {
+  position: absolute; inset: 0;
+  transition: transform 0.6s var(--ease-smooth);
+}
+.eco-card:hover .eco-card-bg {
+  transform: scale(1.08);
+}
+.eco-card-bg img { width: 100%; height: 100%; object-fit: cover; }
+.eco-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,8,16,0.95) 0%, rgba(5,8,16,0.5) 50%, transparent 100%);
+  transition: background 0.4s var(--ease-smooth);
+}
+.eco-card:hover .eco-card-overlay {
+  background: linear-gradient(to top, rgba(5,8,16,0.98) 0%, rgba(5,8,16,0.6) 50%, rgba(5,8,16,0.2) 100%);
+}
+.eco-card-content {
+  position: relative; z-index: 1;
+  padding: var(--space-6); height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.eco-badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: var(--radius-full);
+  font-size: 11px; font-weight: 600;
+  width: fit-content; margin-bottom: var(--space-3);
+}
+.eco-badge.blue { background: rgba(91,95,199,0.2); color: var(--brand-light); border: 1px solid rgba(91,95,199,0.3); }
+.eco-badge.gold { background: var(--gold-dim); color: var(--gold-light); border: 1px solid rgba(212,175,55,0.3); }
+.eco-badge.green { background: rgba(52,199,89,0.15); color: #34C759; border: 1px solid rgba(52,199,89,0.3); }
+.eco-card-title { font-size: 24px; font-weight: 800; margin-bottom: var(--space-2); }
+.eco-card-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ========== QUALIFICATIONS ========== */
+.qualifications {
+  background: var(--surface-1);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+.qualifications::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(91,95,199,0.05) 0%, transparent 60%);
+  animation: qual-bg-pulse 10s ease-in-out infinite;
+}
+@keyframes qual-bg-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+.qual-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+  align-items: center;
+  position: relative;
+}
+.qual-content { 
+  max-width: 500px;
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.qual-content.visible {
+  animation: qual-content-enter 0.8s var(--ease-entrance) forwards;
+}
+@keyframes qual-content-enter {
+  to { opacity: 1; transform: translateX(0); }
+}
+.qual-tags { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+.qual-tag {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
+  background: rgba(91,95,199,0.08); border: 1px solid var(--border-glow);
+  font-size: 13px; font-weight: 500; color: var(--brand-light);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s var(--ease-spring);
+}
+.qual-content.visible .qual-tag {
+  animation: qual-tag-enter 0.5s var(--ease-spring) forwards;
+}
+.qual-content.visible .qual-tag:nth-child(1) { animation-delay: 0.2s; }
+.qual-content.visible .qual-tag:nth-child(2) { animation-delay: 0.3s; }
+.qual-content.visible .qual-tag:nth-child(3) { animation-delay: 0.4s; }
+.qual-content.visible .qual-tag:nth-child(4) { animation-delay: 0.5s; }
+@keyframes qual-tag-enter {
+  to { opacity: 1; transform: scale(1); }
+}
+.qual-tag:hover {
+  background: rgba(91,95,199,0.15);
+  transform: scale(1.05);
+}
+.qual-tag svg { width: 14px; height: 14px; color: var(--brand); }
+.qual-visual {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);
+  perspective: 1000px;
+}
+.qual-card {
+  position: relative;
+  padding: var(--space-6); border-radius: var(--radius-lg);
+  background: var(--surface-2); border: 1px solid var(--border-subtle);
+  text-align: center;
+  opacity: 0;
+  transform: rotateY(90deg);
+  transition: transform 0.5s var(--ease-spring), border-color 0.3s var(--ease-smooth), background 0.3s var(--ease-smooth);
+}
+.qual-card.visible {
+  animation: qual-card-flip 0.7s var(--ease-entrance) forwards;
+}
+.qual-card:nth-child(1).visible { animation-delay: 0.1s; }
+.qual-card:nth-child(2).visible { animation-delay: 0.2s; }
+.qual-card:nth-child(3).visible { animation-delay: 0.3s; }
+.qual-card:nth-child(4).visible { animation-delay: 0.4s; }
+@keyframes qual-card-flip {
+  to { opacity: 1; transform: rotateY(0); }
+}
+.qual-card:hover { 
+  border-color: var(--border-glow); 
+  background: var(--surface-3);
+  transform: translateY(-4px) rotateY(0);
+}
+.qual-card-icon { font-size: 32px; margin-bottom: var(--space-3); }
+.qual-card-title { font-size: 15px; font-weight: 700; margin-bottom: var(--space-1); }
+.qual-card-desc { font-size: 12px; color: var(--text-tertiary); }
+
+/* ========== CTA ========== */
+.cta { background: var(--surface-0); }
+.cta-inner {
+  position: relative; padding: var(--space-16);
+  border-radius: var(--radius-2xl);
+  background:
+    radial-gradient(ellipse 80% 80% at 30% 50%, rgba(91,95,199,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 70% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+    var(--surface-2);
+  border: 1px solid var(--border-glow);
+  text-align: center; overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95);
+}
+.cta-inner.visible {
+  animation: cta-enter 0.8s var(--ease-entrance) forwards;
+}
+@keyframes cta-enter {
+  to { opacity: 1; transform: scale(1); }
+}
+.cta-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.cta-glow {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.cta-glow-orb {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: cta-glow-pulse 4s ease-in-out infinite;
+}
+.cta-glow-orb-1 {
+  top: -100px; left: 20%;
+  background: rgba(91,95,199,0.3);
+}
+.cta-glow-orb-2 {
+  bottom: -100px; right: 20%;
+  background: rgba(212,175,55,0.2);
+  animation-delay: -2s;
+}
+@keyframes cta-glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+.cta-title {
+  font-size: clamp(28px, 3.5vw, 40px); font-weight: 800;
+  letter-spacing: -0.02em; margin-bottom: var(--space-5);
+  position: relative;
+}
+.cta-desc {
+  font-size: 16px; color: var(--text-secondary); max-width: 480px;
+  margin: 0 auto var(--space-8); position: relative;
+}
+.cta-buttons { display: flex; justify-content: center; gap: var(--space-4); position: relative; flex-wrap: wrap; }
+.cta-platform {
+  position: relative;
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  padding: 16px 32px; border-radius: var(--radius-md);
+  background: var(--brand); color: white;
+  font-size: 17px; font-weight: 600;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-spring);
+}
+.cta-platform::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+.cta-platform:hover { background: var(--brand-light); transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+.cta-platform:hover::before { width: 400px; height: 400px; }
+.cta-platform svg { width: 20px; height: 20px; position: relative; z-index: 1; }
+.cta-contact {
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  padding: 16px 32px; border-radius: var(--radius-md);
+  background: transparent; color: var(--text-primary);
+  font-size: 17px; font-weight: 500;
+  border: 1px solid var(--border-glow);
+  transition: all 0.3s var(--ease-smooth);
+}
+.cta-contact:hover { border-color: var(--brand); background: rgba(91,95,199,0.1); transform: translateY(-2px); }
+
+/* ========== CONTACT ========== */
+.contact { background: var(--surface-1); }
+.contact-header {
+  text-align: center; max-width: 600px; margin: 0 auto var(--space-12);
+  opacity: 0;
+  transform: translateY(30px);
+}
+.contact-header.visible {
+  animation: section-header-enter 0.8s var(--ease-entrance) forwards;
+}
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.contact-card {
+  padding: var(--space-8); border-radius: var(--radius-xl);
+  background: var(--surface-2); border: 1px solid var(--border-subtle);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s var(--ease-spring), border-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+.contact-card.visible {
+  animation: contact-card-enter 0.7s var(--ease-entrance) forwards;
+}
+.contact-card:nth-child(1).visible { animation-delay: 0ms; }
+.contact-card:nth-child(2).visible { animation-delay: 150ms; }
+.contact-card:nth-child(3).visible { animation-delay: 300ms; }
+@keyframes contact-card-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.contact-card:hover { 
+  border-color: var(--border-glow); 
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(91,95,199,0.15);
+}
+.contact-icon {
+  width: 48px; height: 48px; border-radius: var(--radius-lg);
+  margin: 0 auto var(--space-5);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(91,95,199,0.1); border: 1px solid var(--border-glow);
+  transition: all 0.3s var(--ease-spring);
+}
+.contact-card:hover .contact-icon {
+  background: rgba(91,95,199,0.2);
+  transform: scale(1.1);
+}
+.contact-icon svg { width: 22px; height: 22px; color: var(--brand); }
+.contact-label { font-size: 13px; color: var(--text-tertiary); margin-bottom: var(--space-2); }
+.contact-value { font-size: 15px; font-weight: 600; }
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: var(--space-12) 0 var(--space-8);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--surface-0);
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: var(--space-6);
+}
+.footer-brand { 
+  display: flex; align-items: center; gap: var(--space-3);
+  opacity: 0;
+  transform: translateY(20px);
+}
+.footer-brand.visible {
+  animation: footer-brand-enter 0.6s var(--ease-entrance) forwards;
+}
+@keyframes footer-brand-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+.footer-brand img {
+  height: 24px; 
+  width: auto; 
+  object-fit: contain;
+  object-position: left center;
+}
+.footer-brand span { font-size: 16px; font-weight: 700; }
+.footer-copy { font-size: 13px; color: var(--text-tertiary); }
+.footer-links { display: flex; gap: var(--space-6); }
+.footer-links a { 
+  font-size: 13px; color: var(--text-secondary); 
+  transition: color 0.2s var(--ease-smooth);
+  position: relative;
+}
+.footer-links a:hover { color: var(--brand); }
+.footer-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+  background: var(--brand); transition: width 0.3s var(--ease-spring);
+}
+.footer-links a:hover::after { width: 100%; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .qual-inner { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: flex; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .ecosystem-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .qual-visual { grid-template-columns: 1fr 1fr; }
+  .cta-inner { padding: var(--space-10) var(--space-6); }
+  .hero-geometric { display: none; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .cta-platform, .cta-contact { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="./images/yishu-logo-nav.png" alt="亿数 - AI驱动数实融合生态平台">
+      <span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">关于我们</a>
+      <a href="#products">产品矩阵</a>
+      <a href="#ecosystem">生态版图</a>
+      <a href="#qualifications">合规资质</a>
+      <a href="#contact">联系我们</a>
+      <a href="https://yishuzichan.cn" target="_blank" class="nav-cta">
+        进入平台
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <button class="nav-mobile-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="菜单">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Background Layers -->
+  <div class="hero-bg"></div>
+  <div class="hero-gradient-layer"></div>
+  <div class="hero-grid"></div>
+  
+  <!-- Geometric Shapes -->
+  <div class="hero-geometric">
+    <div class="hero-geo-shape hero-geo-shape-1"></div>
+    <div class="hero-geo-shape hero-geo-shape-2"></div>
+    <div class="hero-geo-shape hero-geo-shape-3"></div>
+    <div class="hero-geo-shape hero-geo-shape-4"></div>
+  </div>
+  
+  <!-- Ambient Glow -->
+  <div class="hero-glow">
+    <div class="hero-glow-orb hero-glow-orb-1"></div>
+    <div class="hero-glow-orb hero-glow-orb-2"></div>
+  </div>
+  
+  <!-- Particle Canvas -->
+  <canvas class="hero-particles" id="heroParticles"></canvas>
+  
+  <!-- Content -->
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        星火·链网接入 · 合规运营
+      </div>
+      <h1 class="hero-title" itemprop="name">
+        <span class="hero-title-line"><span class="brand">亿数</span></span>
+        <span class="hero-title-line">以数兴商</span>
+        <span class="hero-title-line"><span class="highlight">链接未来</span></span>
+      </h1>
+      <p class="hero-desc">
+        AI驱动的数实融合生态平台，以科技赋能商业，打造10800家AI数字新品牌。合规运营，五证齐全，为数字经济提供坚实基础设施。
+      </p>
+      <div class="hero-actions">
+        <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" class="btn-primary">
+          进入亿数
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-secondary">了解更多</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" data-target="10800" data-suffix="">10800</div>
+        <div class="stat-label">AI数字新品牌目标</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="5" data-suffix="证">5证</div>
+        <div class="stat-label">齐全合规资质</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="3" data-suffix="大">3大</div>
+        <div class="stat-label">核心生态版图</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="5" data-suffix="款">5款</div>
+        <div class="stat-label">核心产品矩阵</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <img loading="lazy" src="./images/yishu-about-digital-network.png" alt="数字丝绸计划">
+        <div class="about-image-overlay"></div>
+      </div>
+      <div class="about-content">
+        <div class="section-label" itemprop="about">关于亿数</div>
+        <h2 class="section-title">AI驱动的<br>数实融合生态平台</h2>
+        <p class="section-desc">
+          亿数以"以数兴商"为使命，致力于构建数字经济与实体经济深度融合的新型商业基础设施。星火·链网提供底层技术支撑，国标起草单位参与行业标准制定。
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+              <div class="about-feature-title">合规保障</div>
+              <div class="about-feature-desc">五证齐全 · 星火·链网接入 · 国标起草单位</div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <div class="about-feature-title">AI驱动</div>
+              <div class="about-feature-desc">人工智能技术深度赋能，打造数实融合商业新范式</div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            </div>
+            <div>
+              <div class="about-feature-title">生态开放</div>
+              <div class="about-feature-desc">三大生态协同并进，构建多元共生的数字商业版图</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products section-pad" id="products">
+  <div class="container">
+    <div class="products-header">
+      <div class="section-label" itemprop="hasOfferCatalog">产品矩阵</div>
+      <h2 class="section-title">五大核心产品</h2>
+      <p class="section-desc">从身份认证到智能体，从IP商城到生态工厂，亿数打造完整的数字商业基础设施。</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-icon">🌍</div>
+        <div class="product-name">星球身份卡</div>
+        <div class="product-desc">链上数字身份认证，开启你的数字世界通行证</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🐟</div>
+        <div class="product-name">飞鱼智能体</div>
+        <div class="product-desc">AI驱动的智能服务，7×24小时全场景数字助手</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🏪</div>
+        <div class="product-name">超级IP商城</div>
+        <div class="product-desc">数字藏品与IP资产交易平台，连接创作者与收藏者</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🏭</div>
+        <div class="product-name">生态工厂</div>
+        <div class="product-desc">品牌数字化孵化器，让每个创意都成为数字资产</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🔗</div>
+        <div class="product-name">数联</div>
+        <div class="product-desc">多链互联协议，打通数字经济的任督二脉</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="ecosystem section-pad" id="ecosystem">
+  <div class="container">
+    <div class="ecosystem-header">
+      <div class="section-label" itemprop="department">生态版图</div>
+      <h2 class="section-title">三大核心生态</h2>
+      <p class="section-desc">亿数旗下三大生态协同并进，覆盖综合服务、游戏娱乐、户外生活，构建多元共生的数字商业版图。</p>
+    </div>
+    <div class="ecosystem-grid">
+      <div class="eco-card">
+        <div class="eco-card-bg">
+          <img loading="lazy" src="./images/亿象产品矩阵全图.png" alt="亿象生态">
+        </div>
+        <div class="eco-card-overlay"></div>
+        <div class="eco-card-content">
+          <span class="eco-badge blue">综合生态</span>
+          <h3 class="eco-card-title">亿象</h3>
+          <p class="eco-card-desc">面向企业与C端用户的综合数字服务平台，提供数字资产管理、品牌孵化与社区运营全链路服务。</p>
+        </div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-bg">
+          <img loading="lazy" src="./images/yishu-summer-vibes.png" alt="出发吧夏天">
+        </div>
+        <div class="eco-card-overlay"></div>
+        <div class="eco-card-content">
+          <span class="eco-badge gold">游戏生态</span>
+          <h3 class="eco-card-title">出发吧夏天</h3>
+          <p class="eco-card-desc">萌兽IP与LBS+AR玩法驱动的游戏生态，升级卡核心驱动，盲盒引流，共创礼包留存转化。</p>
+        </div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-bg">
+          <img loading="lazy" src="./images/yishu-lure-fishing.png" alt="疯狂路亚">
+        </div>
+        <div class="eco-card-overlay"></div>
+        <div class="eco-card-content">
+          <span class="eco-badge green">户外生态</span>
+          <h3 class="eco-card-title">疯狂路亚</h3>
+          <p class="eco-card-desc">服务路亚钓鱼爱好者的户外生态，数字与自然深度融合，让每一次抛竿都有科技加持。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALIFICATIONS -->
+<section class="qualifications section-pad" id="qualifications">
+  <div class="container">
+    <div class="qual-inner">
+      <div class="qual-content">
+        <div class="section-label" itemprop="hasCredential">合规资质</div>
+        <h2 class="section-title">持牌运营<br>合规先行</h2>
+        <p class="section-desc">
+          亿数依托合规平台运营，拥有完整的行业资质认证，是星火·链网官方接入节点、国标起草单位，为用户的数字资产提供坚实的合规保障。
+        </p>
+        <div class="qual-tags">
+          <span class="qual-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            合规运营
+          </span>
+          <span class="qual-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            五证齐全
+          </span>
+          <span class="qual-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            星火·链网接入
+          </span>
+          <span class="qual-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            国标起草单位
+          </span>
+        </div>
+      </div>
+      <div class="qual-visual">
+        <div class="qual-card">
+          <div class="qual-card-icon">🏛️</div>
+          <div class="qual-card-title">国资背景</div>
+          <div class="qual-card-desc">合规持牌运营</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-card-icon">📋</div>
+          <div class="qual-card-title">五证齐全</div>
+          <div class="qual-card-desc">全牌照合规运营</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-card-icon">🔗</div>
+          <div class="qual-card-title">链网接入</div>
+          <div class="qual-card-desc">国家级区块链基础设施</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-card-icon">📝</div>
+          <div class="qual-card-title">国标起草</div>
+          <div class="qual-card-desc">参与行业标准制定</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta section-pad">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-glow">
+        <div class="cta-glow-orb cta-glow-orb-1"></div>
+        <div class="cta-glow-orb cta-glow-orb-2"></div>
+      </div>
+      <h2 class="cta-title">开启你的数字商业之旅</h2>
+      <p class="cta-desc">加入亿数，在合规、安全、AI驱动的平台上，探索数字经济无限可能。</p>
+      <div class="cta-buttons">
+        <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" class="cta-platform">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          进入亿数
+        </a>
+        <a href="#contact" class="cta-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          商务合作
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <div class="section-label">联系我们</div>
+      <h2 class="section-title">期待与你合作</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="contact-label">公司地址</div>
+        <div class="contact-value">杭州市滨江区施强广场</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="contact-label">商务邮箱</div>
+        <div class="contact-value">contact@yishues.com</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+        </div>
+        <div class="contact-label">交易平台</div>
+        <div class="contact-value">yishuzichan.cn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./images/yishu-logo-nav.png" alt="亿数 - AI驱动数实融合生态平台">
+        <span></span>
+      </div>
+      <div class="footer-copy">© 2026 亿数 · AI驱动数实融合生态 · 以数兴商，链接未来</div>
+      <div class="footer-links">
+        <a href="https://yishuzichan.cn" target="_blank">交易平台</a>
+        <a href="#about">关于我们</a>
+        <a href="#contact">联系方式</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ========== HERO PARTICLES ==========
+(function() {
+  const canvas = document.getElementById('heroParticles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animationId;
+  
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: (Math.random() - 0.5) * 0.3,
+      opacity: Math.random() * 0.5 + 0.2,
+      pulse: Math.random() * Math.PI * 2
+    };
+  }
+  
+  function init() {
+    resize();
+    particles = [];
+    const numParticles = Math.floor((canvas.width * canvas.height) / 15000);
+    for (let i = 0; i < numParticles; i++) {
+      particles.push(createParticle());
+    }
+  }
+  
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach((p, i) => {
+      // Update
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.pulse += 0.02;
+      
+      // Wrap around
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+      
+      // Draw particle with pulse
+      const pulseOpacity = p.opacity * (0.5 + 0.5 * Math.sin(p.pulse));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(91, 95, 199, ${pulseOpacity})`;
+      ctx.fill();
+      
+      // Connect nearby particles
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(91, 95, 199, ${0.1 * (1 - dist / 100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    });
+    
+    animationId = requestAnimationFrame(draw);
+  }
+  
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (!prefersReducedMotion) {
+    init();
+    draw();
+    
+    window.addEventListener('resize', () => {
+      resize();
+    });
+  }
+})();
+
+// ========== SCROLL ANIMATIONS ==========
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      
+      // Trigger count-up for stats
+      if (entry.target.classList.contains('stat-item')) {
+        const numEl = entry.target.querySelector('.stat-number');
+        if (numEl && !numEl.dataset.counted) {
+          numEl.dataset.counted = 'true';
+          animateCountUp(numEl);
+        }
+      }
+    }
+  });
+}, observerOptions);
+
+// Observe all animated elements
+document.querySelectorAll('.stat-item, .about-image, .about-content, .products-header, .product-card, .ecosystem-header, .eco-card, .qual-content, .qual-card, .cta-inner, .contact-header, .contact-card, .footer-brand').forEach(el => {
+  observer.observe(el);
+});
+
+// ========== COUNT UP ANIMATION ==========
+function animateCountUp(element) {
+  const target = parseInt(element.dataset.target);
+  const suffix = element.dataset.suffix || '';
+  const duration = 2000;
+  const startTime = performance.now();
+  
+  function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = easeOutExpo(progress);
+    const current = Math.floor(easedProgress * target);
+    
+    element.textContent = current + suffix;
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = target + suffix;
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
+
+// ========== NAV SCROLL EFFECT ==========
+const nav = document.querySelector('.nav');
+let lastScrollY = 0;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  
+  if (scrollY > 20) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  
+  lastScrollY = scrollY;
+}, { passive: true });
+
+// ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ========== PRODUCT CARD 3D TILT ==========
+document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+</script>
+
+</body>
+</html>
