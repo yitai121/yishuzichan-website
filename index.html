@@ -394,7 +394,15 @@ ul { list-style: none; }
 }
 
 /* Hero Immersive Background */
-.hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--surface-0); }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: var(--surface-0);
+  background-image: url('./images/hero-bg-cyberpunk.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+}
 
 /* Layer 1: Deep Space Gradients */
 .hero-gradient-layer {
