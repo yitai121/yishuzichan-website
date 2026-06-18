@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<title>生态版图 — 亿数 | 亿象、出发吧夏天、疯狂路亚三大核心生态</title>
+<meta name="description" content="亿数生态版图：亿象综合生态、出发吧夏天游戏生态、疯狂路亚户外生态，三大核心生态协同并进，覆盖综合服务、游戏娱乐、户外生活全场景。">
+<meta name="keywords" content="亿数生态,亿象,出发吧夏天,疯狂路亚,数字生态,游戏生态,户外生态">
+<meta name="author" content="亿数">
+
+<link rel="canonical" href="https://yishuzichan.cc/ecosystem.html">
+<link rel="icon" href="./images/yishu-logo-es-only.png" type="image/png">
+
+<style>
+:root {
+  --brand: #5B5FC7; --brand-light: #7B7FD9; --brand-dark: #4A4EA8;
+  --gold: #D4AF37; --gold-light: #E8C94A;
+  --surface-0: #FFFFFF; --surface-1: #FAFBFD; --surface-2: #F3F4F6;
+  --surface-3: #E5E7EB; --surface-4: #D1D5DB;
+  --text-primary: #1A1A2E; --text-secondary: #6B7280; --text-tertiary: #9CA3AF;
+  --border-subtle: #E5E7EB; --border-light: rgba(91,95,199,0.15);
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+  --radius-xl: 20px; --radius-2xl: 24px; --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.1); --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1); --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --max-width: 1200px; --nav-height: 64px;
+  --duration-fast: 0.15s; --duration-normal: 0.3s; --duration-slow: 0.5s; --duration-entrance: 0.8s;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: var(--surface-0); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--surface-1); }
+::-webkit-scrollbar-thumb { background: var(--surface-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+* { scrollbar-width: thin; scrollbar-color: var(--brand) var(--surface-1); }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
+.section-pad { padding: var(--space-20) 0; }
+
+.section-label { display: inline-flex; align-items: center; gap: var(--space-2); font-size: 13px; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
+.section-label::before { content: ''; width: 20px; height: 2px; background: var(--brand); border-radius: 1px; }
+.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: var(--space-5); }
+.section-desc { font-size: 17px; line-height: 1.8; color: var(--text-secondary); max-width: 560px; }
+
+/* ========== NAVIGATION ========== */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border-subtle); transition: all var(--duration-normal) var(--ease-smooth); }
+.nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.08); }
+.nav-inner { max-width: var(--max-width); margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-6); }
+.nav-logo { display: flex; align-items: center; gap: var(--space-3); }
+.nav-logo img { height: 32px; width: auto; }
+.nav-logo span { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: var(--space-8); }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color var(--duration-fast) var(--ease-smooth); position: relative; }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--brand); transition: width var(--duration-normal) var(--ease-spring); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--brand); }
+.nav-cta { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-5); border-radius: var(--radius-full); background: var(--brand); color: white; font-size: 14px; font-weight: 600; transition: all var(--duration-normal) var(--ease-spring); }
+.nav-cta:hover { background: var(--brand-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(91,95,199,0.3); }
+.nav-mobile-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--text-primary); }
+.nav-links.show { display: flex; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--surface-0); padding: var(--space-6); gap: var(--space-5); border-bottom: 1px solid var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+@media (max-width: 768px) { .nav-links { display: none; } .nav-links.show { display: flex; } .nav-mobile-btn { display: flex; } }
+
+/* ========== BREADCRUMB ========== */
+.breadcrumb { padding-top: calc(var(--nav-height) + var(--space-8)); background: var(--surface-1); border-bottom: 1px solid var(--border-subtle); }
+.breadcrumb-inner { display: flex; align-items: center; gap: var(--space-2); font-size: 14px; color: var(--text-secondary); padding: var(--space-4) 0; }
+.breadcrumb a { color: var(--text-secondary); transition: color var(--duration-fast); }
+.breadcrumb a:hover { color: var(--brand); }
+.breadcrumb span { color: var(--text-tertiary); }
+.breadcrumb .current { color: var(--text-primary); font-weight: 500; }
+
+/* ========== PAGE BANNER ========== */
+.page-banner { background: linear-gradient(135deg, var(--surface-0) 0%, var(--surface-1) 100%); padding: var(--space-16) 0; text-align: center; position: relative; overflow: hidden; }
+.page-banner::before { content: ''; position: absolute; inset: 0; opacity: 0.05; background-image: radial-gradient(circle, var(--brand) 1px, transparent 1px); background-size: 24px 24px; }
+.page-banner-content { position: relative; z-index: 1; }
+.page-banner-title { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+.page-banner-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+
+/* ========== ECOSYSTEM INTRO ========== */
+.eco-intro { background: var(--surface-0); text-align: center; padding: var(--space-16) 0; }
+.eco-intro .section-desc { margin: 0 auto; }
+
+/* ========== ECOSYSTEM CONNECTION DIAGRAM ========== */
+.eco-diagram { background: var(--surface-1); padding: var(--space-16) 0; }
+.diagram-container { display: flex; flex-direction: column; align-items: center; gap: var(--space-12); }
+.diagram-center { width: 160px; height: 160px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; box-shadow: 0 8px 32px rgba(91,95,199,0.3); }
+.diagram-center-icon { font-size: 48px; margin-bottom: var(--space-2); }
+.diagram-center-text { font-size: 18px; font-weight: 700; }
+.diagram-branches { display: flex; gap: var(--space-16); justify-content: center; flex-wrap: wrap; }
+.diagram-branch { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
+.diagram-line { width: 2px; height: 40px; background: linear-gradient(180deg, var(--border-subtle) 0%, transparent 100%); }
+.diagram-node { width: 120px; height: 120px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white; box-shadow: var(--shadow-card); transition: transform var(--duration-normal) var(--ease-spring); }
+.diagram-node:hover { transform: scale(1.08); }
+.diagram-node.blue { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); }
+.diagram-node.gold { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); }
+.diagram-node.green { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); }
+.diagram-node-icon { font-size: 36px; margin-bottom: var(--space-1); }
+.diagram-node-text { font-size: 16px; font-weight: 600; }
+
+@media (max-width: 768px) { .diagram-branches { gap: var(--space-8); } }
+
+/* ========== ECOSYSTEM CARDS ========== */
+.eco-section { background: var(--surface-0); }
+.eco-header { text-align: center; margin-bottom: var(--space-12); }
+.eco-header .section-desc { margin: 0 auto; }
+
+.eco-detail-card {
+  background: white; border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-card); border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-8); opacity: 0; transform: translateY(20px);
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+.eco-detail-card.visible { animation: fade-up 0.6s var(--ease-entrance) forwards; }
+.eco-detail-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.eco-detail-card.blue { border-top: 4px solid #3B82F6; }
+.eco-detail-card.gold { border-top: 4px solid var(--gold); }
+.eco-detail-card.green { border-top: 4px solid #10B981; }
+.eco-detail-inner { display: grid; grid-template-columns: 400px 1fr; gap: var(--space-10); }
+.eco-detail-image { position: relative; height: 100%; min-height: 300px; }
+.eco-detail-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.eco-detail-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, transparent 50%); }
+.eco-detail-content { padding: var(--space-8); }
+.eco-badge { display: inline-block; padding: 4px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; color: white; margin-bottom: var(--space-4); }
+.eco-badge.blue { background: #3B82F6; }
+.eco-badge.gold { background: var(--gold); }
+.eco-badge.green { background: #10B981; }
+.eco-detail-title { font-size: 28px; font-weight: 700; margin-bottom: var(--space-4); }
+.eco-detail-desc { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-6); }
+.eco-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+.eco-feature { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); background: var(--surface-1); border-radius: var(--radius-md); }
+.eco-feature-icon { font-size: 24px; flex-shrink: 0; }
+.eco-feature-text h4 { font-size: 15px; font-weight: 600; margin-bottom: var(--space-1); }
+.eco-feature-text p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .eco-detail-inner { grid-template-columns: 1fr; }
+  .eco-detail-image { min-height: 200px; height: 200px; }
+  .eco-features { grid-template-columns: 1fr; }
+}
+
+@keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
+
+/* ========== CTA ========== */
+.cta { background: linear-gradient(135deg, #5B5FC7 0%, #7B7FD9 100%); color: white; text-align: center; }
+.cta-inner { position: relative; z-index: 1; }
+.cta-title { font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: var(--space-4); }
+.cta-desc { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: var(--space-10); max-width: 500px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+.cta-platform { display: inline-flex; align-items: center; gap: var(--space-2); padding: 16px 32px; border-radius: var(--radius-md); background: white; color: var(--brand); font-size: 16px; font-weight: 600; transition: all var(--duration-normal) var(--ease-spring); }
+.cta-platform:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-platform svg { width: 18px; height: 18px; }
+.cta-contact { display: inline-flex; align-items: center; gap: var(--space-2); padding: 16px 32px; border-radius: var(--radius-md); background: transparent; color: white; font-size: 16px; font-weight: 500; border: 1px solid rgba(255,255,255,0.4); transition: all var(--duration-normal) var(--ease-smooth); }
+.cta-contact:hover { background: rgba(255,255,255,0.1); border-color: white; }
+.cta-contact svg { width: 18px; height: 18px; }
+
+/* ========== FOOTER ========== */
+.footer { background: #1A1A2E; color: white; padding: var(--space-12) 0; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); text-align: center; }
+.footer-brand { display: flex; align-items: center; gap: var(--space-3); }
+.footer-brand img { height: 36px; width: auto; }
+.footer-brand span { font-size: 24px; font-weight: 700; color: white; }
+.footer-copy small { color: rgba(255,255,255,0.5); }
+.footer-links { display: flex; gap: var(--space-6); }
+.footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color var(--duration-fast); }
+.footer-links a:hover { color: white; }
+
+@media (max-width: 768px) { .section-pad { padding: var(--space-12) 0; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="主导航">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="亿数首页">
+      <img src="./images/yishu-logo-nav.png" alt="亿数Logo">
+      <span>亿数</span>
+    </a>
+    <div class="nav-links" id="navLinks" role="menubar">
+      <a href="about.html">关于我们</a>
+      <a href="products.html">IP矩阵</a>
+      <a href="ecosystem.html" class="active">生态版图</a>
+      <a href="news.html">最新资讯</a>
+      <a href="contact.html">联系我们</a>
+    </div>
+    <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="nav-cta">进入亿数</a>
+    <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== BREADCRUMB ========== -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="index.html">首页</a>
+      <span>/</span>
+      <span class="current">生态版图</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE BANNER ========== -->
+<section class="page-banner">
+  <div class="container">
+    <div class="page-banner-content">
+      <h1 class="page-banner-title">生态<span>版图</span></h1>
+      <p class="page-banner-subtitle">三大核心生态协同并进，覆盖综合服务、游戏娱乐、户外生活，构建多元共生的数字商业版图</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ECOSYSTEM INTRO ========== -->
+<section class="eco-intro">
+  <div class="container">
+    <div class="section-label">生态版图</div>
+    <h2 class="section-title">三大核心生态</h2>
+    <p class="section-desc">亿数旗下三大核心生态——亿象、出发吧夏天、疯狂路亚，覆盖数字商业全场景，协同并进，生态共赢。</p>
+  </div>
+</section>
+
+<!-- ========== ECOSYSTEM DIAGRAM ========== -->
+<section class="eco-diagram">
+  <div class="container">
+    <div class="diagram-container">
+      <div class="diagram-branches">
+        <div class="diagram-branch">
+          <div class="diagram-node blue">
+            <span class="diagram-node-icon">🏢</span>
+            <span class="diagram-node-text">亿象</span>
+          </div>
+        </div>
+        <div class="diagram-branch">
+          <div class="diagram-node gold">
+            <span class="diagram-node-icon">🎮</span>
+            <span class="diagram-node-text">出发吧夏天</span>
+          </div>
+        </div>
+        <div class="diagram-branch">
+          <div class="diagram-node green">
+            <span class="diagram-node-icon">🎣</span>
+            <span class="diagram-node-text">疯狂路亚</span>
+          </div>
+        </div>
+      </div>
+      <div class="diagram-line"></div>
+      <div class="diagram-center">
+        <span class="diagram-center-icon">🌟</span>
+        <span class="diagram-center-text">亿数</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ECOSYSTEM DETAILS ========== -->
+<section class="eco-section section-pad">
+  <div class="container">
+    <div class="eco-header">
+      <div class="section-label">生态详情</div>
+      <h2 class="section-title">深入了解每个生态</h2>
+      <p class="section-desc">每个生态都有独特的服务内容与目标用户，共同构建亿数数字商业版图。</p>
+    </div>
+
+    <!-- 亿象 -->
+    <article class="eco-detail-card blue">
+      <div class="eco-detail-inner">
+        <div class="eco-detail-image">
+          <img src="./images/yixiang-matrix.png" alt="亿象生态产品矩阵">
+          <div class="eco-detail-overlay"></div>
+        </div>
+        <div class="eco-detail-content">
+          <span class="eco-badge blue">综合生态</span>
+          <h3 class="eco-detail-title">亿象</h3>
+          <p class="eco-detail-desc">面向企业与C端用户的综合数字服务平台，提供数字资产管理、品牌孵化与社区运营全链路服务。亿象生态是亿数平台的核心服务载体，连接品牌方、创作者与消费者，构建完整的数字商业闭环。</p>
+          <div class="eco-features">
+            <div class="eco-feature">
+              <span class="eco-feature-icon">💼</span>
+              <div class="eco-feature-text">
+                <h4>企业数字服务</h4>
+                <p>品牌数字化转型一站式解决方案</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">👤</span>
+              <div class="eco-feature-text">
+                <h4>C端用户服务</h4>
+                <p>数字身份与资产管理服务</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🏭</span>
+              <div class="eco-feature-text">
+                <h4>品牌孵化</h4>
+                <p>从0到1的品牌数字化建设</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">👥</span>
+              <div class="eco-feature-text">
+                <h4>社区运营</h4>
+                <p>私域流量运营与用户增长</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 出发吧夏天 -->
+    <article class="eco-detail-card gold">
+      <div class="eco-detail-inner">
+        <div class="eco-detail-image">
+          <img src="./images/yishu-summer-vibes.png" alt="出发吧夏天游戏生态">
+          <div class="eco-detail-overlay"></div>
+        </div>
+        <div class="eco-detail-content">
+          <span class="eco-badge gold">游戏生态</span>
+          <h3 class="eco-detail-title">出发吧夏天</h3>
+          <p class="eco-detail-desc">萌兽IP与LBS+AR玩法驱动的游戏生态，以升级卡为核心驱动，盲盒引流，共创礼包留存转化。出发吧夏天将数字资产与游戏玩法深度融合，为用户带来沉浸式的数字游戏体验。</p>
+          <div class="eco-features">
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🦄</span>
+              <div class="eco-feature-text">
+                <h4>萌兽IP矩阵</h4>
+                <p>可爱的萌兽角色与丰富的世界观</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">📍</span>
+              <div class="eco-feature-text">
+                <h4>LBS+AR玩法</h4>
+                <p>虚实结合的创新游戏体验</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🎴</span>
+              <div class="eco-feature-text">
+                <h4>升级卡系统</h4>
+                <p>核心驱动的收集与升级玩法</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🎁</span>
+              <div class="eco-feature-text">
+                <h4>共创礼包</h4>
+                <p>社区共创的限量数字资产</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 疯狂路亚 -->
+    <article class="eco-detail-card green" style="margin-bottom:0;">
+      <div class="eco-detail-inner">
+        <div class="eco-detail-image">
+          <img src="./images/yishu-lure-fishing.png" alt="疯狂路亚户外生态">
+          <div class="eco-detail-overlay"></div>
+        </div>
+        <div class="eco-detail-content">
+          <span class="eco-badge green">户外生态</span>
+          <h3 class="eco-detail-title">疯狂路亚</h3>
+          <p class="eco-detail-desc">服务路亚钓鱼爱好者的户外生态，将数字技术与钓鱼场景深度融合，让每一次抛竿都有科技加持。疯狂路亚为钓友提供装备管理、技术分享、社交互动等全方位的数字化钓鱼体验。</p>
+          <div class="eco-features">
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🎣</span>
+              <div class="eco-feature-text">
+                <h4>路亚装备管理</h4>
+                <p>数字化装备库与使用记录</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">📱</span>
+              <div class="eco-feature-text">
+                <h4>数字化钓鱼体验</h4>
+                <p>技术记录与成果分享</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🌊</span>
+              <div class="eco-feature-text">
+                <h4>钓点信息</h4>
+                <p>钓点数据与社区推荐</p>
+              </div>
+            </div>
+            <div class="eco-feature">
+              <span class="eco-feature-icon">🤝</span>
+              <div class="eco-feature-text">
+                <h4>钓友社区</h4>
+                <p>经验交流与活动组织</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta section-pad">
+  <div class="container">
+    <div class="cta-inner">
+      <h2 class="cta-title">开启你的数字商业之旅</h2>
+      <p class="cta-desc">加入亿数，在合规、安全、AI驱动的平台上，探索数字经济无限可能。</p>
+      <div class="cta-buttons">
+        <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="cta-platform">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9"/></svg>
+          进入亿数
+        </a>
+        <a href="contact.html" class="cta-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          商务合作
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" aria-label="页脚">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./images/yishu-logo-nav.png" alt="亿数Logo" loading="lazy">
+        <span>亿数</span>
+      </div>
+      <div class="footer-copy">
+        <small>© 2026 亿数 · AI驱动数实融合生态 · 以数兴商，链接未来</small>
+      </div>
+      <nav class="footer-links" aria-label="底部链接">
+        <a href="https://yishuzichan.cn" target="_blank" rel="noopener noreferrer">交易平台</a>
+        <a href="about.html">关于我们</a>
+        <a href="contact.html">联系方式</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+var nav = document.querySelector('.nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+var observer = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.eco-detail-card').forEach(function(el) { observer.observe(el); });
+
+var mobileBtn = document.getElementById('mobileMenuBtn');
+var navLinks = document.getElementById('navLinks');
+if (mobileBtn && navLinks) {
+  mobileBtn.addEventListener('click', function() {
+    var isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', !isExpanded);
+    navLinks.classList.toggle('show');
+  });
+}
+</script>
+
+</body>
+</html>
