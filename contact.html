@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<title>联系我们 — 亿数 | 商务合作与联系方式</title>
+<meta name="description" content="联系亿数进行商务合作。亿数地址位于杭州市滨江区施强广场，商务邮箱 contact@yishues.com，交易平台 yishuzichan.cn。">
+<meta name="keywords" content="亿数联系,商务合作,亿数地址,亿数邮箱,数字藏品合作">
+<meta name="author" content="亿数">
+
+<link rel="canonical" href="https://yishuzichan.cc/contact.html">
+<link rel="icon" href="./images/yishu-logo-es-only.png" type="image/png">
+
+<style>
+:root {
+  --brand: #5B5FC7; --brand-light: #7B7FD9; --brand-dark: #4A4EA8;
+  --gold: #D4AF37; --gold-light: #E8C94A;
+  --surface-0: #FFFFFF; --surface-1: #FAFBFD; --surface-2: #F3F4F6;
+  --surface-3: #E5E7EB; --surface-4: #D1D5DB;
+  --text-primary: #1A1A2E; --text-secondary: #6B7280; --text-tertiary: #9CA3AF;
+  --border-subtle: #E5E7EB; --border-light: rgba(91,95,199,0.15);
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+  --radius-xl: 20px; --radius-2xl: 24px; --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.1); --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1); --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --max-width: 1200px; --nav-height: 64px;
+  --duration-fast: 0.15s; --duration-normal: 0.3s; --duration-slow: 0.5s; --duration-entrance: 0.8s;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: var(--surface-0); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--surface-1); }
+::-webkit-scrollbar-thumb { background: var(--surface-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+* { scrollbar-width: thin; scrollbar-color: var(--brand) var(--surface-1); }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
+.section-pad { padding: var(--space-20) 0; }
+
+.section-label { display: inline-flex; align-items: center; gap: var(--space-2); font-size: 13px; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
+.section-label::before { content: ''; width: 20px; height: 2px; background: var(--brand); border-radius: 1px; }
+.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: var(--space-5); }
+.section-desc { font-size: 17px; line-height: 1.8; color: var(--text-secondary); max-width: 560px; }
+
+/* ========== NAVIGATION ========== */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border-subtle); transition: all var(--duration-normal) var(--ease-smooth); }
+.nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.08); }
+.nav-inner { max-width: var(--max-width); margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-6); }
+.nav-logo { display: flex; align-items: center; gap: var(--space-3); }
+.nav-logo img { height: 32px; width: auto; }
+.nav-logo span { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: var(--space-8); }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color var(--duration-fast) var(--ease-smooth); position: relative; }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--brand); transition: width var(--duration-normal) var(--ease-spring); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--brand); }
+.nav-cta { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-5); border-radius: var(--radius-full); background: var(--brand); color: white; font-size: 14px; font-weight: 600; transition: all var(--duration-normal) var(--ease-spring); }
+.nav-cta:hover { background: var(--brand-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(91,95,199,0.3); }
+.nav-mobile-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--text-primary); }
+.nav-links.show { display: flex; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--surface-0); padding: var(--space-6); gap: var(--space-5); border-bottom: 1px solid var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+@media (max-width: 768px) { .nav-links { display: none; } .nav-links.show { display: flex; } .nav-mobile-btn { display: flex; } }
+
+/* ========== BREADCRUMB ========== */
+.breadcrumb { padding-top: calc(var(--nav-height) + var(--space-8)); background: var(--surface-1); border-bottom: 1px solid var(--border-subtle); }
+.breadcrumb-inner { display: flex; align-items: center; gap: var(--space-2); font-size: 14px; color: var(--text-secondary); padding: var(--space-4) 0; }
+.breadcrumb a { color: var(--text-secondary); transition: color var(--duration-fast); }
+.breadcrumb a:hover { color: var(--brand); }
+.breadcrumb span { color: var(--text-tertiary); }
+.breadcrumb .current { color: var(--text-primary); font-weight: 500; }
+
+/* ========== PAGE BANNER ========== */
+.page-banner { background: linear-gradient(135deg, var(--surface-0) 0%, var(--surface-1) 100%); padding: var(--space-16) 0; text-align: center; position: relative; overflow: hidden; }
+.page-banner::before { content: ''; position: absolute; inset: 0; opacity: 0.05; background-image: radial-gradient(circle, var(--brand) 1px, transparent 1px); background-size: 24px 24px; }
+.page-banner-content { position: relative; z-index: 1; }
+.page-banner-title { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+.page-banner-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+
+/* ========== CONTACT CARDS ========== */
+.contact-info { background: var(--surface-1); }
+.contact-header { text-align: center; margin-bottom: var(--space-12); }
+.contact-header .section-desc { margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.contact-card {
+  background: white; border-radius: var(--radius-lg); padding: var(--space-8);
+  text-align: center; box-shadow: var(--shadow-card); border: 1px solid var(--border-subtle);
+  transition: all var(--duration-normal) var(--ease-spring);
+  opacity: 0; transform: translateY(20px);
+}
+.contact-card.visible { animation: fade-up 0.6s var(--ease-entrance) forwards; }
+.contact-card:nth-child(1).visible { animation-delay: 0ms; }
+.contact-card:nth-child(2).visible { animation-delay: 100ms; }
+.contact-card:nth-child(3).visible { animation-delay: 200ms; }
+.contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.contact-icon { width: 56px; height: 56px; margin: 0 auto var(--space-4); display: flex; align-items: center; justify-content: center; background: var(--surface-1); border-radius: var(--radius-md); color: var(--brand); }
+.contact-icon svg { width: 24px; height: 24px; }
+.contact-label { font-size: 14px; color: var(--text-secondary); margin-bottom: var(--space-2); }
+.contact-value { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+
+/* ========== FORM SECTION ========== */
+.contact-form-section { background: var(--surface-0); }
+.contact-form-header { text-align: center; margin-bottom: var(--space-12); }
+.contact-form-header .section-desc { margin: 0 auto; }
+.contact-form-wrapper { max-width: 640px; margin: 0 auto; background: white; border-radius: var(--radius-xl); padding: var(--space-10); box-shadow: var(--shadow-card); border: 1px solid var(--border-subtle); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-bottom: var(--space-5); }
+.form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+.form-group.full { grid-column: 1 / -1; }
+.form-label { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.form-input { padding: var(--space-3) var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: 14px; transition: all var(--duration-fast); outline: none; }
+.form-input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(91,95,199,0.1); }
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-submit { width: 100%; padding: var(--space-4); background: var(--brand); color: white; border-radius: var(--radius-md); font-size: 16px; font-weight: 600; transition: all var(--duration-normal); cursor: pointer; }
+.form-submit:hover { background: var(--brand-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(91,95,199,0.3); }
+
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+/* ========== PARTNERS ========== */
+.partners { background: var(--surface-1); }
+.partners-header { text-align: center; margin-bottom: var(--space-10); }
+.partners-header .section-desc { margin: 0 auto; }
+.partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+.partner-card { background: white; border-radius: var(--radius-md); padding: var(--space-6); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); border: 1px solid var(--border-subtle); transition: all var(--duration-fast); opacity: 0; transform: translateY(10px); }
+.partner-card.visible { animation: fade-up 0.5s var(--ease-entrance) forwards; }
+.partner-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.partner-icon { font-size: 32px; margin-right: var(--space-3); }
+.partner-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+
+@media (max-width: 900px) { .partners-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .partners-grid { grid-template-columns: 1fr; } }
+
+/* ========== RISK WARNING ========== */
+.risk-warning {
+  background: linear-gradient(135deg, rgba(91,95,199,0.05) 0%, rgba(212,175,55,0.05) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-10);
+  text-align: center;
+}
+.risk-warning-icon { font-size: 24px; margin-bottom: var(--space-2); }
+.risk-warning-title { font-size: 14px; font-weight: 600; color: var(--brand); margin-bottom: var(--space-2); }
+.risk-warning-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+@keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
+
+/* ========== FOOTER ========== */
+.footer { background: #1A1A2E; color: white; padding: var(--space-12) 0; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); text-align: center; }
+.footer-brand { display: flex; align-items: center; gap: var(--space-3); }
+.footer-brand img { height: 36px; width: auto; }
+.footer-brand span { font-size: 24px; font-weight: 700; color: white; }
+.footer-copy small { color: rgba(255,255,255,0.5); }
+.footer-links { display: flex; gap: var(--space-6); }
+.footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color var(--duration-fast); }
+.footer-links a:hover { color: white; }
+
+@media (max-width: 768px) { .section-pad { padding: var(--space-12) 0; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="主导航">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="亿数首页">
+      <img src="./images/yishu-logo-nav.png" alt="亿数Logo">
+      <span>亿数</span>
+    </a>
+    <div class="nav-links" id="navLinks" role="menubar">
+      <a href="about.html">关于我们</a>
+      <a href="products.html">IP矩阵</a>
+      <a href="ecosystem.html">生态版图</a>
+      <a href="news.html">最新资讯</a>
+      <a href="contact.html" class="active">联系我们</a>
+    </div>
+    <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="nav-cta">进入亿数</a>
+    <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== BREADCRUMB ========== -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="index.html">首页</a>
+      <span>/</span>
+      <span class="current">联系我们</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE BANNER ========== -->
+<section class="page-banner">
+  <div class="container">
+    <div class="page-banner-content">
+      <h1 class="page-banner-title">联系<span>我们</span></h1>
+      <p class="page-banner-subtitle">期待与您合作，共同探索数字经济的无限可能</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT INFO ========== -->
+<section class="contact-info section-pad">
+  <div class="container">
+    <div class="contact-header">
+      <div class="section-label">联系方式</div>
+      <h2 class="section-title">期待与你合作</h2>
+      <p class="section-desc">无论您是品牌方、创作者还是投资者，我们都期待与您携手共建数字商业新生态。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <p class="contact-label">公司地址</p>
+        <p class="contact-value">杭州市滨江区施强广场</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <p class="contact-label">商务邮箱</p>
+        <p class="contact-value">contact@yishues.com</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9"/></svg>
+        </div>
+        <p class="contact-label">交易平台</p>
+        <p class="contact-value">yishuzichan.cn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FORM ========== -->
+<section class="contact-form-section section-pad">
+  <div class="container">
+    <div class="contact-form-header">
+      <div class="section-label">商务合作</div>
+      <h2 class="section-title">填写合作意向</h2>
+      <p class="section-desc">请填写以下表单，我们的商务团队将在3个工作日内与您联系。</p>
+    </div>
+    <div class="contact-form-wrapper">
+      <form onsubmit="event.preventDefault();alert('感谢您的提交！我们的商务团队将在3个工作日内与您联系。');">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">您的姓名 *</label>
+            <input type="text" class="form-input" placeholder="请输入姓名" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">联系电话 *</label>
+            <input type="tel" class="form-input" placeholder="请输入手机号" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">公司名称</label>
+            <input type="text" class="form-input" placeholder="请输入公司名称">
+          </div>
+          <div class="form-group">
+            <label class="form-label">电子邮箱 *</label>
+            <input type="email" class="form-input" placeholder="请输入邮箱" required>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">合作类型</label>
+            <select class="form-input">
+              <option value="">请选择合作类型</option>
+              <option value="brand">品牌合作</option>
+              <option value="creator">创作者入驻</option>
+              <option value="investor">投资合作</option>
+              <option value="media">媒体合作</option>
+              <option value="other">其他合作</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">合作意向描述 *</label>
+            <textarea class="form-input form-textarea" placeholder="请简要描述您的合作意向..." required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">提交合作意向</button>
+      </form>
+      
+      <!-- Risk Warning -->
+      <div class="risk-warning">
+        <div class="risk-warning-icon">⚠️</div>
+        <h4 class="risk-warning-title">数字藏品风险提示</h4>
+        <p class="risk-warning-text">数字藏品为文化娱乐产品，不构成投资建议。请理性消费，量力而行。购买前请充分了解产品属性及风险。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PARTNERS ========== -->
+<section class="partners section-pad">
+  <div class="container">
+    <div class="partners-header">
+      <div class="section-label">合作伙伴</div>
+      <h2 class="section-title">携手共建数字未来</h2>
+      <p class="section-desc">我们与众多优秀企业和机构建立了深度合作关系。</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <span class="partner-icon">⛓️</span>
+        <span class="partner-name">星火·链网</span>
+      </div>
+      <div class="partner-card">
+        <span class="partner-icon">🏛️</span>
+        <span class="partner-name">中国信通院</span>
+      </div>
+      <div class="partner-card">
+        <span class="partner-icon">🎨</span>
+        <span class="partner-name">数字艺术机构</span>
+      </div>
+      <div class="partner-card">
+        <span class="partner-icon">🎮</span>
+        <span class="partner-name">游戏工作室</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" aria-label="页脚">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./images/yishu-logo-nav.png" alt="亿数Logo" loading="lazy">
+        <span>亿数</span>
+      </div>
+      <div class="footer-copy">
+        <small>© 2026 亿数 · AI驱动数实融合生态 · 以数兴商，链接未来</small>
+      </div>
+      <nav class="footer-links" aria-label="底部链接">
+        <a href="https://yishuzichan.cn" target="_blank" rel="noopener noreferrer">交易平台</a>
+        <a href="about.html">关于我们</a>
+        <a href="contact.html">联系方式</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+var nav = document.querySelector('.nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+var observer = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.contact-card, .partner-card').forEach(function(el) { observer.observe(el); });
+
+var mobileBtn = document.getElementById('mobileMenuBtn');
+var navLinks = document.getElementById('navLinks');
+if (mobileBtn && navLinks) {
+  mobileBtn.addEventListener('click', function() {
+    var isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', !isExpanded);
+    navLinks.classList.toggle('show');
+  });
+}
+</script>
+
+</body>
+</html>
