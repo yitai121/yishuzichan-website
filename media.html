@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<title>相关媒体 — 亿数 | 媒体报道、宣传视频与品牌素材</title>
+<meta name="description" content="了解亿数平台媒体报道、宣传视频与品牌素材。亿数是AI驱动的数实融合生态平台，查看大众网、中华网等媒体报道及官方宣传片。">
+<meta name="keywords" content="亿数媒体,媒体报道,宣传视频,品牌素材,数字藏品新闻,数实融合">
+<meta name="author" content="亿数">
+
+<link rel="canonical" href="https://yishuzichan.cc/media.html">
+<link rel="icon" href="./images/yishu-logo-es-only.png" type="image/png">
+
+<style>
+:root {
+  --brand: #5B5FC7; --brand-light: #7B7FD9; --brand-dark: #4A4EA8;
+  --gold: #D4AF37; --gold-light: #E8C94A;
+  --surface-0: #FFFFFF; --surface-1: #FAFBFD; --surface-2: #F3F4F6;
+  --surface-3: #E5E7EB; --surface-4: #D1D5DB;
+  --text-primary: #1A1A2E; --text-secondary: #6B7280; --text-tertiary: #9CA3AF;
+  --border-subtle: #E5E7EB; --border-light: rgba(91,95,199,0.15);
+  --glass-bg: rgba(255,255,255,0.85); --glass-border: rgba(255,255,255,0.5);
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+  --radius-xl: 20px; --radius-2xl: 24px; --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.1); --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1); --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --max-width: 1200px; --nav-height: 64px;
+  --duration-fast: 0.15s; --duration-normal: 0.3s; --duration-slow: 0.5s; --duration-entrance: 0.8s;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: var(--surface-0); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--surface-1); }
+::-webkit-scrollbar-thumb { background: var(--surface-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+* { scrollbar-width: thin; scrollbar-color: var(--brand) var(--surface-1); }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
+.section-pad { padding: var(--space-20) 0; }
+
+.section-label { display: inline-flex; align-items: center; gap: var(--space-2); font-size: 13px; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
+.section-label::before { content: ''; width: 20px; height: 2px; background: var(--brand); border-radius: 1px; }
+.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: var(--space-5); }
+.section-desc { font-size: 17px; line-height: 1.8; color: var(--text-secondary); max-width: 560px; }
+
+/* ========== NAVIGATION ========== */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--border-subtle); transition: all var(--duration-normal) var(--ease-smooth); }
+.nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.08); }
+.nav-inner { max-width: var(--max-width); margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-6); }
+.nav-logo { display: flex; align-items: center; gap: var(--space-3); }
+.nav-logo img { height: 32px; width: auto; }
+.nav-logo span { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: var(--space-8); }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color var(--duration-fast) var(--ease-smooth); position: relative; }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--brand); transition: width var(--duration-normal) var(--ease-spring); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--brand); }
+.nav-cta { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-5); border-radius: var(--radius-full); background: var(--brand); color: white; font-size: 14px; font-weight: 600; transition: all var(--duration-normal) var(--ease-spring); }
+.nav-cta:hover { background: var(--brand-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(91,95,199,0.3); }
+.nav-mobile-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--text-primary); }
+.nav-links.show { display: flex; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--surface-0); padding: var(--space-6); gap: var(--space-5); border-bottom: 1px solid var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+@media (max-width: 768px) { .nav-links { display: none; } .nav-links.show { display: flex; } .nav-mobile-btn { display: flex; } }
+
+/* ========== BREADCRUMB ========== */
+.breadcrumb { padding-top: calc(var(--nav-height) + var(--space-8)); background: var(--surface-1); border-bottom: 1px solid var(--border-subtle); }
+.breadcrumb-inner { display: flex; align-items: center; gap: var(--space-2); font-size: 14px; color: var(--text-secondary); padding: var(--space-4) 0; }
+.breadcrumb a { color: var(--text-secondary); transition: color var(--duration-fast); }
+.breadcrumb a:hover { color: var(--brand); }
+.breadcrumb span { color: var(--text-tertiary); }
+.breadcrumb .current { color: var(--text-primary); font-weight: 500; }
+
+/* ========== PAGE BANNER ========== */
+.page-banner { background: linear-gradient(135deg, var(--surface-0) 0%, var(--surface-1) 100%); padding: var(--space-16) 0; text-align: center; position: relative; overflow: hidden; }
+.page-banner::before { content: ''; position: absolute; inset: 0; opacity: 0.05; background-image: radial-gradient(circle, var(--brand) 1px, transparent 1px); background-size: 24px 24px; }
+.page-banner-content { position: relative; z-index: 1; }
+.page-banner-title { font-size: clamp(36px, 5vw, 56px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+.page-banner-title span { background: linear-gradient(135deg, var(--brand) 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.page-banner-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+
+/* ========== MEDIA REPORTS ========== */
+.media-reports { background: var(--surface-0); }
+.reports-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); max-width: 900px; margin: 0 auto; }
+.report-card {
+  display: flex; gap: var(--space-6); padding: var(--space-6);
+  background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card); transition: all var(--duration-normal) var(--ease-spring);
+  opacity: 0; transform: translateY(20px);
+}
+.report-card.visible { animation: fade-up 0.6s var(--ease-entrance) forwards; }
+.report-card:nth-child(1).visible { animation-delay: 0ms; }
+.report-card:nth-child(2).visible { animation-delay: 100ms; }
+.report-card:nth-child(3).visible { animation-delay: 200ms; }
+.report-card:nth-child(4).visible { animation-delay: 300ms; }
+.report-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.report-icon { flex-shrink: 0; width: 56px; height: 56px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+.report-icon svg { width: 28px; height: 28px; color: white; }
+.report-content { flex: 1; }
+.report-meta { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-2); flex-wrap: wrap; }
+.report-source { font-size: 13px; font-weight: 600; color: var(--brand); }
+.report-date { font-size: 13px; color: var(--text-tertiary); }
+.report-title { font-size: 18px; font-weight: 600; margin-bottom: var(--space-2); color: var(--text-primary); }
+.report-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); }
+.report-link { display: inline-flex; align-items: center; gap: var(--space-2); font-size: 14px; font-weight: 500; color: var(--brand); transition: gap var(--duration-fast); }
+.report-link:hover { gap: var(--space-3); }
+.report-link svg { width: 16px; height: 16px; }
+
+@keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 600px) {
+  .report-card { flex-direction: column; gap: var(--space-4); }
+  .report-icon { width: 48px; height: 48px; }
+}
+
+/* ========== VIDEOS ========== */
+.videos { background: var(--surface-1); }
+.videos-header { text-align: center; margin-bottom: var(--space-12); }
+.videos-header .section-desc { margin: 0 auto; }
+.videos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+.video-card {
+  position: relative; overflow: hidden; border-radius: var(--radius-lg);
+  background: var(--surface-0); border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card); transition: all var(--duration-normal) var(--ease-spring);
+  opacity: 0; transform: translateY(20px);
+}
+.video-card.visible { animation: fade-up 0.6s var(--ease-entrance) forwards; }
+.video-card:nth-child(1).visible { animation-delay: 0ms; }
+.video-card:nth-child(2).visible { animation-delay: 100ms; }
+.video-card:nth-child(3).visible { animation-delay: 200ms; }
+.video-card:nth-child(4).visible { animation-delay: 300ms; }
+.video-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.video-thumbnail { position: relative; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface-1) 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.video-thumbnail::before { content: ''; position: absolute; inset: 0; opacity: 0.6; background: radial-gradient(circle at center, var(--brand) 0%, transparent 70%); }
+.video-play { position: relative; z-index: 1; width: 64px; height: 64px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform var(--duration-normal) var(--ease-spring); }
+.video-card:hover .video-play { transform: scale(1.1); }
+.video-play svg { width: 24px; height: 24px; color: var(--brand); margin-left: 4px; }
+.video-badge { position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2; padding: var(--space-1) var(--space-3); background: var(--brand); color: white; font-size: 12px; font-weight: 600; border-radius: var(--radius-full); }
+.video-info { padding: var(--space-5); }
+.video-title { font-size: 16px; font-weight: 600; margin-bottom: var(--space-2); }
+.video-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+@media (max-width: 768px) { .videos-grid { grid-template-columns: 1fr; } }
+
+/* ========== BRAND MATERIALS ========== */
+.brand-materials { background: var(--surface-0); }
+.materials-header { text-align: center; margin-bottom: var(--space-12); }
+.materials-header .section-desc { margin: 0 auto; }
+.materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.material-card {
+  background: white; border-radius: var(--radius-lg); padding: var(--space-8);
+  box-shadow: var(--shadow-card); border: 1px solid var(--border-subtle);
+  text-align: center; transition: all var(--duration-normal) var(--ease-spring);
+  opacity: 0; transform: translateY(20px);
+}
+.material-card.visible { animation: fade-up 0.6s var(--ease-entrance) forwards; }
+.material-card:nth-child(1).visible { animation-delay: 0ms; }
+.material-card:nth-child(2).visible { animation-delay: 100ms; }
+.material-card:nth-child(3).visible { animation-delay: 200ms; }
+.material-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.material-icon { width: 64px; height: 64px; margin: 0 auto var(--space-5); background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; }
+.material-icon svg { width: 32px; height: 32px; color: white; }
+.material-title { font-size: 18px; font-weight: 600; margin-bottom: var(--space-2); }
+.material-value { font-size: 16px; color: var(--brand); font-weight: 500; margin-bottom: var(--space-3); word-break: break-all; }
+.material-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.material-link { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-4); padding: var(--space-2) var(--space-4); background: var(--surface-2); border-radius: var(--radius-full); font-size: 13px; font-weight: 500; color: var(--brand); transition: all var(--duration-fast); }
+.material-link:hover { background: var(--brand); color: white; }
+.material-link svg { width: 14px; height: 14px; }
+
+@media (max-width: 900px) { .materials-grid { grid-template-columns: 1fr; } }
+
+/* ========== RISK WARNING ========== */
+.risk-warning {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border: 1px solid #F59E0B;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  text-align: center;
+  margin: 0 var(--space-6);
+}
+.risk-warning-content { display: flex; align-items: center; justify-content: center; gap: var(--space-3); }
+.risk-warning-icon { font-size: 20px; }
+.risk-warning-text { font-size: 15px; color: #92400E; font-weight: 500; }
+
+/* ========== CTA ========== */
+.cta { background: linear-gradient(135deg, #5B5FC7 0%, #7B7FD9 100%); color: white; text-align: center; }
+.cta-inner { position: relative; z-index: 1; }
+.cta-title { font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: var(--space-4); }
+.cta-desc { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: var(--space-10); max-width: 500px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+.cta-platform { display: inline-flex; align-items: center; gap: var(--space-2); padding: 16px 32px; border-radius: var(--radius-md); background: white; color: var(--brand); font-size: 16px; font-weight: 600; transition: all var(--duration-normal) var(--ease-spring); }
+.cta-platform:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.cta-platform svg { width: 18px; height: 18px; }
+.cta-contact { display: inline-flex; align-items: center; gap: var(--space-2); padding: 16px 32px; border-radius: var(--radius-md); background: transparent; color: white; font-size: 16px; font-weight: 500; border: 1px solid rgba(255,255,255,0.4); transition: all var(--duration-normal) var(--ease-smooth); }
+.cta-contact:hover { background: rgba(255,255,255,0.1); border-color: white; }
+.cta-contact svg { width: 18px; height: 18px; }
+
+/* ========== FOOTER ========== */
+.footer { background: #1A1A2E; color: white; padding: var(--space-12) 0; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); text-align: center; }
+.footer-brand { display: flex; align-items: center; gap: var(--space-3); }
+.footer-brand img { height: 36px; width: auto; }
+.footer-brand span { font-size: 24px; font-weight: 700; color: white; }
+.footer-copy small { color: rgba(255,255,255,0.5); }
+.footer-links { display: flex; gap: var(--space-6); }
+.footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color var(--duration-fast); }
+.footer-links a:hover { color: white; }
+
+@media (max-width: 768px) { .section-pad { padding: var(--space-12) 0; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" id="mainNav" role="navigation" aria-label="主导航">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="亿数首页">
+      <img src="./images/yishu-logo-nav.png" alt="亿数Logo">
+      <span>亿数</span>
+    </a>
+    <div class="nav-links" id="navLinks" role="menubar">
+      <a href="about.html">关于我们</a>
+      <a href="products.html">IP矩阵</a>
+      <a href="ecosystem.html">生态版图</a>
+      <a href="news.html">最新资讯</a>
+      <a href="media.html" class="active">相关媒体</a>
+      <a href="contact.html">联系我们</a>
+    </div>
+    <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="nav-cta">进入亿数</a>
+    <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="菜单" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== BREADCRUMB ========== -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="index.html">首页</a>
+      <span>/</span>
+      <span class="current">相关媒体</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE BANNER ========== -->
+<section class="page-banner">
+  <div class="container">
+    <div class="page-banner-content">
+      <h1 class="page-banner-title">相关<span>媒体</span></h1>
+      <p class="page-banner-subtitle">亿数平台媒体报道、宣传视频与品牌素材</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MEDIA REPORTS ========== -->
+<section class="media-reports section-pad">
+  <div class="container">
+    <div class="reports-header" style="text-align:center;margin-bottom:var(--space-12);">
+      <div class="section-label">媒体报道</div>
+      <h2 class="section-title">行业关注与媒体报道</h2>
+      <p class="section-desc" style="margin:0 auto;">亿数平台持续获得主流媒体关注与报道，传递数实融合理念与价值。</p>
+    </div>
+    <div class="reports-grid">
+      <article class="report-card">
+        <div class="report-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+        </div>
+        <div class="report-content">
+          <div class="report-meta">
+            <span class="report-source">大众网</span>
+            <span class="report-date">2026-06-03</span>
+          </div>
+          <h3 class="report-title">亿数平台携合规体系与AI服务上线启航</h3>
+          <p class="report-desc">亿数数字资产交易平台登台亮相，由国企战略资源加持、AI技术生态全面升级，致力于打造覆盖千行万业的数字化、智能化、全球化数字商业新生态。平台具备数字文创交易相关专业合规牌照，引入大型国有企业战略投资。</p>
+          <a href="http://finance.dzwww.com/cjsq/202606/t20260603_17803001.htm" target="_blank" rel="noopener noreferrer" class="report-link">
+            阅读全文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="report-card">
+        <div class="report-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+        </div>
+        <div class="report-content">
+          <div class="report-meta">
+            <span class="report-source">中华网</span>
+            <span class="report-date">2026-06-08</span>
+          </div>
+          <h3 class="report-title">亿数平台正式上线，抢抓文旅数藏发展新机遇</h3>
+          <p class="report-desc">亿数平台于6月2日正式上线，凭借成熟的运营体系与先进的技术理念，精准契合全国文旅数字化发展趋势，致力于搭建数字资产与文旅实体产业互通的桥梁。</p>
+          <a href="https://m.tech.china.com/hea/articles/20260608/202606081888785.html" target="_blank" rel="noopener noreferrer" class="report-link">
+            阅读全文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="report-card">
+        <div class="report-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+        </div>
+        <div class="report-content">
+          <div class="report-meta">
+            <span class="report-source">中华网</span>
+            <span class="report-date">2026-06-10</span>
+          </div>
+          <h3 class="report-title">数字资产回归实体权益，亿数平台的破局之道</h3>
+          <p class="report-desc">亿数平台以清晰的战略定位、完整的合规体系，确立"数字资产+实体权益+消费场景"核心商业模式，推动数字资产承载明确的文化价值或实体权益。</p>
+          <a href="https://m.tech.china.com/articles/20260610/202606101890578.html" target="_blank" rel="noopener noreferrer" class="report-link">
+            阅读全文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="report-card">
+        <div class="report-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+        </div>
+        <div class="report-content">
+          <div class="report-meta">
+            <span class="report-source">今日头条</span>
+            <span class="report-date">2026-06-11</span>
+          </div>
+          <h3 class="report-title">带你全面认识亿数数字资产交易平台</h3>
+          <p class="report-desc">从平台背景、合规体系、生态模式到风险逐一解读，帮用户清晰认知、安心参与亿数平台。</p>
+          <a href="http://m.toutiao.com/group/7649985413678924334/" target="_blank" rel="noopener noreferrer" class="report-link">
+            阅读全文
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VIDEOS ========== -->
+<section class="videos section-pad">
+  <div class="container">
+    <div class="videos-header">
+      <div class="section-label">宣传视频</div>
+      <h2 class="section-title">视频内容</h2>
+      <p class="section-desc">观看亿数官方宣传片与品牌视频内容</p>
+    </div>
+    <div class="videos-grid">
+      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
+        <div class="video-thumbnail">
+          <span class="video-badge">宣传片</span>
+          <div class="video-play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">生态空间站宣传片</h3>
+          <p class="video-desc">亿数生态空间站全景宣传片，展示AI驱动的数实融合生态愿景</p>
+        </div>
+      </a>
+      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
+        <div class="video-thumbnail">
+          <span class="video-badge">音乐MV</span>
+          <div class="video-play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">出发吧夏天 主题曲MV</h3>
+          <p class="video-desc">亿数旗下游戏生态《出发吧夏天！》主题曲MV，萌宠与城市寻宝的欢乐旋律</p>
+        </div>
+      </a>
+      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
+        <div class="video-thumbnail">
+          <span class="video-badge">音乐MV</span>
+          <div class="video-play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">疯狂路亚 主题曲MV</h3>
+          <p class="video-desc">亿数户外生态疯狂路亚主题曲MV，感受户外运动与数字的碰撞</p>
+        </div>
+      </a>
+      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
+        <div class="video-thumbnail">
+          <span class="video-badge">品牌素材</span>
+          <div class="video-play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">亿数系列海报</h3>
+          <p class="video-desc">亿数品牌视觉海报展示，包含品牌理念、产品矩阵、生态版图等主题</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BRAND MATERIALS ========== -->
+<section class="brand-materials section-pad">
+  <div class="container">
+    <div class="materials-header">
+      <div class="section-label">品牌素材</div>
+      <h2 class="section-title">官方资源</h2>
+      <p class="section-desc">亿数官方网址与品牌资料</p>
+    </div>
+    <div class="materials-grid">
+      <article class="material-card">
+        <div class="material-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3 class="material-title">官方平台</h3>
+        <p class="material-value">www.yishuzichan.cn</p>
+        <p class="material-desc">亿数数字资产交易平台，提供数字藏品交易、品牌服务等核心功能</p>
+        <a href="https://www.yishuzichan.cn/" target="_blank" rel="noopener noreferrer" class="material-link">
+          访问官网
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </article>
+      <article class="material-card">
+        <div class="material-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 class="material-title">品牌Slogan</h3>
+        <p class="material-value">链接数字价值，赋能全球商业</p>
+        <p class="material-desc">亿数品牌核心理念，以数兴商，链接未来</p>
+      </article>
+      <article class="material-card">
+        <div class="material-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 class="material-title">品牌资料包</h3>
+        <p class="material-value">腾讯文档</p>
+        <p class="material-desc">亿数品牌视觉素材、海报、宣传视频等官方资料</p>
+        <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="material-link">
+          下载资料
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RISK WARNING ========== -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="container">
+    <div class="risk-warning">
+      <div class="risk-warning-content">
+        <span class="risk-warning-icon">⚠️</span>
+        <span class="risk-warning-text">数字藏品为文化娱乐产品，不构成投资建议</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta section-pad">
+  <div class="container">
+    <div class="cta-inner">
+      <h2 class="cta-title">开启你的数字商业之旅</h2>
+      <p class="cta-desc">加入亿数，在合规、安全、AI驱动的平台上，探索数字经济无限可能。</p>
+      <div class="cta-buttons">
+        <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="cta-platform">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          进入亿数
+        </a>
+        <a href="contact.html" class="cta-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          商务合作
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" aria-label="页脚">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./images/yishu-logo-nav.png" alt="亿数Logo" loading="lazy">
+        <span>亿数</span>
+      </div>
+      <div class="footer-copy">
+        <small>© 2026 亿数 · AI驱动数实融合生态 · 以数兴商，链接未来</small>
+      </div>
+      <nav class="footer-links" aria-label="底部链接">
+        <a href="https://yishuzichan.cn" target="_blank" rel="noopener noreferrer">交易平台</a>
+        <a href="about.html">关于我们</a>
+        <a href="contact.html">联系方式</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+var nav = document.querySelector('.nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+var observer = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.report-card, .video-card, .material-card').forEach(function(el) { observer.observe(el); });
+
+var mobileBtn = document.getElementById('mobileMenuBtn');
+var navLinks = document.getElementById('navLinks');
+if (mobileBtn && navLinks) {
+  mobileBtn.addEventListener('click', function() {
+    var isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', !isExpanded);
+    navLinks.classList.toggle('show');
+  });
+}
+</script>
+
+</body>
+</html>
