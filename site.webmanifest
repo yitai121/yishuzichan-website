@@ -1,0 +1,22 @@
+{
+  "name": "亿数 - AI驱动的数实融合生态平台",
+  "short_name": "亿数",
+  "description": "亿数是AI驱动的数实融合生态平台，以数兴商，打造10800家AI数字新品牌。",
+  "icons": [
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#5B5FC7",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
