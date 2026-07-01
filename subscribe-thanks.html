@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>订阅成功 - 亿数</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #5B5FC7 0%, #7B7FD9 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 56px 48px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .icon {
+      width: 96px; height: 96px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981, #34D399);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .icon svg { width: 48px; height: 48px; color: white; }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 16px rgba(16,185,129,0); }
+    }
+    h1 { font-size: 28px; color: #111827; margin-bottom: 12px; font-weight: 700; }
+    .subtitle { font-size: 15px; color: #6B7280; line-height: 1.7; margin-bottom: 24px; }
+    .tips {
+      background: #F3F4F6;
+      padding: 16px 20px;
+      border-radius: 12px;
+      text-align: left;
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .tips b { color: #111827; }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: #5B5FC7; color: white; }
+    .btn-primary:hover { background: #4B4FB7; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #5B5FC7; border: 1px solid #5B5FC7; }
+    .btn-outline:hover { background: #F5F5FA; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <h1>订阅成功</h1>
+    <p class="subtitle">感谢订阅亿数资讯！<br>后续平台动态、生态进展与行业洞察将第一时间推送到您的邮箱。</p>
+    <div class="tips">
+      💡 <b>温馨提示：</b>如未收到欢迎邮件，请检查邮件的<b>垃圾邮件文件夹</b>，并将 <b>x@coze.email</b> 加入白名单，以便正常接收亿数资讯推送。
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">返回首页</a>
+      <a class="btn btn-outline" href="/news.html">继续浏览资讯</a>
+    </div>
+  </div>
+</body>
+</html>
