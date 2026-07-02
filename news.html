@@ -830,17 +830,69 @@ ul { list-style: none; }
         <div class="sidebar-section">
           <h3 class="sidebar-title">订阅资讯</h3>
           <p style="font-size:14px;color:var(--text-secondary);margin-bottom:var(--space-4);">订阅亿数资讯，第一时间获取平台动态与行业洞察。</p>
-          <form class="newsletter-form" action="https://formsubmit.co/x@coze.email" method="POST">
-            <input type="hidden" name="_subject" value="亿数官网 - 新用户订阅">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://yishuzichan.cc/subscribe-thanks.html">
-            <input type="hidden" name="来源" value="亿数官网 news.html">
-            <input type="email" name="email" class="newsletter-input" placeholder="请输入您的邮箱" required>
+          <form class="newsletter-form" id="subscribeForm" onsubmit="return handleSubscribe(event)">
+            <input type="email" id="subscribeEmail" class="newsletter-input" placeholder="请输入您的邮箱" required>
             <button type="submit" class="newsletter-btn">立即订阅</button>
           </form>
           <p style="font-size:12px;color:var(--text-tertiary);margin-top:var(--space-2);">订阅后我们将通过邮件推送亿数平台最新资讯，可随时取消订阅。</p>
+          <p style="font-size:12px;color:var(--text-tertiary);margin-top:var(--space-2);">邮件客户端未打开？<a href="javascript:void(0)" onclick="copySubscribeEmail()" style="color:var(--brand-primary);text-decoration:underline;">复制邮箱地址</a>手动订阅。</p>
+          <div id="subscribeToast" style="display:none;margin-top:var(--space-3);padding:var(--space-3);background:#EEF2FF;color:#3730A3;border-radius:8px;font-size:13px;line-height:1.5;"></div>
         </div>
+        <script>
+          function handleSubscribe(event) {
+            event.preventDefault();
+            var emailInput = document.getElementById('subscribeEmail');
+            var email = emailInput.value.trim();
+            if (!email) return false;
+            var toast = document.getElementById('subscribeToast');
+            var subject = encodeURIComponent('订阅亿数资讯');
+            var body = encodeURIComponent(
+              '您好，亿数团队：\n\n' +
+              '我希望订阅亿数官网资讯，用于接收平台动态、生态进展、行业洞察与合规公告。\n\n' +
+              '订阅邮箱：' + email + '\n' +
+              '订阅来源：亿数官网 news.html\n' +
+              '订阅时间：' + new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'}) + '\n\n' +
+              '请将后续资讯发送至以上邮箱。感谢！'
+            );
+            var mailtoUrl = 'mailto:x@coze.email?subject=' + subject + '&body=' + body;
+            window.location.href = mailtoUrl;
+            toast.style.display = 'block';
+            toast.innerHTML = '✅ 已为您唤起邮件客户端，请点击"发送"完成订阅。<br>如未弹出，请<a href="javascript:void(0)" onclick="copySubscribeEmail()" style="color:#3730A3;text-decoration:underline;">复制邮箱地址</a>手动发送至 x@coze.email。';
+            emailInput.value = '';
+            return false;
+          }
+          function copySubscribeEmail() {
+            var email = 'x@coze.email';
+            var toast = document.getElementById('subscribeToast');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(email).then(function() {
+                toast.style.display = 'block';
+                toast.innerHTML = '✅ 邮箱地址 <b>' + email + '</b> 已复制到剪贴板，请打开您常用的邮件客户端发送订阅请求。';
+              }).catch(function() {
+                fallbackCopy(email, toast);
+              });
+            } else {
+              fallbackCopy(email, toast);
+            }
+          }
+          function fallbackCopy(text, toast) {
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+              document.execCommand('copy');
+              toast.style.display = 'block';
+              toast.innerHTML = '✅ 邮箱地址 <b>' + text + '</b> 已复制到剪贴板，请打开您常用的邮件客户端发送订阅请求。';
+            } catch (e) {
+              toast.style.display = 'block';
+              toast.innerHTML = '📮 请手动发送订阅请求至：<b>' + text + '</b>';
+            }
+            document.body.removeChild(textarea);
+          }
+        </script>
         
       </aside>
       
