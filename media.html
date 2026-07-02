@@ -12,6 +12,8 @@
 <meta name="author" content="亿数">
 
 <link rel="canonical" href="https://yishuzichan.cc/media.html">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
@@ -588,6 +590,7 @@ function openVideoModal(id, src, title, desc) {
   document.getElementById('videoModalTitle').textContent = title || '';
   document.getElementById('videoModalDesc').textContent = desc || '';
   player.src = src;
+  player.load();
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
   player.play().catch(function(){});
