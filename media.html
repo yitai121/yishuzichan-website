@@ -141,6 +141,7 @@ ul { list-style: none; }
 .videos-header { text-align: center; margin-bottom: var(--space-12); }
 .videos-header .section-desc { margin: 0 auto; }
 .videos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+.videos-grid.single { grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; }
 .video-card {
   position: relative; overflow: hidden; border-radius: var(--radius-lg);
   background: var(--surface-0); border: 1px solid var(--border-subtle);
@@ -436,54 +437,18 @@ ul { list-style: none; }
       <h2 class="section-title">视频内容</h2>
       <p class="section-desc">观看亿数官方宣传片与品牌视频内容</p>
     </div>
-    <div class="videos-grid">
-      <a href="javascript:void(0)" onclick="openVideoModal('yishu-intro','https://cdn.jsdelivr.net/gh/yitai121/yishuzichan-website@main/videos/yishu-intro.mp4','生态空间站宣传片','亿数生态空间站全景宣传片，展示AI驱动的数实融合生态愿景')" class="video-card">
+    <div class="videos-grid single">
+      <a href="javascript:void(0)" onclick="openVideoModal('yishu-intro','https://cdn.jsdelivr.net/gh/yitai121/yishuzichan-website@main/videos/yishu-intro.mp4','端午亿数公益活动 走进萧山福利院','亿数团队走进萧山福利院开展端午公益活动，用行动传递温暖，践行「亿心为善 数行善举」的品牌理念')" class="video-card">
         <div class="video-thumbnail video-thumbnail-cover" style="background-image:url('https://cdn.jsdelivr.net/gh/yitai121/yishuzichan-website@main/videos/yishu-intro-poster.jpg');background-size:cover;background-position:center;">
-          <span class="video-badge">宣传片</span>
+          <span class="video-badge">公益纪实</span>
           <span class="video-duration">02:01</span>
           <div class="video-play">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </div>
         </div>
         <div class="video-info">
-          <h3 class="video-title">生态空间站宣传片</h3>
-          <p class="video-desc">亿数生态空间站全景宣传片，展示AI驱动的数实融合生态愿景</p>
-        </div>
-      </a>
-      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
-        <div class="video-thumbnail">
-          <span class="video-badge">音乐MV</span>
-          <div class="video-play">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">出发吧夏天 主题曲MV</h3>
-          <p class="video-desc">亿数旗下游戏生态《出发吧夏天！》主题曲MV，萌宠与城市寻宝的欢乐旋律</p>
-        </div>
-      </a>
-      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
-        <div class="video-thumbnail">
-          <span class="video-badge">音乐MV</span>
-          <div class="video-play">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">疯狂路亚 主题曲MV</h3>
-          <p class="video-desc">亿数户外生态疯狂路亚主题曲MV，感受户外运动与数字的碰撞</p>
-        </div>
-      </a>
-      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
-        <div class="video-thumbnail">
-          <span class="video-badge">品牌素材</span>
-          <div class="video-play">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-        <div class="video-info">
-          <h3 class="video-title">亿数系列海报</h3>
-          <p class="video-desc">亿数品牌视觉海报展示，包含品牌理念、产品矩阵、生态版图等主题</p>
+          <h3 class="video-title">端午亿数公益活动 走进萧山福利院</h3>
+          <p class="video-desc">亿数团队走进萧山福利院开展端午公益活动，用行动传递温暖，践行「亿心为善 数行善举」的品牌理念</p>
         </div>
       </a>
     </div>
