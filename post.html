@@ -401,6 +401,8 @@ function showError(msg) {
   var err = document.getElementById('stateError');
   err.style.display = 'flex';
   if (msg) document.getElementById('errorMsg').textContent = msg;
+  document.title = '未找到公告 — 亿数';
+  document.getElementById('crumbTitle').textContent = '未找到公告';
 }
 
 // 加载数据
