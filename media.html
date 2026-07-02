@@ -162,6 +162,22 @@ ul { list-style: none; }
 .video-info { padding: var(--space-5); }
 .video-title { font-size: 16px; font-weight: 600; margin-bottom: var(--space-2); }
 .video-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.video-thumbnail-cover::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%); z-index: 0; }
+.video-thumbnail-cover .video-play { background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
+.video-duration { position: absolute; bottom: var(--space-3); right: var(--space-3); z-index: 2; padding: 2px 8px; background: rgba(0,0,0,0.65); color: #fff; font-size: 12px; font-weight: 500; border-radius: 4px; letter-spacing: 0.02em; }
+
+/* Video Modal */
+.video-modal { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15, 17, 32, 0.88); backdrop-filter: blur(12px); align-items: center; justify-content: center; padding: var(--space-6); animation: fadeIn 0.24s ease; }
+.video-modal.active { display: flex; }
+.video-modal-content { position: relative; width: 100%; max-width: 1080px; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.6); }
+.video-modal video { display: block; width: 100%; max-height: 82vh; background: #000; }
+.video-modal-close { position: absolute; top: -48px; right: 0; width: 40px; height: 40px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.video-modal-close:hover { background: rgba(255,255,255,0.22); transform: rotate(90deg); }
+.video-modal-caption { padding: var(--space-4) var(--space-5); background: linear-gradient(180deg, #1a1c30 0%, #0f1120 100%); }
+.video-modal-title { color: #fff; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.video-modal-desc { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.5; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 768px) { .video-modal { padding: var(--space-4); } .video-modal-close { top: -44px; } }
 
 @media (max-width: 768px) { .videos-grid { grid-template-columns: 1fr; } }
 
@@ -421,9 +437,10 @@ ul { list-style: none; }
       <p class="section-desc">观看亿数官方宣传片与品牌视频内容</p>
     </div>
     <div class="videos-grid">
-      <a href="https://docs.qq.com/aio/DT0Z4SXdnc1B1QWN1" target="_blank" rel="noopener noreferrer" class="video-card">
-        <div class="video-thumbnail">
+      <a href="javascript:void(0)" onclick="openVideoModal('yishu-intro','/videos/yishu-intro.mp4','生态空间站宣传片','亿数生态空间站全景宣传片，展示AI驱动的数实融合生态愿景')" class="video-card">
+        <div class="video-thumbnail video-thumbnail-cover" style="background-image:url('/videos/yishu-intro-poster.jpg');background-size:cover;background-position:center;">
           <span class="video-badge">宣传片</span>
+          <span class="video-duration">02:01</span>
           <div class="video-play">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </div>
@@ -586,6 +603,44 @@ if (mobileBtn && navLinks) {
     navLinks.classList.toggle('show');
   });
 }
+</script>
+
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal" onclick="if(event.target===this)closeVideoModal()">
+  <div class="video-modal-content">
+    <button class="video-modal-close" onclick="closeVideoModal()" aria-label="关闭">×</button>
+    <video id="videoModalPlayer" controls playsinline preload="metadata"></video>
+    <div class="video-modal-caption">
+      <div class="video-modal-title" id="videoModalTitle"></div>
+      <div class="video-modal-desc" id="videoModalDesc"></div>
+    </div>
+  </div>
+</div>
+<script>
+function openVideoModal(id, src, title, desc) {
+  var modal = document.getElementById('videoModal');
+  var player = document.getElementById('videoModalPlayer');
+  document.getElementById('videoModalTitle').textContent = title || '';
+  document.getElementById('videoModalDesc').textContent = desc || '';
+  player.src = src;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  player.play().catch(function(){});
+}
+function closeVideoModal() {
+  var modal = document.getElementById('videoModal');
+  var player = document.getElementById('videoModalPlayer');
+  player.pause();
+  player.removeAttribute('src');
+  player.load();
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('videoModal').classList.contains('active')) {
+    closeVideoModal();
+  }
+});
 </script>
 
 </body>
