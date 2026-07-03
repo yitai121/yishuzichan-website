@@ -7,8 +7,26 @@
 <meta name="format-detection" content="telephone=no">
 
 <title>公告详情 — 亿数</title>
-<meta name="description" content="亿数平台公告详情。">
+<meta name="description" content="亿数平台官方公告详情页 · AI驱动的数实融合生态平台。">
+<meta name="keywords" content="亿数,亿数公告,亿数资产,亿数ES,数实融合,数字资产">
 <meta name="author" content="亿数">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://yishuzichan.cc/news.html">
+
+<!-- 早期跳转：如果 URL 带 ?id=xxx，且对应静态页存在，则跳到 /posts/xxx.html
+     这样即使爬虫解析 JS 也能被引导到静态页。 -->
+<script>
+(function(){
+  try{
+    var m = /[?&]id=([a-f0-9-]{8,})/i.exec(location.search);
+    if (m && m[1]) {
+      var newUrl = '/posts/' + m[1] + '.html';
+      // 用 replace，避免历史栈里留下中转页
+      location.replace(newUrl);
+    }
+  }catch(e){}
+})();
+</script>
 
 <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -215,6 +233,18 @@ ul { list-style: none; }
       <div class="state-desc">正在加载公告内容...</div>
     </div>
 
+    <!-- 未启用 JS 时的兜底 SEO 内容 -->
+    <noscript>
+      <div class="state-wrap">
+        <div class="state-icon">📄</div>
+        <div class="state-title">请启用 JavaScript 以查看公告详情</div>
+        <div class="state-desc">
+          亿数是AI驱动的数实融合生态平台。您可以直接访问静态版公告页，或返回资讯列表浏览所有内容。
+        </div>
+        <a href="news.html" class="btn btn-primary">返回资讯列表</a>
+      </div>
+    </noscript>
+
     <!-- 加载失败 -->
     <div id="stateError" class="state-wrap" style="display:none;">
       <div class="state-icon">📭</div>
@@ -392,6 +422,64 @@ function renderPost(post) {
   if (!needRiskNotice(post)) {
     document.getElementById('riskNotice').style.display = 'none';
   }
+
+  // ===== 动态注入 SEO 元数据 & JSON-LD（兜底，实际爬虫应走 /posts/{id}.html 静态页） =====
+  try {
+    var staticUrl = 'https://yishuzichan.cc/posts/' + post.id + '.html';
+    // 更新 canonical 指向静态页
+    var canon = document.querySelector('link[rel="canonical"]');
+    if (canon) canon.setAttribute('href', staticUrl);
+
+    // 抓封面图
+    var coverMatch = /!\[[^\]]*\]\(([^)\s]+)\)/.exec(post.content || '');
+    var cover = coverMatch ? coverMatch[1].replace(/^http:\/\/eopcos\.yishuzichan\.cn/, 'https://eopcos.yishuzichan.cn') : 'https://yishuzichan.cc/images/es-logo.png';
+
+    // OG / Twitter Card
+    function upsertMeta(prop, name, content) {
+      var sel = prop ? 'meta[property="' + prop + '"]' : 'meta[name="' + name + '"]';
+      var el = document.querySelector(sel);
+      if (!el) {
+        el = document.createElement('meta');
+        if (prop) el.setAttribute('property', prop); else el.setAttribute('name', name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    }
+    upsertMeta('og:type', null, 'article');
+    upsertMeta('og:title', null, title);
+    upsertMeta('og:description', null, desc || title);
+    upsertMeta('og:url', null, staticUrl);
+    upsertMeta('og:image', null, cover);
+    upsertMeta('og:site_name', null, '亿数');
+    upsertMeta(null, 'twitter:card', 'summary_large_image');
+    upsertMeta(null, 'twitter:title', title);
+    upsertMeta(null, 'twitter:description', desc || title);
+    upsertMeta(null, 'twitter:image', cover);
+
+    // NewsArticle JSON-LD
+    var ldEl = document.getElementById('dynLd');
+    if (ldEl) ldEl.remove();
+    ldEl = document.createElement('script');
+    ldEl.type = 'application/ld+json';
+    ldEl.id = 'dynLd';
+    var dateIso = (function(){
+      if (!post.publishAt) return '';
+      var d = new Date(Number(post.publishAt));
+      var pad = function(n){return n<10?'0'+n:n;};
+      return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':00+08:00';
+    })();
+    ldEl.textContent = JSON.stringify({
+      '@context':'https://schema.org','@type':'NewsArticle',
+      'headline': title, 'url': staticUrl,
+      'datePublished': dateIso, 'dateModified': dateIso,
+      'image': [cover], 'inLanguage':'zh-CN',
+      'author':{'@type':'Organization','name':'亿数','url':'https://yishuzichan.cc'},
+      'publisher':{'@type':'Organization','name':'亿数','url':'https://yishuzichan.cc',
+        'logo':{'@type':'ImageObject','url':'https://yishuzichan.cc/images/es-logo.png'}},
+      'mainEntityOfPage':{'@type':'WebPage','@id':staticUrl}
+    });
+    document.head.appendChild(ldEl);
+  } catch(_) {}
 }
 
 // 显示错误
