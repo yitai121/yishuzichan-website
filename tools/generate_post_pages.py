@@ -541,7 +541,7 @@ def build_head(post: dict, body_html: str, plain_desc: str, cover_url: str, date
 <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
-<meta name="theme-color" content="#0a1628">
+<meta name="theme-color" content="#ffffff">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="亿数">
