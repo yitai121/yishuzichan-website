@@ -668,3 +668,395 @@ img, video, iframe { max-width: 100%; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   Round 5 · 动画层 + 视觉细节精修
+   目标：Apple / Stripe / Linear / Binance 级流畅高级感
+   规则：GPU 加速（只碰 transform / opacity）、60fps、支持 prefers-reduced-motion
+   ============================================================ */
+
+/* -- 动画 tokens -- */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);      /* Apple 官方入场 */
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* 弹性感 */
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);     /* 平滑双向 */
+  --dur-fast:      200ms;
+  --dur-base:      400ms;
+  --dur-slow:      700ms;
+
+  /* 视觉细节：柔和分层阴影 */
+  --shadow-xs:          0 1px 2px rgba(10,22,40,0.04);
+  --shadow-elev-1:      0 1px 3px rgba(10,22,40,0.06), 0 4px 12px rgba(10,22,40,0.04);
+  --shadow-elev-2:      0 4px 12px rgba(10,22,40,0.06), 0 12px 32px rgba(10,22,40,0.06);
+  --shadow-elev-3:      0 8px 24px rgba(10,22,40,0.08), 0 20px 48px rgba(10,22,40,0.08);
+  --shadow-brand-glow:  0 4px 20px rgba(91,95,199,0.15), 0 12px 40px rgba(91,95,199,0.10);
+}
+
+/* ============================================================
+   1. 核心 keyframes
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale3d(0.94, 0.94, 1); }
+  to   { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translate3d(24px, 0, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translate3d(-24px, 0, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -6px, 0); }
+}
+@keyframes shimmerX {
+  from { transform: translate3d(-140%, 0, 0) skewX(-12deg); }
+  to   { transform: translate3d(240%, 0, 0) skewX(-12deg); }
+}
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0 rgba(91,95,199,0.45); }
+  70%  { box-shadow: 0 0 0 12px rgba(91,95,199,0); }
+  100% { box-shadow: 0 0 0 0 rgba(91,95,199,0); }
+}
+
+/* ============================================================
+   2. 滚动触发入场（.js-anim + .in-view）
+   由 interactions.js 挂载 IntersectionObserver
+   ============================================================ */
+.js-anim {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 700ms var(--ease-out-expo),
+              transform 700ms var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+.js-anim.in-view {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.js-anim[data-anim="fade"] { transform: none; }
+.js-anim[data-anim="fade"].in-view { transform: none; }
+.js-anim[data-anim="scale"] { transform: scale3d(0.94, 0.94, 1); }
+.js-anim[data-anim="scale"].in-view { transform: scale3d(1, 1, 1); }
+.js-anim[data-anim="left"]  { transform: translate3d(-24px, 0, 0); }
+.js-anim[data-anim="left"].in-view  { transform: translate3d(0, 0, 0); }
+.js-anim[data-anim="right"] { transform: translate3d(24px, 0, 0); }
+.js-anim[data-anim="right"].in-view { transform: translate3d(0, 0, 0); }
+
+/* -- Stagger 容器：子元素依次入场 -- */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 600ms var(--ease-out-expo),
+              transform 600ms var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+[data-stagger].in-view > *                { opacity: 1; transform: translate3d(0, 0, 0); }
+[data-stagger].in-view > *:nth-child(1)   { transition-delay: 0ms; }
+[data-stagger].in-view > *:nth-child(2)   { transition-delay: 90ms; }
+[data-stagger].in-view > *:nth-child(3)   { transition-delay: 180ms; }
+[data-stagger].in-view > *:nth-child(4)   { transition-delay: 270ms; }
+[data-stagger].in-view > *:nth-child(5)   { transition-delay: 360ms; }
+[data-stagger].in-view > *:nth-child(6)   { transition-delay: 450ms; }
+[data-stagger].in-view > *:nth-child(n+7) { transition-delay: 540ms; }
+
+/* ============================================================
+   3. Page-banner 首屏 stagger（其他 6 页面的顶部 banner）
+   .js-banner-init 由 JS 在 DOMContentLoaded 时挂载到 .page-banner-content
+   注意：index.html 的 .hero-inner 有自己的内联 animation，不由此段接管
+   ============================================================ */
+.page-banner-content.js-banner-init > * {
+  opacity: 0;
+  animation: fadeInUp 700ms var(--ease-out-expo) both;
+}
+.page-banner-content.js-banner-init > *:nth-child(1) { animation-delay: 100ms; }
+.page-banner-content.js-banner-init > *:nth-child(2) { animation-delay: 220ms; }
+.page-banner-content.js-banner-init > *:nth-child(3) { animation-delay: 340ms; }
+.page-banner-content.js-banner-init > *:nth-child(4) { animation-delay: 460ms; }
+
+/* ============================================================
+   4. Nav 滚动缩紧（加强版 · Round 5）
+   ============================================================ */
+.nav {
+  transition: background 300ms var(--ease-out-expo),
+              box-shadow 300ms var(--ease-out-expo),
+              backdrop-filter 300ms var(--ease-out-expo) !important;
+}
+.nav .nav-inner {
+  transition: height 300ms var(--ease-out-expo), padding 300ms var(--ease-out-expo);
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: blur(24px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.8) !important;
+  box-shadow: 0 2px 10px rgba(10,22,40,0.06), 0 8px 24px rgba(10,22,40,0.04) !important;
+}
+.nav.scrolled .nav-inner { height: 56px !important; }
+.nav.scrolled .nav-logo img { transition: height 300ms var(--ease-out-expo); height: 28px !important; }
+
+/* ============================================================
+   5. 主 CTA 扫光效果
+   ============================================================ */
+.btn-primary, .cta-platform, .nav-cta,
+.newsletter-btn, .news-loadmore-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-primary::before, .cta-platform::before, .nav-cta::before,
+.newsletter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    transparent 0%,
+    rgba(255,255,255,0.35) 45%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.35) 55%,
+    transparent 100%);
+  transform: skewX(-20deg);
+  transition: left 700ms var(--ease-out-expo);
+  pointer-events: none;
+  z-index: 0;
+}
+.btn-primary:hover::before, .cta-platform:hover::before, .nav-cta:hover::before,
+.newsletter-btn:hover::before {
+  left: 120%;
+}
+.btn-primary > *, .cta-platform > *, .nav-cta > *,
+.newsletter-btn > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   6. 描边按钮 hover 实底填充过渡
+   ============================================================ */
+.btn-secondary, .cta-contact {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 300ms var(--ease-out-expo),
+              border-color 300ms var(--ease-out-expo),
+              transform 300ms var(--ease-spring),
+              box-shadow 300ms var(--ease-out-expo) !important;
+}
+.btn-secondary::before, .cta-contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--brand);
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 400ms var(--ease-out-expo);
+  z-index: -1;
+}
+.btn-secondary:hover::before {
+  transform: scaleY(1);
+}
+.btn-secondary:hover {
+  color: #fff !important;
+  border-color: var(--brand) !important;
+  box-shadow: var(--shadow-brand-glow) !important;
+}
+.cta-contact::before { background: #fff; }
+.cta-contact:hover::before { transform: scaleY(1); }
+.cta-contact:hover {
+  color: var(--brand) !important;
+  border-color: #fff !important;
+}
+
+/* ============================================================
+   7. 卡片 hover 品牌紫光晕 + 内部 icon 微放大
+   ============================================================ */
+.card, .overview-card, .news-card, .banner-card, .product-card,
+.eco-card, .media-card, .contact-card, .stat-card, .feature-card,
+.value-card, .team-card, .ecosystem-card, .qual-item {
+  transition: transform 320ms var(--ease-spring),
+              border-color 320ms var(--ease-out-expo),
+              box-shadow 320ms var(--ease-out-expo) !important;
+}
+.card:hover, .overview-card:hover, .news-card:hover, .banner-card:hover,
+.product-card:hover, .eco-card:hover, .media-card:hover, .contact-card:hover,
+.stat-card:hover, .feature-card:hover, .value-card:hover, .team-card:hover,
+.ecosystem-card:hover, .qual-item:hover {
+  transform: translate3d(0, -6px, 0) !important;
+  border-color: rgba(91,95,199,0.25) !important;
+  box-shadow: var(--shadow-brand-glow) !important;
+}
+/* 卡片内部 icon 联动微放大 */
+.overview-icon, .card-icon, .qual-icon, .contact-icon {
+  transition: transform 320ms var(--ease-spring);
+  will-change: transform;
+}
+.card:hover .overview-icon, .overview-card:hover .overview-icon,
+.card:hover .card-icon, .overview-card:hover .card-icon,
+.card:hover .icon-inline.large, .overview-card:hover .icon-inline.large,
+.card:hover .qual-icon, .qual-item:hover .qual-icon,
+.card:hover .contact-icon, .contact-card:hover .contact-icon {
+  transform: scale(1.10) rotate(-3deg);
+}
+/* .icon-inline 通用 hover 微动 */
+a:hover > .icon-inline, button:hover > .icon-inline,
+.overview-link:hover .icon-inline {
+  transform: scale(1.10);
+  transition: transform 200ms var(--ease-spring);
+}
+.icon-inline { transition: transform 200ms var(--ease-spring); }
+
+/* Hero 徽章点 pulse */
+.hero-badge-dot {
+  animation: pulseRing 2.4s ease-out infinite;
+}
+
+/* ============================================================
+   8. 图片 lazy fade-in
+   ============================================================ */
+img.js-lazy-fade {
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out-expo);
+}
+img.js-lazy-fade.loaded {
+  opacity: 1;
+}
+
+/* ============================================================
+   9. 锚点跳转平滑滚动 + 避开 nav
+   ============================================================ */
+html { scroll-behavior: smooth; }
+:where([id]) { scroll-margin-top: 80px; }
+
+/* ============================================================
+   10. 视觉细节精修
+   ============================================================ */
+
+/* -- 卡片圆角统一 -- */
+.card, .news-card, .overview-card, .product-card, .eco-card,
+.media-card, .contact-card, .feature-card, .value-card, .team-card,
+.ecosystem-card, .qual-item {
+  border-radius: 20px !important;
+}
+.banner-card, .banner-swiper, .news-banner, .hero-banner {
+  border-radius: 16px !important;
+}
+.sidebar-section, .subscribe-box, .newsletter-box {
+  border-radius: 20px !important;
+}
+
+/* -- 按钮圆角 -- */
+.btn-primary, .btn-secondary, .cta-platform, .cta-contact,
+.newsletter-btn, .news-loadmore-btn {
+  border-radius: 12px !important;
+}
+
+/* -- Section header 系统（配合原型 —— 小标签 + 大标题） -- */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-eyebrow::before {
+  content: '——';
+  color: var(--brand);
+  margin-right: 8px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* -- 更精细的字号阶梯（可选，用作辅助工具类） -- */
+.h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.12; font-weight: 800; letter-spacing: -0.03em; }
+.h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.18; font-weight: 700; letter-spacing: -0.02em; }
+.h3 { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.25; font-weight: 700; }
+.body-lg { font-size: 18px; line-height: 1.75; }
+.body { font-size: 16px; line-height: 1.7; }
+.caption { font-size: 13px; line-height: 1.5; color: var(--text-tertiary); }
+
+/* -- Post 正文 typography 优化 -- */
+.article-content {
+  line-height: 1.85;
+  font-size: 16.5px;
+}
+.article-content p { margin-bottom: 1.2em; }
+.article-content h2 {
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.3;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.5em;
+}
+.article-content h3 {
+  font-size: clamp(19px, 2vw, 22px);
+  line-height: 1.35;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+}
+.article-content img { margin: 1.5em auto; }
+
+/* -- Footer 内部精修 -- */
+.footer { padding: 56px 0 40px !important; }
+.footer-brand span { letter-spacing: 0.02em; }
+
+/* ============================================================
+   11. Reduce-motion 严格兜底（覆盖所有 Round 5 动画）
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js-anim, [data-stagger] > *,
+  .page-banner-content.js-banner-init > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  img.js-lazy-fade { opacity: 1 !important; }
+  .hero-badge-dot { animation: none !important; box-shadow: 0 0 8px rgba(91,95,199,0.5) !important; }
+}
+
+/* ============================================================
+   12. 微观小优化
+   ============================================================ */
+
+/* Nav a::after 下划线加长动画（复用现有 .nav-links a::after） */
+.nav-links a::after {
+  transition: width 320ms var(--ease-out-expo) !important;
+}
+
+/* overview-link 箭头动画 */
+.overview-link, .article-more, .news-card-link {
+  transition: gap 200ms var(--ease-spring), color 200ms ease;
+}
+.overview-link svg, .article-more svg, .news-card-link svg {
+  transition: transform 300ms var(--ease-spring);
+}
+.overview-link:hover svg, .article-more:hover svg, .news-card-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* Splash 平滑退出 */
+.splash-screen {
+  transition: opacity 800ms var(--ease-out-expo), visibility 800ms !important;
+}
+
+/* stats-grid 里的 stat-number 变成 tabular-nums 防跳动 */
+.stat-number { font-variant-numeric: tabular-nums; }
