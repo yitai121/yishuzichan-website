@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-把 theme-dark.css 注入到所有 HTML 页面（8 主页面 + posts/*.html）。
+把 theme-dark.css（Round 4 起为浅色主题内容，文件名保留）注入到所有 HTML 页面（8 主页面 + posts/*.html）。
 
 在 </style> 之后（或者 </head> 之前）插入 <link rel="stylesheet" href="./assets/theme-dark.css">，
 使其加载顺序 **在页面内联 style 之后**，从而 override :root 变量。
 
-同时更新 <meta name="theme-color"> 为深色主题色 #0a1628。
-首页 index.html 额外加 preload hero-bg.webp。
+同时更新 <meta name="theme-color"> 为浅色主题色 #ffffff。
 """
 from __future__ import annotations
 import os
@@ -16,8 +15,8 @@ import sys
 
 WEBSITE = '/app/data/所有对话/主对话/yishu-website'
 
-DARK_THEME_META = '<meta name="theme-color" content="#0a1628">'
-DARK_MS_TILE = '<meta name="msapplication-TileColor" content="#0a1628">'
+DARK_THEME_META = '<meta name="theme-color" content="#ffffff">'
+DARK_MS_TILE = '<meta name="msapplication-TileColor" content="#ffffff">'
 
 
 def upgrade_html(fpath: str, is_post: bool = False) -> bool:
