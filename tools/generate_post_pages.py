@@ -541,7 +541,7 @@ def build_head(post: dict, body_html: str, plain_desc: str, cover_url: str, date
 <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
-<meta name="theme-color" content="#5B5FC7">
+<meta name="theme-color" content="#0a1628">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="亿数">
@@ -567,6 +567,7 @@ def build_head(post: dict, body_html: str, plain_desc: str, cover_url: str, date
 </script>
 
 <style>{CSS_HTML}</style>
+<link rel="stylesheet" href="../assets/theme-dark.css">
 </head>
 <body>
 
@@ -596,7 +597,7 @@ def build_head(post: dict, body_html: str, plain_desc: str, cover_url: str, date
       </div>
       <h1 class="article-title">{title_esc}</h1>
       <div class="article-source">
-        <span>📢</span>
+        <span class="icon-inline" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg></span>
         <div>本文由 <strong>亿数</strong> 官方发布 · 内容源自 <strong>亿数主平台 CMS</strong> · 转载请注明出处</div>
       </div>
       <div class="article-content">
