@@ -123,7 +123,7 @@ def render_card_html(c):
         f'            </div>\n'
         f'            <h3 class="news-card-title">{c["title"]}</h3>\n'
         f'            <p class="news-card-desc">{c["desc"]}</p>\n'
-        f'            <a class="news-card-link" href="post.html?id={c["id"]}">阅读全文 →</a>\n'
+        f'            <a class="news-card-link" href="posts/{c["id"]}.html">阅读全文 →</a>\n'
         f'          </article>'
     )
 
@@ -216,6 +216,75 @@ def sync_banners():
         return False
 
 
+def sync_static_post_pages(new_ids):
+    """为新公告生成静态 HTML 页。"""
+    if not new_ids:
+        print('[posts/*.html] 无新增，跳过')
+        return []
+    try:
+        sys.path.insert(0, os.path.join(WEBSITE, 'tools'))
+        import generate_post_pages as gpp
+        # 直接跑一次全量渲染新增部分（幂等）
+        with open(gpp.POSTS_JSON, encoding='utf-8') as f:
+            all_posts = json.load(f)
+        id_set = set(new_ids)
+        target = [p for p in all_posts if p['id'] in id_set]
+        os.makedirs(gpp.POSTS_DIR, exist_ok=True)
+        ok, fail = 0, 0
+        for p in target:
+            try:
+                html = gpp.render_post_html(p)
+                out = os.path.join(gpp.POSTS_DIR, f"{p['id']}.html")
+                tmp = out + '.tmp'
+                with open(tmp, 'w', encoding='utf-8') as f:
+                    f.write(html)
+                os.replace(tmp, out)
+                ok += 1
+            except Exception as e:
+                fail += 1
+                print(f'  ❌ {p["id"]}: {e}')
+        print(f'[posts/*.html] 新增静态页 {ok}/{len(target)}，失败 {fail}')
+        return [os.path.join('posts', f'{i}.html') for i in new_ids]
+    except Exception as e:
+        print(f'[posts/*.html] 生成失败: {e}')
+        return []
+
+
+def sync_sitemap():
+    try:
+        sys.path.insert(0, os.path.join(WEBSITE, 'tools'))
+        import generate_sitemap as gs
+        gs.main()
+        return True
+    except Exception as e:
+        print(f'[sitemap.xml] 生成失败: {e}')
+        return False
+
+
+def sync_llms_txt():
+    try:
+        sys.path.insert(0, os.path.join(WEBSITE, 'tools'))
+        import generate_llms_txt as gl
+        gl.main()
+        return True
+    except Exception as e:
+        print(f'[llms.txt] 生成失败: {e}')
+        return False
+
+
+def sync_news_collection_schema():
+    try:
+        sys.path.insert(0, os.path.join(WEBSITE, 'tools'))
+        # 使用 subprocess 避免 module 缓存的问题
+        import subprocess
+        script = os.path.join(WEBSITE, 'tools/inject_news_collection.py')
+        subprocess.run([sys.executable, script], check=False)
+        return True
+    except Exception as e:
+        print(f'[news.html CollectionPage] 注入失败: {e}')
+        return False
+
+
 def main():
     # 载入原始 API 数据（tmp_new_posts.json 由外部调度方准备）
     if NEW_ITEMS:
@@ -240,6 +309,19 @@ def main():
 
     # 5. banners.json
     sync_banners()
+
+    # 6. 静态化新公告 posts/{id}.html
+    new_ids = [item['id'] for item in NEW_ITEMS]
+    sync_static_post_pages(new_ids)
+
+    # 7. sitemap.xml（全量重生成，覆盖所有 URL）
+    sync_sitemap()
+
+    # 8. llms.txt（GEO 同步）
+    sync_llms_txt()
+
+    # 9. news.html CollectionPage/ItemList Schema 刷新（最新 20 条）
+    sync_news_collection_schema()
 
     print('\n[done] all sync tasks completed.')
 
