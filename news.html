@@ -130,6 +130,36 @@ ul { list-style: none; }
 .news-card-link:hover { transform: translateX(4px); }
 .news-card { cursor: default; }
 
+/* ========== BANNER CAROUSEL ========== */
+.banner-section { padding-top: var(--space-6); padding-bottom: var(--space-6); background: var(--surface-1); border-bottom: 1px solid var(--border-subtle); }
+.banner-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-6); }
+.banner-carousel { position: relative; width: 100%; aspect-ratio: 21 / 9; border-radius: var(--radius-lg); overflow: hidden; background: linear-gradient(135deg, #0a1628 0%, #1a2544 50%, #2a3a5c 100%); box-shadow: var(--shadow-lg); }
+.banner-track { display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
+.banner-track::-webkit-scrollbar { display: none; }
+.banner-slide { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; position: relative; height: 100%; display: block; text-decoration: none; color: inherit; overflow: hidden; }
+.banner-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--duration-slow) var(--ease-smooth); }
+.banner-slide:hover img { transform: scale(1.02); }
+.banner-slide-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--space-8) var(--space-6) var(--space-6); background: linear-gradient(to top, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.5) 60%, transparent 100%); color: #fff; font-size: 16px; font-weight: 600; letter-spacing: 0.01em; pointer-events: none; }
+.banner-slide-caption span { display: inline-block; padding: 4px 10px; background: rgba(212,175,55,0.15); color: var(--gold); border-radius: var(--radius-full); font-size: 12px; font-weight: 600; margin-right: var(--space-2); vertical-align: middle; }
+.banner-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(10,22,40,0.55); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--duration-fast); z-index: 3; }
+.banner-arrow:hover { background: var(--brand); border-color: var(--brand); }
+.banner-arrow.prev { left: var(--space-4); }
+.banner-arrow.next { right: var(--space-4); }
+.banner-arrow svg { width: 20px; height: 20px; }
+.banner-dots { position: absolute; left: 50%; bottom: var(--space-4); transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; padding: 6px 12px; background: rgba(10,22,40,0.35); border-radius: var(--radius-full); backdrop-filter: blur(6px); }
+.banner-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); border: 0; padding: 0; cursor: pointer; transition: all var(--duration-fast); }
+.banner-dot.active { width: 20px; border-radius: 4px; background: var(--gold); }
+.banner-empty { color: rgba(255,255,255,0.6); text-align: center; padding: var(--space-16); font-size: 14px; }
+@media (max-width: 900px) { .banner-carousel { aspect-ratio: 16 / 9; border-radius: var(--radius-md); } .banner-arrow { width: 36px; height: 36px; } .banner-slide-caption { font-size: 14px; padding: var(--space-6) var(--space-4) var(--space-4); } }
+@media (max-width: 600px) { .banner-carousel { aspect-ratio: 4 / 3; } .banner-arrow { display: none; } .banner-slide-caption span { display: none; } }
+
+/* ========== LOAD MORE ========== */
+.news-loadmore { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); margin-top: var(--space-8); }
+.news-loadmore-btn { padding: 12px 32px; background: var(--surface-0); color: var(--brand); border: 1.5px solid var(--brand); border-radius: var(--radius-full); font-size: 14px; font-weight: 600; cursor: pointer; transition: all var(--duration-normal) var(--ease-spring); }
+.news-loadmore-btn:hover { background: var(--brand); color: white; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(91,95,199,0.25); }
+.news-loadmore-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.news-loadmore-status { font-size: 13px; color: var(--text-tertiary); }
+
 
 /* ========== SIDEBAR ========== */
 .news-sidebar { }
@@ -235,7 +265,7 @@ ul { list-style: none; }
 <nav class="nav" id="mainNav" role="navigation" aria-label="主导航">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="亿数首页">
-      <img src="./images/yishu-logo-nav.png" alt="亿数Logo">
+      <img src="./images/yishu-logo-nav.png" alt="亿数Logo" fetchpriority="high" decoding="async">
       <span>亿数</span>
     </a>
     <div class="nav-links" id="navLinks" role="menubar">
@@ -264,6 +294,22 @@ ul { list-style: none; }
     </div>
   </div>
 </div>
+
+<!-- ========== BANNER CAROUSEL ========== -->
+<section class="banner-section" id="bannerSection" hidden aria-label="平台热点推荐">
+  <div class="banner-wrap">
+    <div class="banner-carousel" id="bannerCarousel">
+      <div class="banner-track" id="bannerTrack" role="region" aria-roledescription="carousel" aria-label="平台 Banner"></div>
+      <button type="button" class="banner-arrow prev" id="bannerPrev" aria-label="上一张">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button type="button" class="banner-arrow next" id="bannerNext" aria-label="下一张">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      <div class="banner-dots" id="bannerDots" role="tablist"></div>
+    </div>
+  </div>
+</section>
 
 <!-- ========== PAGE BANNER ========== -->
 <section class="page-banner">
@@ -387,7 +433,7 @@ ul { list-style: none; }
             <p class="news-card-desc">亿数平台于 2026 年 7 月 2 日 14:00 对《五路财神-利市仙官姚少司》寄售限价 1000 通宝积分、《五路财神-纳珍天尊曹宝》寄售限价 600 通宝积分、《五路财神-玄坛真君赵公明》寄售限价同步执行批量调整，以维护平台价格秩序。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
             <a class="news-card-link" href="post.html?id=760b5d9d-dd3f-4288-9df4-8cfb834edf70">阅读全文 →</a>
           </article>
-                    <article class="news-card">
+          <article class="news-card">
             <div class="news-card-meta">
               <span class="news-card-date">2026-07-01</span>
               <span class="news-card-tag purple">合规公告</span>
@@ -396,507 +442,17 @@ ul { list-style: none; }
             <p class="news-card-desc">亿数平台针对使用外挂工具、批量脚本刷取数据、恶意引流骚扰、虚假刷单、篡改程序参数等违规行为，正式发布规范平台使用秩序及违规账号处置通告。所有核实违规的账号将统一执行 24 小时临时封禁，解封后开启长期重点监控，切实维护全体用户的公平使用权益。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
             <a class="news-card-link" href="post.html?id=dfc5b3e2-57c7-44d7-a28f-6efe41aaacf0">阅读全文 →</a>
           </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」关于《赤髯龙》数字资产合成异常的说明及处理方案</h3>
-            <p class="news-card-desc">针对《赤髯龙》数字资产合成活动期间部分用户利用平台漏洞绕过"单 ID 限合成 1 次"规则的异常情况，亿数平台发布正式说明与处理方案：多消耗的合成材料将统一返还，被占用的合成名额于 2026 年 7 月 2 日 12:00-13:00 重新开放合成通道，切实保障活动公平性。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=6d1b7da8-cf24-4485-b517-953b1609dc84">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag green">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」邀新拓生态，集钥启新章｜平台专属邀新福利活动公告</h3>
-            <p class="news-card-desc">亿数平台正式上线"邀新拓生态，集钥启新章"专属邀新福利活动，活动周期 7 月 1 日 18:00 至 7 月 7 日 18:00。用户通过邀请全新用户完成实名认证、钱包开通及平台交易，可免费获取平台核心合成资产《亿数之钥》，解锁多款限定数字资产合成资格，共同深耕生态建设。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=81593ab1-d48b-4f51-bcc7-e2da6dd653a9">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《亿数嘉年华》寄售延期开放</h3>
-            <p class="news-card-desc">亿数平台发布《亿数嘉年华》数字资产寄售延期开放通知，具体开放时间与配套安排以平台官方公告为准，敬请广大用户关注平台最新动态。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=e6fd263b-ce85-4590-bde3-658849a64780">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《亿数·山海归序》限定数字资产合成活动公告</h3>
-            <p class="news-card-desc">亿数平台正式开启限定数字资产《亿数·山海归序》合成活动，合成材料为《通卷》×1 份，本次合成总量 1000 份，仅限参与"升维·山海归序｜通卷寄存达标三重福利"活动并成功获取合成资格的用户参与，以山海秘境为引解锁全新典藏权益资产。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=d2c9139b-a0cb-49dd-9ec1-445cd5ba5453">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《永受嘉福瓦当》限定数字资产合成活动公告</h3>
-            <p class="news-card-desc">亿数平台正式开启限定数字资产《永受嘉福瓦当》合成活动，合成材料组合为《龙虎瓦当》×1+《麒麟瓦当》×2+《卷卷猫-端午安康》×1，合成总量 1500 份，资格快照时间 7 月 1 日 18:00，合成时间 7 月 1 日 19:00-22:00，以古纹吉器承载祥瑞寓意焕新平台国风文创体系。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=b4e88980-cdb1-438d-94fd-eea41a9b2560">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《麒麟瓦当》数字资产限价调整公告</h3>
-            <p class="news-card-desc">亿数平台发布《麒麟瓦当》数字资产限价调整公告，自 2026 年 7 月 1 日 12:00 起寄售限价调整为 150 通宝积分，求购功能暂不开放，具体安排请关注平台后续公告，敬请广大用户知悉。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=f7181124-9e45-4cc0-9804-5d420962496b">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag green">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」邀3人！免费送飞行卡！邀越多送越多！</h3>
-            <p class="news-card-desc">亿数平台推出"邀 3 人免费送飞行卡"专属福利活动，用户成功邀请 3 位全新用户入驻即可免费领取飞行卡，邀请人数越多奖励越丰厚，助力用户在飞鱼引擎生态内快速积累权益。具体规则以平台官方公告为准。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=bc42dd23-5a57-4d76-9fc2-16c18872732c">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」亿数文娱飞鱼引擎正式上线</h3>
-            <p class="news-card-desc">亿数文娱飞鱼引擎正式上线，作为亿数生态核心运营引擎，将围绕数字资产合成、开放交易、生态拓展等场景为用户提供更高效的权益获取与流转体验。详细玩法规则与后续扩容节奏以平台官方公告为准。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=0d3a9a75-fb41-4a99-86e0-65e3a3d1dab8">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《山亭十二辰-松岩静鼠》数字资产开放交易</h3>
-            <p class="news-card-desc">亿数平台《山亭十二辰-松岩静鼠》数字资产将于 2026 年 6 月 30 日 18:30 开启寄售交易，求购功能暂不开放，敬请广大用户知悉。作为"山亭十二辰"系列限定作品，松岩静鼠延续了系列一贯的古典气韵与文创审美。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=e6d605ce-f60b-4fe4-952b-08fd40001383">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《青背龙》数字资产开放交易</h3>
-            <p class="news-card-desc">亿数平台《青背龙》数字资产将于 2026 年 6 月 30 日 18:00 开放寄售，寄售限价 100 通宝积分。青背龙为泾河龙王九子之一，身披翠鳞、云纹覆体，为西游泾河龙脉群龙之一，本次开放交易将进一步丰富用户数字资产权益。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=9ccdd910-a637-43eb-a11d-0250cc07d1fd">阅读全文 →</a>
-          </article>
-                    <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」关于前期亿数嘉年华赠送活动说明公告</h3>
-            <p class="news-card-desc">亿数平台就前期"亿数嘉年华"赠送活动相关问题发布正式说明公告，对参与规则、赠送对象范围、发放节奏及后续跟进方案进行统一澄清，回应用户核心关切。详细说明内容与后续处理时间表请以亿数平台官方公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=7fd0522a-cf59-48d5-a4b3-4cdeaf1536a8">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」早期购买大咖礼包福利已发放公告</h3>
-            <p class="news-card-desc">亿数平台"早期购买大咖礼包"专属福利已完成统一发放，符合条件的早期购买用户可登录亿数平台账户查看专属权益到账情况。本次福利延续亿数平台"回馈早期共建用户"的一贯原则，具体权益构成与查询方式请以亿数平台公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=6c230eba-c53f-40fc-92eb-2a13493a79ff">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」关于「亿数嘉年华大礼包」首发异常处理公告</h3>
-            <p class="news-card-desc">亿数平台就「亿数嘉年华大礼包」首发过程中出现的部分异常情况发布正式处理公告，对异常原因、影响范围、补偿方案与后续保障措施进行透明化说明。平台将严格按照公告方案落实用户补偿，全程接受用户监督。具体处理细则请以亿数平台官方公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=9ae8d75b-5660-42af-b959-c9add2b963e7">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《赤髯龙》数字资产合成活动公告</h3>
-            <p class="news-card-desc">亿数平台正式启动《赤髯龙》数字资产合成活动，作为"山海归序"系列龙脉叙事的重要新成员，赤髯龙以赤红髯羽为视觉核心，延续亿数生态龙族图谱的叙事脉络。用户可使用指定数字资产参与合成，获得限量版《赤髯龙》。具体合成材料、参与门槛与活动时间请登录亿数平台公告页查阅。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=2d0c7bf3-a69d-49d7-8a66-d2c0eb0dd546">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-07-01</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」关于飞鱼引擎扩容规则公告</h3>
-            <p class="news-card-desc">亿数平台正式发布飞鱼引擎扩容规则公告，对扩容触发条件、参与门槛、扩容比例、结算周期及配套权益进行系统化说明，进一步提升飞鱼引擎的稳定性与用户参与体验。具体扩容规则细节与生效时间请以亿数平台官方公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=970afdf9-97bc-46cc-bef3-b5bc990fb45a">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《青背龙》数字资产合成活动公告</h3>
-            <p class="news-card-desc">亿数平台正式开启《青背龙》数字资产合成活动，作为山海归序系列的新成员，《青背龙》以青背鳞翼为视觉核心，延续亿数生态龙脉叙事。用户可使用指定数字资产参与合成，获得限定版《青背龙》。具体合成材料、参与门槛与活动时间请登录亿数平台公告页查阅。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=17074417-7a3f-4d97-bf19-0e1e89cb8475">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《卷卷猫-惊蛰》数字资产开放交易</h3>
-            <p class="news-card-desc">「春启惊蛰」合成活动结束后，《卷卷猫-惊蛰》数字资产正式开放交易。持有用户即日起可在亿数平台寄售通道进行流转交易，具体限价规则与寄售机制以平台公告为准。该资产延续二十四节气IP叙事，是卷卷猫节气系列的限定版本。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=a0a2da6e-6c30-43bc-ad21-a5ef3f32e49b">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-30</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」辰启子鼠｜《山亭十二辰-松岩静鼠》数字资产合成活动公告</h3>
-            <p class="news-card-desc">亿数平台正式启动「辰启子鼠」主题合成活动，发布《山亭十二辰-松岩静鼠》数字资产。作为「山亭十二辰」生肖系列的开篇之作，松岩静鼠以中式古典意象为蓝本，传递辰序更替的文化寓意。用户可使用指定材料参与合成获得限定版本，活动规则与时间详情请登录亿数平台公告页查阅。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=4908d564-7ca7-428b-9363-0a83a78c7b99">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-29</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《小鼍（tuo）龙》数字资产开放交易</h3>
-            <p class="news-card-desc">亿数平台新品《小鼍（tuo）龙》数字资产正式开放交易，限量发行1万份，作为生态IP叙事的全新成员登场。该资产即日起可在平台交易市场流通，具体限价规则与寄售机制请用户登录亿数平台查阅。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=f4ec85dc-7331-49f3-a0fc-c4abaf1402f9">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-29</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」【升维・山海归序】通卷寄存活动时间延长公告</h3>
-            <p class="news-card-desc">为更好地服务用户，亿数平台决定将「升维・山海归序」通卷寄存达标三重福利活动的参与时间予以延长，给予更多用户充足时间完成寄存目标并解锁阶梯权益。具体延长截止时间与达标规则请以平台官方公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=9b4e0bda-9ce8-43f8-be21-36fd21c8c90e">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-29</span>
-              <span class="news-card-tag gold">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」亿象商城操作指引</h3>
-            <p class="news-card-desc">亿数平台正式发布《亿象商城操作指引》，面向新老用户系统讲解亿象综合生态商城的浏览、申购、兑换、寄存等核心功能使用流程。指引内容涵盖入口路径、操作步骤与常见问题答疑，帮助用户更高效地参与亿象生态消费。详细指引请登录亿数平台公告页查阅。</p>
-            <a class="news-card-link" href="post.html?id=fdc6cef9-993c-4484-b5f4-ca7b64190b27">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-28</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」亿数嘉年华大礼包火热登场</h3>
-            <p class="news-card-desc">亿数嘉年华大礼包正式火热登场，配合杭州开业盛典同步推出多重生态权益与专属福利。礼包整合通卷、数字资产、生态服务等多元权益，回馈长期支持用户。具体礼包内容与领取规则请登录亿数平台查看。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=44840ab8-b0ca-43ee-ba2f-aafada580ea2">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-28</span>
-              <span class="news-card-tag gold">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」亿数文娱数字身份礼包首发</h3>
-            <p class="news-card-desc">亿数文娱数字身份礼包正式首发上线，依托亿数生态打造的数字身份体系，为用户提供个性化数字资产组合与文娱权益。该礼包将进一步打通用户身份、内容、权益三大维度，构建完整文娱数字生态闭环。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=10a932ff-3e5b-424b-a4ec-0c5f56ea1284">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-28</span>
-              <span class="news-card-tag gold">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」亿象超级IP商城上线公告</h3>
-            <p class="news-card-desc">亿象超级IP商城正式上线，作为亿象综合生态的核心商业入口，汇聚优质IP数字资产、衍生周边与生态权益商品，为用户打造一站式IP消费体验。商城具体功能模块与上线商品详情请关注亿数平台动态。</p>
-            <a class="news-card-link" href="post.html?id=cef12303-4430-4e10-9f41-136792d210d5">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-28</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」春启惊蛰｜《卷卷猫-惊蛰》合成活动公告</h3>
-            <p class="news-card-desc">继春分主题后，亿数平台延续二十四节气IP叙事，正式开启"春启惊蛰"《卷卷猫-惊蛰》合成活动。用户可使用指定数字资产参与合成，获得限定版《卷卷猫-惊蛰》。具体合成规则与参与方式请关注平台公告。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=afd2c483-c421-4a9d-afe6-5c3b8fafd33e">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-28</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」数字资产寄售限价批量调整</h3>
-            <p class="news-card-desc">为维护市场秩序与用户权益，亿数平台对多款数字资产的寄售价格区间进行批量调整。调整后的限价规则即时生效，涉及资产范围与具体限价详情请用户登录平台查阅交易页面。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=1b3c3638-a378-4a6d-a4ee-44ba80118a20">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-27</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《卷卷猫-端午安康》数字资产开放交易</h3>
-            <p class="news-card-desc">亿数平台《卷卷猫-端午安康》端午限定数字资产正式开放交易。合成活动结束后，持有该数字资产的用户可在平台寄售通道进行流转交易。请用户关注平台交易规则与风险提示。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=efd91467-9b2a-4a9c-b916-827901514cbc">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-27</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」升维・山海归序｜通卷寄存达标三重福利活动公告</h3>
-            <p class="news-card-desc">亿数平台推出"升维・山海归序"通卷寄存达标三重福利活动，用户通过通卷寄存达成阶梯目标即可解锁专属权益。活动旨在回馈长期持有用户，进一步丰富生态权益体系，具体规则与福利详情请以平台公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=5a1d9e5a-ad2b-41f6-97c9-b34c7304d81d">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-27</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《麒麟瓦当》数字资产开放交易</h3>
-            <p class="news-card-desc">亿数平台《麒麟瓦当》数字资产正式开放交易，与早前发布的《龙虎瓦当》形成瓦当系列联动。持有该数字资产的用户可在平台寄售通道进行交易流转，请用户留意平台交易规则与风险提示。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=fbd8b2a8-5bd5-42bc-b28e-b5acad9bd185">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-27</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《五路财神-纳珍天尊曹宝》数字资产寄售限价调整</h3>
-            <p class="news-card-desc">为维护市场秩序与用户权益，亿数平台对《五路财神-纳珍天尊曹宝》数字资产的寄售价格区间进行调整。调整后的限价规则即时生效，请用户留意相关交易规则变化。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=d2ac792d-acb7-4653-8b8e-dd1323d3f174">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-27</span>
-              <span class="news-card-tag green">行业洞察</span>
-            </div>
-            <h3 class="news-card-title">「亿数」江西日报两篇文章同时点名"数字藏品"，这波操作释放了什么信号？</h3>
-            <p class="news-card-desc">江西日报近期两篇文章同时点名"数字藏品"，引发行业广泛关注。亿数平台第一时间解读这一政策风向，认为省级官方媒体的密集关注释放出对数字藏品行业的积极信号，预示着数字藏品在文化产业与文旅融合方向的发展机遇正在加速释放。</p>
-            <a class="news-card-link" href="post.html?id=local-news-jiangxi-daily">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-26</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」数字资产申购活动来袭！</h3>
-            <p class="news-card-desc">亿数平台开启全新数字资产申购活动，为用户提供优质数字文创资产的优选购买通道。活动期间精选IP数字资产限量上线，欢迎登录亿数平台了解详情并参与申购。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=b99c29bc-2d9c-43ff-959e-d8299703a45b">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-26</span>
-              <span class="news-card-tag gold">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」持仓享空投｜持有《龙虎瓦当》免费空投《麒麟瓦当》活动</h3>
-            <p class="news-card-desc">亿数生态空投福利活动正式启动，持有《龙虎瓦当》数字资产的用户将免费获得《麒麟瓦当》数字资产空投。生态联动权益持续升级，感谢用户的长期支持。具体规则请以平台公告为准。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=50b70d8d-4900-4935-ae04-d8e6548610ef">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-26</span>
-              <span class="news-card-tag green">行业洞察</span>
-            </div>
-            <h3 class="news-card-title">「亿数」重磅！浙江十部门联合发文，数字藏品迎来文旅融合新风口</h3>
-            <p class="news-card-desc">浙江省十部门联合发布数字文化产业相关政策文件，明确支持数字藏品与文旅产业深度融合发展，为行业带来政策利好与文旅融合新机遇。亿数作为AI驱动的数实融合生态平台，积极响应政策导向，持续推进数字藏品与文旅场景的有机结合。</p>
-            <a class="news-card-link" href="post.html?id=local-news-zhejiang-tourism">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-26</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」端午限定《卷卷猫-端午安康》数字资产上新公告</h3>
-            <p class="news-card-desc">亿数平台推出端午节日限定数字资产《卷卷猫-端午安康》，融合传统节日元素与卷卷猫IP创意设计，限量发行。活动具体上新时间与申购规则请关注平台公告。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=7a579ef2-d70f-4158-b2c8-0144e79bbc84">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-26</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《五路财神-玄坛真君赵公明》积分优先兑换时间延长公告</h3>
-            <p class="news-card-desc">为更好地服务用户，亿数平台决定将《五路财神-玄坛真君赵公明》数字资产的积分优先兑换时间予以延长，给用户充足时间参与兑换。具体延长时间与兑换规则请查阅平台官方公告。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。</p>
-            <a class="news-card-link" href="post.html?id=67db8c7e-0d0b-42f9-98f9-d12b6ac06ce5">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-25</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」平台订单异常情况说明公告</h3>
-            <p class="news-card-desc">近期平台部分订单出现异常情况，技术团队已完成排查并恢复正常处理。对于受影响的订单，平台将逐一核实并妥善处理，请受影响用户联系平台客服获取帮助。感谢您的理解与支持。</p>
-            <a class="news-card-link" href="post.html?id=82e194e4-297c-428c-9b65-3bdf6069625e">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-24</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」平台升级延期开服公告</h3>
-            <p class="news-card-desc">因系统升级工作需额外验证周期，原定开服时间延期。平台团队正全力以赴确保升级顺利完成，争取尽快恢复服务。给您带来的不便敬请谅解，感谢您的耐心等待与支持。</p>
-            <a class="news-card-link" href="post.html?id=2c7756de-eae0-49ac-96ea-c9d1c0e5b80a">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-23</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」平台系统升级停服维护公告</h3>
-            <p class="news-card-desc">亿数平台将于近期进行系统升级维护，届时部分服务将暂停使用。维护期间给您带来的不便敬请谅解，具体维护时间及恢复安排请关注平台后续通知。</p>
-            <a class="news-card-link" href="post.html?id=1c1be8f7-177d-4014-83a0-8212a95779e9">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-23</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《龙虎瓦当》数字资产寄售限价调整</h3>
-            <p class="news-card-desc">为维护市场秩序与用户权益，亿数平台对《龙虎瓦当》数字资产的寄售价格区间进行调整。调整后的限价规则即时生效，请用户留意相关交易规则变化。</p>
-            <a class="news-card-link" href="post.html?id=0c6392af-b3cb-45b1-b9dc-0001b94717b8">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-22</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」飞鱼引擎玩法规则</h3>
-            <p class="news-card-desc">亿数平台飞鱼引擎功能正式上线，全新玩法规则已公布。飞鱼引擎为用户提供智能化数字资产配置与分析服务，助力用户把握市场机遇。具体规则与功能说明请登录平台查看。</p>
-            <a class="news-card-link" href="post.html?id=4c93274d-4406-4fff-84e4-7a7de8133c60">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-20</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《卷卷猫-春分》数字资产开放交易</h3>
-            <p class="news-card-desc">亿数平台宣布《卷卷猫-春分》数字资产正式开放交易。合成活动结束后，持有该数字资产的用户可在平台寄售通道进行交易。请用户关注平台交易规则与风险提示。</p>
-            <a class="news-card-link" href="post.html?id=30993af3-87cd-44c7-805f-60bf3de98535">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-19</span>
-              <span class="news-card-tag purple">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」亿数大使招募计划启动</h3>
-            <p class="news-card-desc">亿数平台正式推出"亿数大使"招募计划，面向全国招募品牌推广大使。大使可享专属权益、佣金激励与生态资源支持，助力亿数品牌传播与生态拓展。详情请关注主平台招募页面。</p>
-            <a class="news-card-link" href="post.html?id=22013f81-3ccb-49fe-a40c-bd09d0e549b5">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-18</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《卷卷猫-春分》限定数字资产合成活动即将开启</h3>
-            <p class="news-card-desc">亿数平台即将开启《卷卷猫-春分》限定数字资产合成活动，用户可通过持有指定数字资产参与合成，获取限定版数字资产。活动详情请关注平台公告。</p>
-            <a class="news-card-link" href="post.html?id=04e11016-43ef-4d96-b945-942eb625b945">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-15</span>
-              <span class="news-card-tag gold">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」出发吧夏天1号销毁公告</h3>
-            <p class="news-card-desc">根据出发吧夏天生态运营规则，亿数平台对出发吧夏天1号进行销毁处理。销毁数量及交易哈希已在链上记录，确保流程透明可追溯。</p>
-            <a class="news-card-link" href="post.html?id=1682c32e-a571-433d-b1d2-00db5215e046">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-12</span>
-              <span class="news-card-tag purple">合规公告</span>
-            </div>
-            <h3 class="news-card-title">「亿数」《五路财神-利市仙官姚少司》数字资产寄售限价调整</h3>
-            <p class="news-card-desc">为维护市场秩序与用户权益，亿数平台对《五路财神-利市仙官姚少司》数字资产的寄售价格区间进行调整。调整后的限价规则即时生效，请用户留意。</p>
-            <a class="news-card-link" href="post.html?id=fedefe62-2406-4fda-bd3b-daeb9bf287e3">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-10</span>
-              <span class="news-card-tag gold">生态进展</span>
-            </div>
-            <h3 class="news-card-title">「亿数」出发吧夏天发售时间调整通知</h3>
-            <p class="news-card-desc">因运营策略优化，出发吧夏天相关数字资产发售时间进行调整。最新发售时间请以平台发售日历为准，请用户关注平台公告获取最新信息。</p>
-            <a class="news-card-link" href="post.html?id=13386c17-78d3-46d9-a4c7-7aa79641335c">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-08</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">「亿数」汇付支付通道预注册即将开启｜开通钱包享《亿数之钥》专属空投福利</h3>
-            <p class="news-card-desc">亿数平台汇付支付通道预注册即将开启，用户开通钱包即可获得《亿数之钥》专属空投福利。支持快捷支付与资金安全保障，提升用户交易体验。</p>
-            <a class="news-card-link" href="post.html?id=86c22aa8-69cc-48cc-a7cd-97c341913c80">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-08</span>
-              <span class="news-card-tag green">行业洞察</span>
-            </div>
-            <h3 class="news-card-title">亿数平台正式上线，抢抓文旅数藏发展新机遇</h3>
-            <p class="news-card-desc">亿数平台于6月2日正式上线，凭借成熟的运营体系与先进的技术理念，精准契合全国文旅数字化发展趋势，致力于搭建数字资产与文旅实体产业互通的桥梁。</p>
-            <a class="news-card-link" href="post.html?id=local-launch-2026-06-05">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-03</span>
-              <span class="news-card-tag green">行业洞察</span>
-            </div>
-            <h3 class="news-card-title">亿数平台携合规体系与AI服务上线启航</h3>
-            <p class="news-card-desc">亿数数字资产交易平台登台亮相，由国企战略资源加持、AI技术生态全面升级，致力于打造覆盖千行万业的数字化、智能化、全球化数字商业新生态。</p>
-            <a class="news-card-link" href="post.html?id=local-launch-2026-06-03">阅读全文 →</a>
-          </article>
-          
-          <article class="news-card">
-            <div class="news-card-meta">
-              <span class="news-card-date">2026-06-02</span>
-              <span class="news-card-tag blue">平台动态</span>
-            </div>
-            <h3 class="news-card-title">亿数平台正式上线，开启数实融合新篇章</h3>
-            <p class="news-card-desc">亿数平台正式上线，作为AI驱动的数实融合生态平台，为用户提供数字资产管理、品牌孵化、社区运营等全方位服务，标志着亿数进入发展新阶段。</p>
-            <a class="news-card-link" href="post.html?id=local-launch-2026-06-01">阅读全文 →</a>
-          </article>
-          
+          <!-- 剩余卡片由 JS 从 data/posts-cards.json 动态加载到此处之前 -->
         </div>
+        
+        <!-- 加载更多按钮 & 状态 -->
+        <div class="news-loadmore" id="newsLoadMoreWrap">
+          <button type="button" class="news-loadmore-btn" id="newsLoadMoreBtn">加载更多资讯</button>
+          <div class="news-loadmore-status" id="newsLoadMoreStatus" aria-live="polite"></div>
+        </div>
+        <noscript>
+          <p style="margin-top:16px;color:var(--text-secondary);font-size:14px;">您的浏览器已禁用 JavaScript，仅展示前 12 条最新资讯。请启用 JS 以查看更多内容，或直接前往 <a href="https://yishuzichan.cn" style="color:var(--brand)">亿数主平台</a>。</p>
+        </noscript>
       </div>
       
       <!-- Sidebar -->
@@ -1020,7 +576,7 @@ ul { list-style: none; }
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="./images/yishu-logo-nav.png" alt="亿数Logo" loading="lazy">
+        <img src="./images/yishu-logo-nav.png" alt="亿数Logo" loading="lazy" decoding="async">
         <span>亿数</span>
       </div>
       <div class="footer-copy">
@@ -1039,8 +595,8 @@ ul { list-style: none; }
 var nav = document.querySelector('.nav');
 window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
 
-var observer = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
-document.querySelectorAll('.news-card').forEach(function(el) { observer.observe(el); });
+var cardObserver = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); cardObserver.unobserve(e.target); } }); }, { threshold: 0.1 });
+document.querySelectorAll('.news-card').forEach(function(el) { cardObserver.observe(el); });
 
 var mobileBtn = document.getElementById('mobileMenuBtn');
 var navLinks = document.getElementById('navLinks');
@@ -1051,6 +607,204 @@ if (mobileBtn && navLinks) {
     navLinks.classList.toggle('show');
   });
 }
+
+/* ========== BANNER CAROUSEL ========== */
+(function() {
+  var section = document.getElementById('bannerSection');
+  var track = document.getElementById('bannerTrack');
+  var dotsWrap = document.getElementById('bannerDots');
+  var prevBtn = document.getElementById('bannerPrev');
+  var nextBtn = document.getElementById('bannerNext');
+  if (!section || !track) return;
+
+  function esc(s) { return String(s || '').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  fetch('data/banners.json', { cache: 'no-cache' })
+    .then(function(r) { if (!r.ok) throw new Error('banners status ' + r.status); return r.json(); })
+    .then(function(list) {
+      if (!Array.isArray(list) || list.length === 0) { section.hidden = true; return; }
+      renderBanner(list);
+    })
+    .catch(function(err) {
+      console.warn('[banner] load failed:', err);
+      section.hidden = true;
+    });
+
+  function renderBanner(list) {
+    section.hidden = false;
+    var slidesHTML = list.map(function(b, i) {
+      var isTag = b.link ? 'a' : 'div';
+      var attrs = '';
+      if (b.link) {
+        attrs = ' href="' + esc(b.link) + '"';
+        if (b.target === '_blank') attrs += ' target="_blank" rel="noopener noreferrer"';
+      }
+      var eager = (i === 0);
+      var imgAttrs = ' loading="' + (eager ? 'eager' : 'lazy') + '"'
+        + ' decoding="async"'
+        + ' referrerpolicy="no-referrer"'
+        + (eager ? ' fetchpriority="high"' : '');
+      var captionHTML = b.title ? ('<div class="banner-slide-caption"><span>#' + (i+1) + '</span>' + esc(b.title) + '</div>') : '';
+      return '<' + isTag + ' class="banner-slide"' + attrs + ' data-idx="' + i + '">'
+        + '<img src="' + esc(b.img) + '" alt="' + esc(b.title || 'Banner ' + (i+1)) + '"' + imgAttrs + '>'
+        + captionHTML
+        + '</' + isTag + '>';
+    }).join('');
+    track.innerHTML = slidesHTML;
+
+    var dotsHTML = list.map(function(_, i){ return '<button type="button" class="banner-dot' + (i===0?' active':'') + '" data-idx="' + i + '" role="tab" aria-label="第 ' + (i+1) + ' 张"></button>'; }).join('');
+    dotsWrap.innerHTML = dotsHTML;
+
+    var slides = track.querySelectorAll('.banner-slide');
+    var dots = dotsWrap.querySelectorAll('.banner-dot');
+    var current = 0;
+    var autoTimer = null;
+    var AUTO_MS = 5000;
+
+    function goto(i, smooth) {
+      if (slides.length === 0) return;
+      current = (i + slides.length) % slides.length;
+      var w = track.clientWidth;
+      track.scrollTo({ left: current * w, behavior: smooth === false ? 'auto' : 'smooth' });
+      dots.forEach(function(d, di){ d.classList.toggle('active', di === current); });
+    }
+    function next() { goto(current + 1); }
+    function prev() { goto(current - 1); }
+    function start() { stop(); autoTimer = setInterval(next, AUTO_MS); }
+    function stop() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+
+    prevBtn.addEventListener('click', function(){ prev(); start(); });
+    nextBtn.addEventListener('click', function(){ next(); start(); });
+    dots.forEach(function(d){ d.addEventListener('click', function(){ goto(parseInt(d.dataset.idx,10)); start(); }); });
+
+    // hover 暂停
+    var carousel = document.getElementById('bannerCarousel');
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    // 可见性变化暂停
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+
+    // 用户手动滑动同步 dots
+    var scrollDebounce = null;
+    track.addEventListener('scroll', function(){
+      if (scrollDebounce) clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(function(){
+        var w = track.clientWidth;
+        if (w === 0) return;
+        var idx = Math.round(track.scrollLeft / w);
+        if (idx !== current) {
+          current = idx;
+          dots.forEach(function(d, di){ d.classList.toggle('active', di === current); });
+        }
+      }, 100);
+    }, { passive: true });
+
+    // 图片加载失败：整个 section 保持可用，但该 slide 隐藏（不阻塞其他）
+    track.querySelectorAll('img').forEach(function(img){
+      img.addEventListener('error', function(){
+        var slide = img.closest('.banner-slide');
+        if (slide) slide.style.display = 'none';
+      });
+    });
+
+    // resize 时重新对齐
+    window.addEventListener('resize', function(){ goto(current, false); }, { passive: true });
+
+    start();
+  }
+})();
+
+/* ========== NEWS CARDS 分批加载 ========== */
+(function() {
+  var listEl = document.querySelector('.news-list');
+  var btn = document.getElementById('newsLoadMoreBtn');
+  var statusEl = document.getElementById('newsLoadMoreStatus');
+  var wrap = document.getElementById('newsLoadMoreWrap');
+  if (!listEl || !btn) return;
+
+  var PAGE_SIZE = 12;
+  var rest = null;         // 剩余待加载卡片数组（去掉前 12 张）
+  var cursor = 0;
+  var loading = false;
+
+  function esc(s) { return String(s || '').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  function renderCard(c) {
+    var art = document.createElement('article');
+    art.className = 'news-card';
+    art.innerHTML =
+      '<div class="news-card-meta">' +
+        '<span class="news-card-date">' + esc(c.date) + '</span>' +
+        '<span class="news-card-tag ' + esc(c.category) + '">' + esc(c.categoryName) + '</span>' +
+      '</div>' +
+      '<h3 class="news-card-title">' + esc(c.title) + '</h3>' +
+      '<p class="news-card-desc">' + esc(c.desc) + '</p>' +
+      '<a class="news-card-link" href="post.html?id=' + esc(c.id) + '">阅读全文 →</a>';
+    return art;
+  }
+
+  function appendBatch() {
+    if (!rest || loading) return;
+    loading = true;
+    btn.disabled = true;
+    statusEl.textContent = '';
+    var end = Math.min(cursor + PAGE_SIZE, rest.length);
+    // 用 DocumentFragment 减少 reflow
+    var frag = document.createDocumentFragment();
+    for (var i = cursor; i < end; i++) {
+      var art = renderCard(rest[i]);
+      frag.appendChild(art);
+      cardObserver.observe(art);
+    }
+    listEl.appendChild(frag);
+    cursor = end;
+    loading = false;
+    if (cursor >= rest.length) {
+      btn.style.display = 'none';
+      statusEl.textContent = '— 已加载全部 ' + (rest.length + PAGE_SIZE) + ' 条资讯 —';
+    } else {
+      btn.disabled = false;
+      btn.textContent = '加载更多资讯（还剩 ' + (rest.length - cursor) + ' 条）';
+    }
+  }
+
+  // 首屏已有的静态卡片 ids，用于去重
+  var seenIds = {};
+  listEl.querySelectorAll('.news-card-link').forEach(function(a){
+    var m = /\?id=([^&#]+)/.exec(a.getAttribute('href') || '');
+    if (m) seenIds[decodeURIComponent(m[1])] = true;
+  });
+
+  fetch('data/posts-cards.json', { cache: 'no-cache' })
+    .then(function(r) { if (!r.ok) throw new Error('cards status ' + r.status); return r.json(); })
+    .then(function(list) {
+      if (!Array.isArray(list) || list.length <= PAGE_SIZE) {
+        wrap.style.display = 'none';
+        return;
+      }
+      // 剔除 SSR 已渲染的 id
+      rest = list.filter(function(c) { return !seenIds[c.id]; });
+      if (rest.length === 0) { wrap.style.display = 'none'; return; }
+      btn.textContent = '加载更多资讯（还剩 ' + rest.length + ' 条）';
+    })
+    .catch(function(err){
+      console.warn('[news-cards] load failed:', err);
+      statusEl.textContent = '加载失败，请刷新页面重试';
+      btn.disabled = true;
+    });
+
+  btn.addEventListener('click', appendBatch);
+
+  // 触底自动加载（备选：滚动到底也触发一次）
+  var sentinelObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && rest && cursor < rest.length && !loading) {
+        appendBatch();
+      }
+    });
+  }, { rootMargin: '400px 0px' });
+  sentinelObserver.observe(btn);
+})();
 </script>
 
 </body>
