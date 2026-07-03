@@ -190,7 +190,7 @@ sed -i "s|meet.yishuzichan.cc|真实域名|g" assets/meeting.js room.html
 | 8 主页 nav "视频会议"入口 | 8/8 ✅ |
 | `sitemap.xml` 新增 meeting.html 条目 | ✅ |
 | `llms.txt` 新增"视频会议"章节 + 页面导航链接 | 3 处引用 ✅ |
-| 违规词检查（`国文汇通` / `江苏文交所` / `亿数ES`） | 全部 0 命中 ✅ |
+| 违规词检查（`国*汇通` / `江*文交所` / `亿数E*` 等敏感词） | 前端 3 文件全部 0 命中 ✅ |
 | `inject_meeting_nav.py` 幂等测试 | 二次执行 8/8 跳过 ✅ |
 
 ### 6.2 后端上线后的验证清单（待 claude 部署完执行）
