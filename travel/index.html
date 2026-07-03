@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>亿数平台专属出游福利 · 资格查询</title>
+<style>
+:root{
+  --bg:#050813;
+  --panel:rgba(15,20,45,.72);
+  --panel-border:rgba(120,140,220,.18);
+  --gold:#e8c56b;
+  --gold-2:#f5d98a;
+  --gold-deep:#c99d3d;
+  --gold-glow:rgba(232,197,107,.55);
+  --blue:#4a7cff;
+  --text:#e8ecff;
+  --text-2:#9aa3c7;
+  --text-3:#6a7299;
+  --danger:#ff7a99;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;min-height:100vh;overflow-x:hidden}
+body{
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(74,124,255,.18), transparent 60%),
+    radial-gradient(900px 700px at 90% 10%, rgba(232,197,107,.10), transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, rgba(120,80,255,.15), transparent 60%),
+    linear-gradient(180deg, #050813 0%, #070b1e 60%, #050813 100%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,255,255,.9), transparent),
+    radial-gradient(1px 1px at 34% 68%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 66% 33%, rgba(232,197,107,.9), transparent),
+    radial-gradient(1px 1px at 82% 78%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 22% 88%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 92% 42%, rgba(255,255,255,.8), transparent),
+    radial-gradient(1px 1px at 48% 12%, rgba(232,197,107,.7), transparent),
+    radial-gradient(1px 1px at 8% 55%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1.5px 1.5px at 74% 88%, rgba(255,255,255,.5), transparent),
+    radial-gradient(1px 1px at 55% 45%, rgba(232,197,107,.5), transparent);
+  animation:twinkle 5s ease-in-out infinite alternate;
+}
+@keyframes twinkle{0%{opacity:.4}100%{opacity:1}}
+
+.wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:32px 20px 48px}
+
+/* 顶部品牌 */
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:26px;opacity:0;transform:translateY(-10px);animation:fadeDown .6s .05s ease forwards}
+.brand-mark{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,#1a2455 0%,#0a1030 100%);
+  border:1px solid rgba(232,197,107,.35);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(74,124,255,.25),inset 0 0 20px rgba(232,197,107,.10);
+}
+.brand-mark svg{width:22px;height:22px}
+.brand-txt .t1{font-size:15px;font-weight:600;letter-spacing:1px;color:var(--gold-2)}
+.brand-txt .t2{font-size:11px;color:var(--text-3);letter-spacing:2px;margin-top:2px}
+
+/* 头部 */
+.hero{
+  position:relative;padding:34px 26px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(20,28,68,.9) 0%,rgba(10,15,40,.88) 100%);
+  border:1px solid var(--panel-border);
+  box-shadow:0 20px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04);
+  overflow:hidden;margin-bottom:18px;
+  opacity:0;transform:translateY(14px);animation:fadeUp .7s .15s ease forwards;
+}
+.hero::before{
+  content:"";position:absolute;top:-40%;right:-20%;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(232,197,107,.20),transparent 60%);
+  filter:blur(20px);pointer-events:none;animation:breathe 6s ease-in-out infinite;
+}
+.hero::after{
+  content:"";position:absolute;bottom:-30%;left:-10%;width:360px;height:360px;
+  background:radial-gradient(circle,rgba(74,124,255,.22),transparent 60%);
+  filter:blur(20px);pointer-events:none;animation:breathe 7s ease-in-out infinite reverse;
+}
+@keyframes breathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.tag{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 12px;border-radius:999px;
+  background:rgba(232,197,107,.10);border:1px solid rgba(232,197,107,.30);
+  color:var(--gold-2);font-size:12px;letter-spacing:1px;margin-bottom:14px;position:relative;
+}
+.tag .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold-glow);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 6px var(--gold-glow);transform:scale(1)}50%{box-shadow:0 0 14px var(--gold-glow);transform:scale(1.25)}}
+.hero h1{
+  font-size:26px;font-weight:800;letter-spacing:1.5px;line-height:1.4;
+  background:linear-gradient(90deg,#fff 0%,var(--gold-2) 60%,#fff 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:12px;position:relative;
+  animation:shine 4s linear infinite;
+}
+@keyframes shine{0%{background-position:0% center}100%{background-position:200% center}}
+.hero p{color:var(--text-2);font-size:14px;line-height:1.75;position:relative}
+.hero p b{color:var(--gold-2);font-weight:600}
+
+/* 查询 */
+.query{
+  padding:22px;border-radius:18px;
+  background:var(--panel);border:1px solid var(--panel-border);
+  backdrop-filter:blur(10px);position:relative;
+  opacity:0;transform:translateY(14px);animation:fadeUp .7s .3s ease forwards;
+}
+.query .label{font-size:12px;color:var(--text-3);letter-spacing:2px;margin-bottom:12px}
+.q-row{display:flex;gap:12px;align-items:stretch}
+.q-input{
+  flex:1;position:relative;
+  background:linear-gradient(180deg,rgba(10,15,40,.9),rgba(15,20,50,.9));
+  border:1px solid rgba(120,140,220,.28);border-radius:12px;
+  display:flex;align-items:center;padding:0 16px;
+  transition:all .25s ease;
+}
+.q-input:focus-within{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(232,197,107,.15),inset 0 0 30px rgba(232,197,107,.06);
+}
+.q-input.shake{animation:shake .5s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.q-input svg{width:18px;height:18px;color:var(--text-3);flex-shrink:0;margin-right:10px}
+.q-input input{
+  flex:1;background:transparent;border:none;outline:none;color:var(--text);
+  font-size:16px;padding:14px 0;letter-spacing:1px;font-family:inherit;
+}
+.q-input input::placeholder{color:var(--text-3)}
+.q-btn{
+  padding:0 26px;border:none;cursor:pointer;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-2) 50%,var(--gold) 100%);
+  color:#3a2a05;font-size:15px;font-weight:700;letter-spacing:2px;
+  border-radius:12px;transition:all .25s ease;font-family:inherit;
+  box-shadow:0 6px 20px rgba(232,197,107,.28),inset 0 1px 0 rgba(255,255,255,.4);
+  white-space:nowrap;
+}
+.q-btn::before{
+  content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  transition:left .6s ease;
+}
+.q-btn:hover::before{left:120%}
+.q-btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(232,197,107,.45)}
+.q-btn:active{transform:translateY(0)}
+.q-btn.loading{pointer-events:none;color:transparent}
+.q-btn.loading::after{
+  content:"";position:absolute;top:50%;left:50%;width:18px;height:18px;
+  margin:-9px 0 0 -9px;border:2px solid rgba(58,42,5,.3);border-top-color:#3a2a05;
+  border-radius:50%;animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.q-tips{margin-top:12px;font-size:12px;color:var(--text-3);display:flex;gap:16px;flex-wrap:wrap}
+.q-tips span::before{content:"·";color:var(--gold);margin-right:6px}
+
+/* 空状态提示 */
+.empty{
+  margin-top:20px;padding:36px 20px;text-align:center;color:var(--text-3);
+  border-radius:20px;background:var(--panel);border:1px dashed rgba(120,140,220,.15);
+  opacity:0;transform:translateY(14px);animation:fadeUp .7s .45s ease forwards;
+}
+.empty svg{width:44px;height:44px;color:var(--text-3);opacity:.4;margin-bottom:10px}
+.empty p{font-size:13px;line-height:1.75}
+
+/* ============= 达标证书卡 ============= */
+.result{margin-top:20px;display:none;position:relative}
+.result.show{display:block}
+
+/* 金色粒子雨 */
+.particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:24px;z-index:2}
+.particle{position:absolute;width:8px;height:8px;background:var(--gold);border-radius:50%;
+  box-shadow:0 0 12px var(--gold);opacity:0;top:-20px;
+  animation:fall 2.4s ease-in forwards;
+}
+@keyframes fall{
+  0%{opacity:0;transform:translateY(0) rotate(0)}
+  10%{opacity:1}
+  100%{opacity:0;transform:translateY(680px) rotate(720deg)}
+}
+
+.certificate{
+  position:relative;padding:34px 26px 30px;border-radius:24px;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(232,197,107,.22), transparent 55%),
+    linear-gradient(160deg,rgba(35,30,80,.95) 0%,rgba(20,25,60,.95) 50%,rgba(15,20,50,.95) 100%);
+  border:1px solid rgba(232,197,107,.4);
+  box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(232,197,107,.15),inset 0 1px 0 rgba(255,255,255,.05);
+  animation:cardIn .8s cubic-bezier(.2,.9,.3,1.2);
+}
+@keyframes cardIn{
+  0%{opacity:0;transform:translateY(30px) scale(.94)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.certificate::before{
+  content:"";position:absolute;inset:8px;border-radius:18px;
+  border:1px dashed rgba(232,197,107,.28);pointer-events:none;
+}
+/* 边角装饰 */
+.corner{position:absolute;width:28px;height:28px;pointer-events:none}
+.corner.tl{top:14px;left:14px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.corner.tr{top:14px;right:14px;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
+.corner.bl{bottom:14px;left:14px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
+.corner.br{bottom:14px;right:14px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+
+.crown{
+  text-align:center;margin-top:8px;margin-bottom:16px;
+  animation:crownIn 1s .2s cubic-bezier(.2,.9,.3,1.4) both;
+}
+@keyframes crownIn{0%{opacity:0;transform:translateY(-10px) rotate(-15deg)}100%{opacity:1;transform:translateY(0) rotate(0)}}
+
+.badge{
+  width:96px;height:96px;margin:0 auto 18px;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 30% 30%,#fff5d9 0%,var(--gold-2) 30%,var(--gold) 55%,var(--gold-deep) 100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 15px 40px rgba(232,197,107,.45),inset 0 -4px 12px rgba(0,0,0,.15),inset 0 3px 8px rgba(255,255,255,.5);
+  animation:badgePop 1s .3s cubic-bezier(.2,.8,.3,1.5) both;
+}
+@keyframes badgePop{
+  0%{opacity:0;transform:scale(0) rotate(-180deg)}
+  60%{transform:scale(1.15) rotate(10deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+.badge::before{
+  content:"";position:absolute;inset:-14px;border-radius:50%;
+  border:2px solid var(--gold);opacity:.5;
+  animation:ring 2s ease-out infinite;
+}
+.badge::after{
+  content:"";position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid var(--gold);opacity:.4;
+  animation:ring 2s .5s ease-out infinite;
+}
+@keyframes ring{0%{transform:scale(.85);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+.badge svg{width:46px;height:46px;color:#3a2a05;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2));position:relative;z-index:1}
+
+.cert-tag{
+  text-align:center;font-size:11px;letter-spacing:6px;color:var(--gold);margin-bottom:10px;
+  opacity:0;animation:fadeIn .6s .6s ease forwards;
+}
+.cert-title{
+  text-align:center;font-size:32px;font-weight:900;letter-spacing:6px;
+  background:linear-gradient(180deg,#fff8e0 0%,var(--gold-2) 50%,var(--gold-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:14px;
+  text-shadow:0 2px 20px rgba(232,197,107,.3);
+  opacity:0;animation:fadeIn .7s .7s ease forwards;
+}
+.cert-sub{
+  text-align:center;font-size:13px;color:var(--text-2);line-height:1.85;margin-bottom:22px;
+  opacity:0;animation:fadeIn .7s .85s ease forwards;
+}
+.cert-sub b{color:var(--gold-2)}
+
+.info-line{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;margin-bottom:10px;border-radius:12px;
+  background:rgba(10,15,35,.55);border:1px solid rgba(232,197,107,.15);
+  opacity:0;animation:fadeIn .6s 1s ease forwards;
+}
+.info-line .k{font-size:12px;color:var(--text-3);letter-spacing:2px}
+.info-line .v{font-size:14px;color:var(--gold-2);font-weight:600;letter-spacing:1.5px;font-variant-numeric:tabular-nums}
+
+.divider{
+  height:1px;margin:20px 0;position:relative;
+  background:linear-gradient(90deg,transparent,rgba(232,197,107,.3),transparent);
+  opacity:0;animation:fadeIn .6s 1.1s ease forwards;
+}
+.divider::before{
+  content:"✦";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:linear-gradient(160deg,rgba(35,30,80,.95),rgba(20,25,60,.95));
+  padding:0 12px;color:var(--gold);font-size:12px;
+}
+
+/* 领奖 */
+.claim{
+  margin-top:18px;padding:26px 22px;border-radius:22px;
+  background:linear-gradient(135deg,rgba(45,30,80,.9) 0%,rgba(20,15,45,.9) 100%);
+  border:1px solid rgba(232,197,107,.3);
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp .8s 1.2s ease forwards;
+}
+.claim::before{
+  content:"";position:absolute;top:-30%;right:-20%;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(232,197,107,.18),transparent 60%);
+  pointer-events:none;
+}
+.claim-head{text-align:center;margin-bottom:18px;position:relative}
+.claim-head .t1{font-size:11px;color:var(--gold);letter-spacing:5px;margin-bottom:8px}
+.claim-head .t2{
+  font-size:22px;font-weight:800;color:#fff;letter-spacing:2px;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.claim-head .t2 svg{width:22px;height:22px;color:var(--gold);animation:wave 2s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.claim-head .t3{font-size:13px;color:var(--text-2);line-height:1.75}
+.claim-head .t3 b{color:var(--gold-2)}
+
+.qr-box{
+  display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;
+  padding:22px 20px 18px;border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px dashed rgba(232,197,107,.35);
+}
+.qr-img{
+  width:200px;height:200px;background:#fff;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 0 6px rgba(232,197,107,.10);position:relative;overflow:hidden;
+  transition:transform .3s ease;
+}
+.qr-img:hover{transform:scale(1.03)}
+.qr-img img{width:100%;height:100%;object-fit:contain;display:block}
+.qr-placeholder{text-align:center;color:#666;font-size:12px;padding:20px;line-height:1.6}
+.qr-placeholder svg{width:60px;height:60px;color:#aaa;margin-bottom:8px}
+.qr-name{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--gold-2);letter-spacing:1.5px;font-weight:600;
+}
+.qr-name svg{width:16px;height:16px}
+.qr-name em{font-style:normal;color:var(--text-3);font-weight:400;font-size:12px;letter-spacing:1px}
+
+.wx-copy{
+  display:flex;align-items:center;gap:0;
+  background:rgba(10,15,35,.6);border:1px solid rgba(232,197,107,.3);border-radius:999px;
+  padding:0 4px 0 14px;overflow:hidden;
+}
+.wx-copy .num{font-size:14px;color:var(--gold-2);letter-spacing:2px;font-variant-numeric:tabular-nums;padding:8px 8px 8px 0}
+.copy-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:999px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#3a2a05;font-size:12px;font-weight:600;letter-spacing:1px;
+  font-family:inherit;transition:all .2s;
+}
+.copy-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(232,197,107,.4)}
+.copy-btn.ok{background:linear-gradient(135deg,#7ce7c4,#5cc9a1);color:#0a2a1f}
+.copy-btn svg{width:12px;height:12px}
+
+.qr-tip{
+  font-size:12px;color:var(--text-3);text-align:center;line-height:1.7;margin-top:2px;
+  padding:10px 14px;background:rgba(232,197,107,.06);border-radius:10px;
+  border:1px solid rgba(232,197,107,.15);width:100%;
+}
+.qr-tip b{color:var(--gold-2)}
+
+.notice{
+  margin-top:14px;padding:14px 16px;border-radius:12px;
+  background:rgba(255,180,80,.06);border:1px solid rgba(255,180,80,.2);
+  font-size:12px;color:#f5c980;line-height:1.7;display:flex;gap:10px;align-items:flex-start;
+}
+.notice svg{width:16px;height:16px;flex-shrink:0;margin-top:2px}
+
+/* 未达标 */
+.miss{
+  margin-top:20px;padding:40px 26px;border-radius:22px;text-align:center;
+  background:linear-gradient(135deg,rgba(50,25,55,.75) 0%,rgba(20,15,40,.75) 100%);
+  border:1px solid rgba(255,122,153,.25);
+  display:none;position:relative;overflow:hidden;
+}
+.miss.show{display:block;animation:cardIn .7s cubic-bezier(.2,.9,.3,1.2)}
+.miss::before{
+  content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:400px;height:400px;
+  background:radial-gradient(circle,rgba(255,122,153,.12),transparent 60%);pointer-events:none;
+}
+.miss-icon{
+  width:72px;height:72px;border-radius:50%;margin:0 auto 18px;position:relative;
+  background:radial-gradient(circle at 30% 30%,rgba(255,180,200,.3),rgba(255,122,153,.15));
+  border:1px solid rgba(255,122,153,.35);
+  display:flex;align-items:center;justify-content:center;
+  animation:missWobble 3s ease-in-out infinite;
+}
+@keyframes missWobble{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.miss-icon svg{width:34px;height:34px;color:var(--danger)}
+.miss h3{font-size:22px;color:#fff;letter-spacing:2px;margin-bottom:12px;font-weight:700}
+.miss p{color:var(--text-2);font-size:14px;line-height:1.8;position:relative}
+.miss p b{color:var(--gold-2);letter-spacing:1px}
+.miss .encourage{
+  display:inline-block;margin-top:16px;padding:8px 18px;border-radius:999px;
+  background:rgba(232,197,107,.1);border:1px solid rgba(232,197,107,.3);
+  color:var(--gold-2);font-size:12px;letter-spacing:2px;
+}
+
+/* 底部 */
+.foot{margin-top:32px;text-align:center;color:var(--text-3);font-size:11px;letter-spacing:1px;line-height:1.9;opacity:0;animation:fadeIn 1s 1.5s ease forwards}
+.foot span{color:var(--gold);opacity:.8}
+
+/* 通用动画 */
+@keyframes fadeIn{to{opacity:1}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{to{opacity:1;transform:translateY(0)}}
+
+/* 响应式 */
+@media (max-width: 600px){
+  .wrap{padding:20px 14px 32px}
+  .hero{padding:26px 22px}
+  .hero h1{font-size:22px;letter-spacing:1px}
+  .q-row{flex-direction:column}
+  .q-btn{padding:14px 24px}
+  .certificate{padding:30px 20px 26px}
+  .cert-title{font-size:26px;letter-spacing:4px}
+  .badge{width:84px;height:84px}
+  .badge svg{width:40px;height:40px}
+  .qr-img{width:180px;height:180px}
+  .miss{padding:32px 22px}
+}
+
+/* 官方信函 */
+.letter{margin-top:4px;opacity:0;animation:fadeIn .8s 1.05s ease forwards;position:relative}
+.letter p{
+  font-size:13.5px;color:var(--text);line-height:1.9;margin-bottom:12px;
+  text-align:justify;text-indent:2em;letter-spacing:.3px;
+}
+.letter p.salute{text-indent:0;color:var(--gold-2);font-weight:600;font-size:14px;margin-bottom:14px;letter-spacing:1px}
+.letter p.ask{text-indent:0;text-align:center;color:var(--gold-2);font-weight:600;margin-top:16px;margin-bottom:0;letter-spacing:1px;font-size:14px}
+.letter p b{color:var(--gold-2);font-weight:600}
+.letter p b.hl{
+  color:var(--gold);font-weight:700;
+  background:linear-gradient(180deg,transparent 62%,rgba(232,197,107,.22) 62%,rgba(232,197,107,.22) 92%,transparent 92%);
+  padding:0 3px;
+}
+.notice.tip{background:rgba(74,124,255,.06);border-color:rgba(74,124,255,.25);color:#a9c1ff}
+.notice.tip b{color:#fff;font-weight:600}
+.notice.tip b.hl{color:var(--gold-2);font-weight:700}
+.notice.tip svg{color:var(--gold-2)}
+.thanks{
+  margin-top:18px;padding:14px;text-align:center;font-size:13px;
+  color:var(--text-2);letter-spacing:1px;line-height:1.8;
+  border-top:1px dashed rgba(232,197,107,.2);
+}
+.thanks b{color:var(--gold-2);font-weight:600}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#e8c56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2 L20 7 L20 17 L12 22 L4 17 L4 7 Z"/>
+        <path d="M12 6 L12 18 M6 9 L18 15 M6 15 L18 9" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="brand-txt">
+      <div class="t1">亿数平台</div>
+      <div class="t2">EXCLUSIVE · TRAVEL · BENEFIT</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="tag"><span class="dot"></span>本期考核周期已截止 · 名单已锁定</div>
+    <h1>亿数平台专属<br>免费出游福利资格查询</h1>
+    <p>本次<b>平台专属免费出游福利</b>考核周期已全部截止。<br>请输入注册手机号一键核验你是否已获得<b>专属出行资格</b>。</p>
+  </div>
+
+  <div class="query">
+    <div class="label">🔍 请输入手机号进行查询</div>
+    <div class="q-row">
+      <div class="q-input" id="qInput">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="3"/>
+          <circle cx="12" cy="18" r="0.5" fill="currentColor"/>
+        </svg>
+        <input id="phone" type="tel" inputmode="numeric" maxlength="11" placeholder="请输入 11 位手机号">
+      </div>
+      <button class="q-btn" id="btn">立 即 查 询</button>
+    </div>
+    <div class="q-tips">
+      <span>需输入完整 11 位号码</span>
+      <span>按回车键也可查询</span>
+    </div>
+  </div>
+
+  <div class="empty" id="empty">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <p>等你输入手机号<br>系统会立即为你核验达标资格</p>
+  </div>
+
+  <div class="result" id="result">
+    <div class="particles" id="particles"></div>
+    <div class="certificate">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <div class="cert-tag">O F F I C I A L · N O T I C E</div>
+      <div class="cert-title">恭 喜 达 标</div>
+      <div class="cert-sub">
+        亿数平台专属免费出游福利<br><b>资格核验通过</b>
+      </div>
+
+      <div class="info-line">
+        <span class="k">📱 手机号</span>
+        <span class="v" id="okPhone">-</span>
+      </div>
+      <div class="info-line">
+        <span class="k">🎫 资格状态</span>
+        <span class="v">已通过考核 · 待对接出行</span>
+      </div>
+      <div class="info-line">
+        <span class="k">🗓 核验时间</span>
+        <span class="v" id="okTime">-</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="letter">
+        <p class="salute">尊敬的亿数平台用户：</p>
+        <p>您好！本次<b>平台专属免费出游福利</b>考核周期已全部截止，经系统资质核验，恭喜您顺利通过活动考核，<b class="hl">成功获得亿数平台专属免费旅游出行资格！</b></p>
+        <p>本次旅游福利为平台回馈各位忠实用户的<b>专属权益</b>，后续出行行程、线路选择、出行时间、配套服务等全部相关事宜，均由<b>专属旅游服务专员或陪同专员</b>协助办理。</p>
+        <p class="ask">请您及时添加旅游服务专员对接相关手续 ↓</p>
+      </div>
+    </div>
+
+    <div class="claim">
+      <div class="claim-head">
+        <div class="t1">出 行 对 接 通 道</div>
+        <div class="t2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          旅游服务专员【东东】
+        </div>
+        <div class="t3">
+          您可通过下方任一方式添加东东微信<br>专员将为您对接全部<b>出行手续与配套服务</b>
+        </div>
+      </div>
+      <div class="qr-box">
+        <div class="qr-img" id="qrImg">
+          <div class="qr-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+              <path d="M14 14h3v3h-3zM19 14h2M14 19h3v2h-3zM19 19h2v2h-2z"/>
+            </svg>
+            <div>东东专属二维码<br>（图片补上后自动显示）</div>
+          </div>
+        </div>
+        <div class="qr-name">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 11.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM12 2C6.5 2 2 5.6 2 10.1c0 2.5 1.5 4.8 3.9 6.2L5 20l3.5-1.9c1.1.3 2.3.5 3.5.5 5.5 0 10-3.6 10-8.1S17.5 2 12 2z"/></svg>
+          东东<em>· 旅游服务专员</em>
+        </div>
+        <div class="wx-copy">
+          <span class="num">wangdong39141319</span>
+          <button class="copy-btn" id="copyBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>
+            </svg>
+            复制微信号
+          </button>
+        </div>
+      </div>
+
+      <div class="notice tip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v6M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM8 12l3 3 5-6"/>
+        </svg>
+        <div><b>温馨提示：</b>请您在对接时<b class="hl">备注您的亿数平台账号</b>，方便专员快速核对您的达标信息，高效完成出行相关安排。如有任何权益相关疑问，也可同步咨询专员。</div>
+      </div>
+
+      <div class="thanks">
+        感谢您长期以来对<b>亿数平台</b>的信任与支持 ❤
+      </div>
+    </div>
+  </div>
+
+  <div class="miss" id="miss">
+    <div class="miss-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/>
+        <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+    </div>
+    <h3>暂未获得出行资格</h3>
+    <p>经系统核验，手机号 <b id="missPhone">-</b><br>暂未通过本期活动考核，未获得专属出游资格。<br>感谢您对亿数平台的支持，敬请期待下期活动 🌟</p>
+    <div class="encourage">— 感谢参与 · 期待下期再见 —</div>
+  </div>
+
+  <div class="foot">
+    <div>© 亿数平台 · 专属出游福利 · 本期名单以系统核验为准</div>
+    <div><span>· </span>本活动最终解释权归主办方所有<span> ·</span></div>
+  </div>
+
+</div>
+
+<script>
+const DATA = [{"seq": 1, "phone": "18061296717", "small_amount": 7711083.24, "big_amount": 9801390.59, "small_count": 49882, "big_count": 63539, "team_total": 23047, "direct_sub": 2, "invite_id": "f2c1b2f5-8a89-4cb2-9838-4b7e620b011f"}, {"seq": 2, "phone": "15811864193", "small_amount": 6461953.83, "big_amount": 17512473.83, "small_count": 41941, "big_count": 113421, "team_total": 39102, "direct_sub": 3, "invite_id": "ebac6b8a-f248-49b9-a1a6-0dd0efbef47b"}, {"seq": 3, "phone": "18820254531", "small_amount": 4344348.28, "big_amount": 3297049.73, "small_count": 28216, "big_count": 21218, "team_total": 8912, "direct_sub": 11, "invite_id": "86238472-03bc-4cb9-ae75-8a3181c0c6da"}, {"seq": 4, "phone": "18670386877", "small_amount": 2913907.19, "big_amount": 2143703.22, "small_count": 18866, "big_count": 13939, "team_total": 4741, "direct_sub": 6, "invite_id": "e7ab90d9-6fb0-4215-97fe-dc4e4468f8fc"}, {"seq": 5, "phone": "13715342008", "small_amount": 2340625.59, "big_amount": 7415488.48, "small_count": 15268, "big_count": 47964, "team_total": 14133, "direct_sub": 74, "invite_id": "fe9f4992-b8a6-4b60-b958-05e361e3f843"}, {"seq": 6, "phone": "13078567713", "small_amount": 2307286.38, "big_amount": 5073995.99, "small_count": 14836, "big_count": 32907, "team_total": 6511, "direct_sub": 2, "invite_id": "c181e1e6-04f2-4720-b0e8-614f695e034c"}, {"seq": 7, "phone": "19879411949", "small_amount": 1723373.41, "big_amount": 1532266.9, "small_count": 11072, "big_count": 9895, "team_total": 2410, "direct_sub": 63, "invite_id": "ba448bb0-2085-4d8f-98e6-60d001ede498"}, {"seq": 8, "phone": "15388264485", "small_amount": 1529436.62, "big_amount": 4181804.68, "small_count": 9966, "big_count": 27022, "team_total": 14866, "direct_sub": 17, "invite_id": "a9b02a76-a01c-45dd-bab6-e80f95abae22"}, {"seq": 9, "phone": "18401701777", "small_amount": 1095248.9, "big_amount": 1185529.75, "small_count": 6940, "big_count": 7729, "team_total": 1667, "direct_sub": 46, "invite_id": "88077d24-396e-43a9-a0be-a3f66aa73387"}, {"seq": 10, "phone": "13594119449", "small_amount": 1016801.0, "big_amount": 1046316.71, "small_count": 6582, "big_count": 6884, "team_total": 4205, "direct_sub": 7, "invite_id": "bc53dc8e-61a5-4606-81ac-7c8d66941336"}, {"seq": 11, "phone": "13728625652", "small_amount": 951297.24, "big_amount": 1390655.89, "small_count": 5999, "big_count": 9192, "team_total": 1934, "direct_sub": 16, "invite_id": "6850f9f7-05dd-4ffe-a91c-fb3774d52a4c"}, {"seq": 12, "phone": "13193146687", "small_amount": 912896.8, "big_amount": 3081679.65, "small_count": 5867, "big_count": 19987, "team_total": 8488, "direct_sub": 7, "invite_id": "c0aa5014-4c33-4dbf-af98-d66d4feea245"}, {"seq": 13, "phone": "17610149931", "small_amount": 678771.65, "big_amount": 506438.12, "small_count": 4488, "big_count": 3239, "team_total": 538, "direct_sub": 24, "invite_id": "537087c5-e829-4bbe-a2c7-5131dfa2ef65"}, {"seq": 14, "phone": "18229903918", "small_amount": 667704.62, "big_amount": 512316.17, "small_count": 4282, "big_count": 3406, "team_total": 1165, "direct_sub": 21, "invite_id": "e944e3c0-e236-4f71-9c6b-134c16eb2a2f"}, {"seq": 15, "phone": "13122436826", "small_amount": 641915.4, "big_amount": 695612.28, "small_count": 4161, "big_count": 4475, "team_total": 1034, "direct_sub": 6, "invite_id": "b9715249-c1cf-4ac0-b3b2-50be83be965f"}, {"seq": 16, "phone": "13566742314", "small_amount": 638547.22, "big_amount": 787608.88, "small_count": 4159, "big_count": 5065, "team_total": 523, "direct_sub": 3, "invite_id": "d767b67f-d86b-408a-b1f2-b5c3b6cec5c4"}, {"seq": 17, "phone": "13397419157", "small_amount": 598431.2, "big_amount": 869232.69, "small_count": 3905, "big_count": 5659, "team_total": 885, "direct_sub": 6, "invite_id": "73c1849a-5bed-4bcf-9022-a1d0057b2346"}, {"seq": 18, "phone": "13521993918", "small_amount": 459553.83, "big_amount": 339154.52, "small_count": 2852, "big_count": 2196, "team_total": 389, "direct_sub": 77, "invite_id": "d82e0024-654b-413f-b82e-79ba0f2adf24"}, {"seq": 19, "phone": "18952496868", "small_amount": 454979.44, "big_amount": 884114.28, "small_count": 2920, "big_count": 5894, "team_total": 1132, "direct_sub": 7, "invite_id": "139a4107-97f1-4b1a-bbbb-2f3f2c86df23"}, {"seq": 20, "phone": "17164526543", "small_amount": 430633.0, "big_amount": 272848.33, "small_count": 2777, "big_count": 1767, "team_total": 2002, "direct_sub": 162, "invite_id": "7adad2e2-745e-40a0-8228-630bf3158b42"}, {"seq": 21, "phone": "13382572319", "small_amount": 422141.78, "big_amount": 229312.3, "small_count": 2703, "big_count": 1481, "team_total": 185, "direct_sub": 27, "invite_id": "ec1ee4b3-95d1-48ec-a8ae-e818afebf953"}, {"seq": 22, "phone": "13061707665", "small_amount": 399681.23, "big_amount": 352208.21, "small_count": 2704, "big_count": 2348, "team_total": 107, "direct_sub": 5, "invite_id": "fd08a3a8-6cf1-4ce8-8826-5080ff53ab9b"}, {"seq": 23, "phone": "18889442613", "small_amount": 382201.71, "big_amount": 465540.31, "small_count": 2489, "big_count": 3059, "team_total": 1762, "direct_sub": 10, "invite_id": "873a1b37-ce91-43d2-9b6e-f032e37dac21"}, {"seq": 24, "phone": "17623433945", "small_amount": 377872.28, "big_amount": 665194.69, "small_count": 2450, "big_count": 4414, "team_total": 2412, "direct_sub": 34, "invite_id": "5d218f08-bf97-4b5a-befc-7040c9aa88e4"}, {"seq": 25, "phone": "13401817773", "small_amount": 342807.2, "big_amount": 351146.23, "small_count": 2275, "big_count": 2310, "team_total": 1100, "direct_sub": 37, "invite_id": "f1acfb76-1cae-48ce-a421-fb5ab7f4b79e"}, {"seq": 26, "phone": "18861793936", "small_amount": 324718.51, "big_amount": 437610.5, "small_count": 2154, "big_count": 2785, "team_total": 559, "direct_sub": 15, "invite_id": "bffbe411-28cf-446b-b816-bce0caf1f2c9"}, {"seq": 27, "phone": "19901558251", "small_amount": 317382.14, "big_amount": 525093.84, "small_count": 1952, "big_count": 3366, "team_total": 606, "direct_sub": 6, "invite_id": "f8187a30-3cdc-4eac-86ea-6c9429db1611"}, {"seq": 28, "phone": "18773131113", "small_amount": 310615.05, "big_amount": 1346159.61, "small_count": 1976, "big_count": 8692, "team_total": 1964, "direct_sub": 11, "invite_id": "f632e18d-6b1d-408d-87f5-353adcfa8b40"}, {"seq": 29, "phone": "15358270999", "small_amount": 310572.56, "big_amount": 1833130.66, "small_count": 2013, "big_count": 11926, "team_total": 1597, "direct_sub": 21, "invite_id": "b1706b0a-5425-440d-b6c1-988bd8fc2941"}, {"seq": 30, "phone": "15874154177", "small_amount": 301708.73, "big_amount": 395036.65, "small_count": 1942, "big_count": 2534, "team_total": 696, "direct_sub": 5, "invite_id": "8891c8a1-3c03-46fa-81f3-fa0ad8bfdd40"}, {"seq": 31, "phone": "15186818688", "small_amount": 294516.45, "big_amount": 2236566.12, "small_count": 1860, "big_count": 14607, "team_total": 5387, "direct_sub": 5, "invite_id": "b3827b28-45a0-4908-9c3d-245d6f826951"}, {"seq": 32, "phone": "13627696168", "small_amount": 291653.29, "big_amount": 468924.51, "small_count": 1867, "big_count": 3075, "team_total": 1442, "direct_sub": 10, "invite_id": "b5065039-1143-4249-a624-389b3eaf80e0"}, {"seq": 33, "phone": "15980718499", "small_amount": 289619.08, "big_amount": 342117.45, "small_count": 1895, "big_count": 2252, "team_total": 2822, "direct_sub": 7, "invite_id": "8d8854d9-9f8e-4c78-b94d-77c4cb640d06"}, {"seq": 34, "phone": "13639092143", "small_amount": 285719.25, "big_amount": 2795960.4, "small_count": 1877, "big_count": 18110, "team_total": 6661, "direct_sub": 3, "invite_id": "ae97f3a2-8e3f-4ba1-8cad-e8c9ee8a6a59"}, {"seq": 35, "phone": "15285579826", "small_amount": 263649.39, "big_amount": 2532311.01, "small_count": 1635, "big_count": 16475, "team_total": 5976, "direct_sub": 6, "invite_id": "acad1152-13b9-4d59-bead-add784e32733"}, {"seq": 36, "phone": "15988556454", "small_amount": 262463.84, "big_amount": 365649.78, "small_count": 1709, "big_count": 2382, "team_total": 213, "direct_sub": 3, "invite_id": "98922a8d-c853-47fe-bc33-eccbd5400336"}, {"seq": 37, "phone": "18994858998", "small_amount": 245665.09, "big_amount": 266651.08, "small_count": 1666, "big_count": 1740, "team_total": 471, "direct_sub": 6, "invite_id": "19022ff8-ca45-4796-9ab9-5637d813f87e"}, {"seq": 38, "phone": "13594314513", "small_amount": 238673.69, "big_amount": 324368.04, "small_count": 1531, "big_count": 2243, "team_total": 727, "direct_sub": 23, "invite_id": "99c78fc2-93bc-483d-84e0-59f412cd1032"}, {"seq": 39, "phone": "13918368086", "small_amount": 235984.0, "big_amount": 772227.4, "small_count": 1504, "big_count": 5020, "team_total": 1786, "direct_sub": 11, "invite_id": "1b3b1f38-eafe-4ce2-a893-5e77046d1e5f"}, {"seq": 40, "phone": "13648334109", "small_amount": 232615.24, "big_amount": 859290.97, "small_count": 1506, "big_count": 5623, "team_total": 2877, "direct_sub": 12, "invite_id": "1fc1fc29-15d7-4366-b8c5-cbca31dbb381"}, {"seq": 41, "phone": "15926992399", "small_amount": 231243.81, "big_amount": 86835.52, "small_count": 1535, "big_count": 584, "team_total": 230, "direct_sub": 17, "invite_id": "b4403a47-f9fc-4735-bf23-436abb90ea32"}, {"seq": 42, "phone": "18565680040", "small_amount": 223179.73, "big_amount": 255711.26, "small_count": 1498, "big_count": 1613, "team_total": 26326, "direct_sub": 29, "invite_id": "2c2ffaa7-8904-4def-ab9a-89a24b69d5c1"}, {"seq": 43, "phone": "17264223413", "small_amount": 217425.41, "big_amount": 246898.63, "small_count": 1430, "big_count": 1613, "team_total": 921, "direct_sub": 6, "invite_id": "3893a15e-5353-416c-b62e-e37d56228550"}, {"seq": 44, "phone": "13321995633", "small_amount": 217019.74, "big_amount": 128710.85, "small_count": 1471, "big_count": 873, "team_total": 43, "direct_sub": 10, "invite_id": "7e1b4eb2-709e-4bb2-8055-ed8fb68723f0"}, {"seq": 45, "phone": "13910754149", "small_amount": 211845.22, "big_amount": 137342.76, "small_count": 1356, "big_count": 877, "team_total": 73, "direct_sub": 15, "invite_id": "cd23cac2-ef25-45a1-8ec2-c08bef0ea963"}, {"seq": 46, "phone": "18638119888", "small_amount": 210589.29, "big_amount": 299888.6, "small_count": 1369, "big_count": 1920, "team_total": 1134, "direct_sub": 34, "invite_id": "438c6b3d-98eb-4545-a99d-dcbad4c0e488"}];
+const WX_NUM = 'wangdong39141319';
+
+const $ = id => document.getElementById(id);
+
+function maskPhone(p){return p.slice(0,3)+' **** '+p.slice(7)}
+function nowStr(){
+  const d=new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function shakeInput(){
+  const el = $('qInput');
+  el.classList.remove('shake');
+  void el.offsetWidth;
+  el.classList.add('shake');
+  const originalBorder = el.style.borderColor;
+  el.style.borderColor = '#ff7a99';
+  setTimeout(()=>{el.style.borderColor = originalBorder;},900);
+}
+
+function spawnParticles(){
+  const box = $('particles');
+  box.innerHTML = '';
+  const colors = ['#e8c56b','#f5d98a','#fff4c9','#c99d3d'];
+  for(let i=0;i<24;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random()*100 + '%';
+    p.style.background = colors[i%colors.length];
+    p.style.boxShadow = '0 0 12px ' + colors[i%colors.length];
+    p.style.animationDelay = (Math.random()*.6) + 's';
+    p.style.animationDuration = (2 + Math.random()*1.2) + 's';
+    const size = 4 + Math.random()*8;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    box.appendChild(p);
+  }
+  setTimeout(()=>{box.innerHTML=''},3600);
+}
+
+function query(){
+  const raw = $('phone').value.trim();
+  const phone = raw.replace(/\D/g,'');
+  if(!/^1\d{10}$/.test(phone)){
+    shakeInput();
+    $('phone').focus();
+    return;
+  }
+  const btn = $('btn');
+  btn.classList.add('loading');
+  $('empty').style.display='none';
+  $('result').classList.remove('show');
+  $('miss').classList.remove('show');
+
+  // 模拟一点点查询过程，让 loading 有感觉
+  setTimeout(()=>{
+    btn.classList.remove('loading');
+    const hit = DATA.find(d => d.phone === phone);
+    if(hit){
+      $('okPhone').textContent = maskPhone(phone);
+      $('okTime').textContent = nowStr();
+      $('result').classList.add('show');
+      spawnParticles();
+      setTimeout(()=>$('result').scrollIntoView({behavior:'smooth',block:'start'}),80);
+    }else{
+      $('missPhone').textContent = maskPhone(phone);
+      $('miss').classList.add('show');
+      setTimeout(()=>$('miss').scrollIntoView({behavior:'smooth',block:'start'}),80);
+    }
+  }, 600);
+}
+
+function copyWx(e){
+  const btn = $('copyBtn');
+  const done = () => {
+    const old = btn.innerHTML;
+    btn.classList.add('ok');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>已复制';
+    setTimeout(()=>{btn.innerHTML=old;btn.classList.remove('ok')},1800);
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(WX_NUM).then(done).catch(()=>{fallback()});
+  }else{
+    fallback();
+  }
+  function fallback(){
+    const ta = document.createElement('textarea');
+    ta.value = WX_NUM; ta.style.position='fixed'; ta.style.opacity=0;
+    document.body.appendChild(ta); ta.select();
+    try{document.execCommand('copy');done()}catch(err){prompt('微信号', WX_NUM)}
+    document.body.removeChild(ta);
+  }
+}
+
+$('btn').addEventListener('click', query);
+$('phone').addEventListener('keydown', e=>{if(e.key==='Enter')query();});
+$('phone').addEventListener('input', e=>{e.target.value = e.target.value.replace(/\D/g,'').slice(0,11)});
+$('copyBtn').addEventListener('click', copyWx);
+</script>
+</body>
+</html>
