@@ -74,6 +74,9 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-04] 「亿数」玩转亿象，一问即明｜第一期
+  URL: https://yishuzichan.cc/posts/5da35858-d03b-4085-a40a-45a75faa498f.html
+  摘要: （图文公告，详见静态页）
 - [2026-07-04] 「亿数」亿象七月大事件动态预告
   URL: https://yishuzichan.cc/posts/e92ee777-bd0e-4b97-bb43-64fd3245d42a.html
   摘要: （图文公告，详见静态页）
@@ -131,9 +134,6 @@
 - [2026-06-30] 「亿数」关于前期亿数嘉年华赠送活动说明公告
   URL: https://yishuzichan.cc/posts/7fd0522a-cf59-48d5-a4b3-4cdeaf1536a8.html
   摘要: （图文公告，详见静态页）
-- [2026-06-30] 「亿数」早期购买大咖礼包福利已发放公告
-  URL: https://yishuzichan.cc/posts/6c230eba-c53f-40fc-92eb-2a13493a79ff.html
-  摘要: （图文公告，详见静态页）
 
 ## 当前 Banner 精选（首页轮播）
 
@@ -158,4 +158,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-04 10:45 CST
+2026-07-04 10:54 CST
