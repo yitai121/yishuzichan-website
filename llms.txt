@@ -36,7 +36,6 @@
 - [生态版图](https://yishuzichan.cc/ecosystem.html) — 三大生态协同关系与战略布局
 - [最新资讯](https://yishuzichan.cc/news.html) — 平台公告与行业动态实时更新
 - [相关媒体](https://yishuzichan.cc/media.html) — 媒体报道、宣传视频与品牌素材
-- [线下活动](https://yishuzichan.cc/events.html) — 平台出游福利、达标名额查询、线下沙龙官方专区
 - [联系我们](https://yishuzichan.cc/contact.html) — 联系方式与商务合作通道
 
 ## 媒体报道
@@ -75,6 +74,12 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-04] 出发吧夏天七月内容抢先知
+  URL: https://yishuzichan.cc/posts/82a73770-cbfd-484a-9f94-42181ff5ba84.html
+  摘要: （图文公告，详见静态页）
+- [2026-07-04] 「亿数」出发吧夏天七月内容抢先知
+  URL: https://yishuzichan.cc/posts/5ea2c6dc-3074-41ef-bb38-70e04865092c.html
+  摘要: （图文公告，详见静态页）
 - [2026-07-04] 「亿数」关于《亿象魔方·晶》活动空投发放说明
   URL: https://yishuzichan.cc/posts/82878871-57f2-4945-a55b-b38087fdc697.html
   摘要: （图文公告，详见静态页）
@@ -129,15 +134,10 @@
 - [2026-07-02] 「亿数」《赤髯龙》数字资产开放交易
   URL: https://yishuzichan.cc/posts/aae77f62-e11b-4370-a456-31e6a7d23056.html
   摘要: 尊敬的亿数用户： 您好！ 《赤髯龙》数字资产将于2026年07月02日16:00开放寄售，敬请广大用户知悉！ 亿数 2026年07月02日
-- [2026-07-02] 「亿数」《五路财神》系列数字资产寄售限价批量调整
-  URL: https://yishuzichan.cc/posts/760b5d9d-dd3f-4288-9df4-8cfb834edf70.html
-  摘要: 尊敬的亿数用户： 您好 《五路财神-利市仙官姚少司》数字资产将于2026年07月02日14:00调整寄售限价，敬请广大用户知悉！ 寄售限价：1000通宝积分 《
-- [2026-07-01] 「亿数」关于规范平台使用秩序及违规账号处置的通告
-  URL: https://yishuzichan.cc/posts/dfc5b3e2-57c7-44d7-a28f-6efe41aaacf0.html
-  摘要: 尊敬的亿数用户 您好 为保障全体用户的公平使用权益，维护平台健康、公正、有序的运营生态，近期平台通过后台智能风控系统与人工复核监测发现，存在部分用户利用外挂工具
 
 ## 当前 Banner 精选（首页轮播）
 
+- 出发吧夏天七月内容抢先知 — https://yishuzichan.cc/posts/5ea2c6dc-3074-41ef-bb38-70e04865092c.html
 - 亿象七月大事件动态预告 — https://yishuzichan.cc/posts/e92ee777-bd0e-4b97-bb43-64fd3245d42a.html
 - 飞鱼引擎扩容 — https://yishuzichan.cc/posts/970afdf9-97bc-46cc-bef3-b5bc990fb45a.html
 - 送飞行卡 — https://yishuzichan.cc/posts/bc42dd23-5a57-4d76-9fc2-16c18872732c.html
@@ -160,4 +160,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-04 18:09 CST
+2026-07-04 21:36 CST
