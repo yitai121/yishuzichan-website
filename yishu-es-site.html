@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亿数ES — AI驱动的数实融合生态平台</title>
+    <meta name="description" content="亿数ES，以数兴商，打造10800家AI数字新品牌。AI驱动的数实融合生态头部平台。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============ CSS RESET & BASE ============ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-deep: #050a18;
+            --bg-dark: #0a1128;
+            --bg-card: #0f1a3a;
+            --bg-card-hover: #142050;
+            --gold: #c9a84c;
+            --gold-light: #e8d48b;
+            --gold-glow: rgba(201, 168, 76, 0.3);
+            --blue-accent: #2563eb;
+            --blue-glow: rgba(37, 99, 235, 0.2);
+            --cyan: #22d3ee;
+            --cyan-glow: rgba(34, 211, 238, 0.15);
+            --text-primary: #e8eaf6;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(201, 168, 76, 0.12);
+            --border-gold: rgba(201, 168, 76, 0.3);
+            --gradient-gold: linear-gradient(135deg, #c9a84c, #e8d48b, #c9a84c);
+            --gradient-blue: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ NAVIGATION ============ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        .nav.scrolled {
+            background: rgba(5, 10, 24, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.6rem 2rem;
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .nav-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--bg-deep);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+        .nav-logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+        }
+        .nav-logo-text span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease !important;
+        }
+        .nav-cta:hover {
+            background: var(--gold) !important;
+            color: var(--bg-deep) !important;
+            box-shadow: 0 0 25px var(--gold-glow);
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        #particle-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 30% at 20% 80%, rgba(34, 211, 238, 0.06) 0%, transparent 50%);
+            z-index: 1;
+        }
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.2rem;
+            background: rgba(201, 168, 76, 0.08);
+            border: 1px solid var(--border-gold);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+        .hero-title {
+            font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+        .hero-title .gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+        .hero-subtitle strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            opacity: 0;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2.5rem;
+            background: var(--gradient-gold);
+            color: var(--bg-deep);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px var(--gold-glow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px var(--gold-glow);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.05);
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-subtle);
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+            opacity: 0;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* ============ SECTION COMMON ============ */
+        .section {
+            padding: 7rem 2rem;
+            position: relative;
+        }
+        .section-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-tag {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .section-title .gold {
+            color: var(--gold);
+        }
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ============ ABOUT SECTION ============ */
+        .about-section {
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-dark) 100%);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-visual {
+            position: relative;
+        }
+        .about-visual-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-visual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+        }
+        .about-visual-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .about-mission {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .about-mission .gold { color: var(--gold); }
+        .about-desc-text {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 0.95rem;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .about-feature {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-feature:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .about-feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .about-feature-icon.blue {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+        }
+        .about-feature-icon.gold {
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+        }
+        .about-feature-icon.cyan {
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+        .about-feature-icon.purple {
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+        }
+        .about-feature-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .about-feature-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============ ECOSYSTEM SECTION ============ */
+        .eco-section {
+            background: var(--bg-dark);
+        }
+        .eco-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .eco-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .eco-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transition: all 0.4s ease;
+        }
+        .eco-card.yixiang::before { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+        .eco-card.summer::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+        .eco-card.lure::before { background: linear-gradient(90deg, #10b981, #34d399); }
+        .eco-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .eco-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .eco-card.yixiang .eco-card-icon {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+        }
+        .eco-card.summer .eco-card-icon {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+        .eco-card.lure .eco-card-icon {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+        .eco-card-name {
+            font-family: 'Orbitron', 'Noto Sans SC', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .eco-card-type {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .eco-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .eco-card-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .eco-card-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .eco-card-feature-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .eco-card.yixiang .eco-card-feature-dot { background: #3b82f6; }
+        .eco-card.summer .eco-card-feature-dot { background: #fbbf24; }
+        .eco-card.lure .eco-card-feature-dot { background: #34d399; }
+
+        /* ============ COMPLIANCE SECTION ============ */
+        .compliance-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-deep) 100%);
+        }
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .compliance-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .compliance-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+        .compliance-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1.2rem;
+        }
+        .compliance-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .compliance-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============ PARTNER SECTION ============ */
+        .partner-section {
+            background: var(--bg-dark);
+        }
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+        .partner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+        .partner-card:hover {
+            border-color: var(--border-gold);
+            background: var(--bg-card-hover);
+        }
+        .partner-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+        .partner-type {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-deep) 100%);
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .contact-item-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .contact-item-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .contact-item-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+        .contact-form h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-submit {
+            width: 100%;
+            padding: 0.85rem;
+            background: var(--gradient-gold);
+            color: var(--bg-deep);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .form-submit:hover {
+            box-shadow: 0 6px 30px var(--gold-glow);
+            transform: translateY(-1px);
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-deep);
+        }
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 13px;
+            color: var(--bg-deep);
+        }
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .footer-brand span { color: var(--gold); }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        /* ============ ANIMATIONS ============ */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .eco-cards { grid-template-columns: 1fr; }
+            .compliance-grid { grid-template-columns: repeat(2, 1fr); }
+            .partner-grid { grid-template-columns: repeat(3, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(5, 10, 24, 0.98);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border-subtle);
+                gap: 1rem;
+            }
+            .hero-stats { gap: 2rem; flex-wrap: wrap; }
+            .about-features { grid-template-columns: 1fr; }
+            .compliance-grid { grid-template-columns: 1fr; }
+            .partner-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .section { padding: 4rem 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .partner-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">ES</div>
+            <div class="nav-logo-text">亿数<span>ES</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">关于亿数</a></li>
+            <li><a href="#ecosystem">生态矩阵</a></li>
+            <li><a href="#compliance">合规资质</a></li>
+            <li><a href="#partners">合作伙伴</a></li>
+            <li><a href="#contact" class="nav-cta">联系我们</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            AI-DRIVEN DIGITAL-REAL FUSION
+        </div>
+        <h1 class="hero-title">
+            以数兴商<br><span class="gold">智创未来</span>
+        </h1>
+        <p class="hero-subtitle">
+            亿数ES，<strong>AI驱动的数实融合生态头部平台</strong><br>
+            以人工智能为核心引擎，连接数字资产与实体经济，打造<strong>10800家</strong>AI数字新品牌
+        </p>
+        <div class="hero-actions">
+            <a href="#ecosystem" class="btn-primary">探索生态 →</a>
+            <a href="#contact" class="btn-secondary">商务合作</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num" data-count="10800">0</div>
+                <div class="hero-stat-label">目标数字新品牌</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num" data-count="3">0</div>
+                <div class="hero-stat-label">核心生态矩阵</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num" data-count="5">0</div>
+                <div class="hero-stat-label">合规资质证书</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">AI</div>
+                <div class="hero-stat-label">核心驱动引擎</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about-section" id="about">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-tag">ABOUT YISHU ES</div>
+            <h2 class="section-title">重新定义<span class="gold">数实融合</span></h2>
+            <p class="section-desc">以AI技术为驱动力，以合规为基石，以生态为路径，构建数字资产与实体经济的超级连接器</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-visual reveal">
+                <div class="about-visual-card">
+                    <div class="about-visual-title">OUR MISSION</div>
+                    <div class="about-mission">以数兴商<br>打造<span class="gold">10800家</span><br>AI数字新品牌</div>
+                    <p class="about-desc-text">
+                        亿数ES致力于成为AI驱动的数实融合生态头部平台。我们相信，人工智能将彻底重塑商业形态——数字不再只是工具，而是驱动实体经济增长的新引擎。我们以AI技术赋能传统产业转型，以合规交易基础设施保障资产安全，以多元生态矩阵覆盖文旅、游戏、户外等核心场景，构建数字与实体深度融合的新商业文明。
+                    </p>
+                </div>
+            </div>
+            <div class="about-features reveal">
+                <div class="about-feature">
+                    <div class="about-feature-icon blue">🤖</div>
+                    <div class="about-feature-title">AI驱动</div>
+                    <div class="about-feature-text">以人工智能为核心引擎，赋能品牌创建、运营决策与用户增长，实现智能化的数实融合</div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon gold">🛡️</div>
+                    <div class="about-feature-title">合规基石</div>
+                    <div class="about-feature-text">江苏文交所旗下合规平台支撑，五证齐全，国家级区块链基础设施接入，国标起草单位</div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon cyan">🌐</div>
+                    <div class="about-feature-title">生态矩阵</div>
+                    <div class="about-feature-text">覆盖综合服务、游戏娱乐、户外运动三大核心场景，构建多元化数实融合生态</div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon purple">🔗</div>
+                    <div class="about-feature-title">数实连接</div>
+                    <div class="about-feature-text">数字资产与实体经济深度融合，打破虚实边界，创造新型商业价值与用户体验</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ECOSYSTEM ============ -->
+<section class="section eco-section" id="ecosystem">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-tag">ECOSYSTEM</div>
+            <h2 class="section-title">三大核心<span class="gold">生态矩阵</span></h2>
+            <p class="section-desc">从综合服务到游戏娱乐，从数字空间到户外天地，亿数ES构建全覆盖的数实融合生态版图</p>
+        </div>
+        <div class="eco-cards">
+            <!-- 亿象生态 -->
+            <div class="eco-card yixiang reveal">
+                <div class="eco-card-icon">💎</div>
+                <div class="eco-card-name">亿象生态</div>
+                <div class="eco-card-type">COMPREHENSIVE ECOSYSTEM</div>
+                <p class="eco-card-desc">
+                    综合性数实融合生态，服务于企业与C端用户。整合数字资产、品牌孵化与商业运营，构建从数字到实体的完整价值链。
+                </p>
+                <div class="eco-card-features">
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>企业数字化转型服务</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>AI品牌孵化与运营</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>数字资产合规交易</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>C端用户权益体系</div>
+                </div>
+            </div>
+            <!-- 出发吧夏天生态 -->
+            <div class="eco-card summer reveal">
+                <div class="eco-card-icon">🎮</div>
+                <div class="eco-card-name">出发吧夏天</div>
+                <div class="eco-card-type">GAMING ECOSYSTEM</div>
+                <p class="eco-card-desc">
+                    游戏生态平台，主打萌兽IP与LBS+AR创新玩法。将虚拟游戏体验与现实地理位置结合，开创数实融合游戏新范式。
+                </p>
+                <div class="eco-card-features">
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>萌兽IP全系列运营</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>LBS+AR沉浸式玩法</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>游戏道具与权益体系</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>玩家社区与社交互动</div>
+                </div>
+            </div>
+            <!-- 疯狂路亚生态 -->
+            <div class="eco-card lure reveal">
+                <div class="eco-card-icon">🎣</div>
+                <div class="eco-card-name">疯狂路亚</div>
+                <div class="eco-card-type">OUTDOOR ECOSYSTEM</div>
+                <p class="eco-card-desc">
+                    户外运动生态平台，服务路亚钓鱼爱好者社区。将线上社群、数字权益与线下赛事、渔场资源深度融合。
+                </p>
+                <div class="eco-card-features">
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>路亚钓鱼爱好者社区</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>线下赛事与渔场资源</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>装备数字权益体系</div>
+                    <div class="eco-card-feature"><div class="eco-card-feature-dot"></div>户外社交与内容分享</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ COMPLIANCE ============ -->
+<section class="section compliance-section" id="compliance">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-tag">COMPLIANCE</div>
+            <h2 class="section-title"><span class="gold">合规</span>是我们的底色</h2>
+            <p class="section-desc">江苏文交所旗下合规平台，国家级区块链基础设施接入，全链路合规保障</p>
+        </div>
+        <div class="compliance-grid">
+            <div class="compliance-card reveal">
+                <div class="compliance-icon">🏛️</div>
+                <div class="compliance-title">江苏文交所旗下</div>
+                <div class="compliance-desc">国有文化产权交易所旗下合规平台，国资背景背书，保障平台合规运营</div>
+            </div>
+            <div class="compliance-card reveal">
+                <div class="compliance-icon">📋</div>
+                <div class="compliance-title">五证齐全</div>
+                <div class="compliance-desc">拥有全部必要经营资质与牌照，业务全链路合规，用户资产安全有保障</div>
+            </div>
+            <div class="compliance-card reveal">
+                <div class="compliance-icon">⛓️</div>
+                <div class="compliance-title">星火·链网接入</div>
+                <div class="compliance-desc">国家级区块链基础设施"星火·链网"正式接入，为数字资产提供可信存证</div>
+            </div>
+            <div class="compliance-card reveal">
+                <div class="compliance-icon">📜</div>
+                <div class="compliance-title">国标起草单位</div>
+                <div class="compliance-desc">参与国家级行业标准制定与起草，推动行业规范化发展与制度建设</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PARTNERS ============ -->
+<section class="section partner-section" id="partners">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-tag">PARTNERS</div>
+            <h2 class="section-title">生态<span class="gold">合作伙伴</span></h2>
+            <p class="section-desc">与行业领先机构携手，共建数实融合新生态</p>
+        </div>
+        <div class="partner-grid reveal">
+            <div class="partner-card">
+                <div class="partner-name">江苏文交所</div>
+                <div class="partner-type">合规背书</div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-name">星火·链网</div>
+                <div class="partner-type">区块链基础设施</div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-name">火山引擎</div>
+                <div class="partner-type">云计算服务</div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-name">各地文旅局</div>
+                <div class="partner-type">文旅合作</div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-name">城市运营中心</div>
+                <div class="partner-type">本地化运营</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact-section" id="contact">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-tag">CONTACT</div>
+            <h2 class="section-title">开启<span class="gold">合作</span>之旅</h2>
+            <p class="section-desc">无论您是品牌方、运营方还是技术伙伴，亿数ES都期待与您共同探索数实融合的无限可能</p>
+        </div>
+        <div class="contact-wrapper reveal">
+            <div class="contact-info">
+                <h3>与我们取得联系</h3>
+                <p>我们始终欢迎生态合作伙伴的加入。无论您希望入驻生态、商务合作还是技术咨询，都可以通过以下方式联系我们。</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div>
+                            <div class="contact-item-label">公司地址</div>
+                            <div class="contact-item-value">杭州市滨江区施强广场</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📧</div>
+                        <div>
+                            <div class="contact-item-label">商务邮箱</div>
+                            <div class="contact-item-value">contact@yishues.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">🌐</div>
+                        <div>
+                            <div class="contact-item-label">官方网站</div>
+                            <div class="contact-item-value">www.yishues.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h4>提交合作意向</h4>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>您的姓名</label>
+                        <input type="text" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" placeholder="请输入手机号" required>
+                    </div>
+                    <div class="form-group">
+                        <label>公司名称</label>
+                        <input type="text" placeholder="请输入公司名称">
+                    </div>
+                    <div class="form-group">
+                        <label>合作意向</label>
+                        <textarea placeholder="请简要描述您的合作意向"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">提交合作意向 →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-left">
+            <div class="footer-logo">ES</div>
+            <div class="footer-brand">亿数<span>ES</span></div>
+        </div>
+        <div class="footer-copy">© 2026 亿数ES. All rights reserved. AI驱动的数实融合生态平台</div>
+        <div class="footer-links">
+            <a href="#about">关于我们</a>
+            <a href="#ecosystem">生态矩阵</a>
+            <a href="#compliance">合规资质</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+// ========== PARTICLE SYSTEM ==========
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouseX = 0, mouseY = 0;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+class Particle {
+    constructor() {
+        this.reset();
+    }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.isGold = Math.random() < 0.15;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        if (this.isGold) {
+            ctx.fillStyle = `rgba(201, 168, 76, ${this.opacity})`;
+        } else {
+            ctx.fillStyle = `rgba(100, 150, 255, ${this.opacity * 0.6})`;
+        }
+        ctx.fill();
+    }
+}
+
+function initParticles() {
+    const count = Math.min(120, Math.floor(canvas.width * canvas.height / 12000));
+    particles = [];
+    for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+    }
+}
+initParticles();
+
+function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+                const opacity = (1 - dist / 150) * 0.12;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                if (particles[i].isGold || particles[j].isGold) {
+                    ctx.strokeStyle = `rgba(201, 168, 76, ${opacity})`;
+                } else {
+                    ctx.strokeStyle = `rgba(100, 150, 255, ${opacity * 0.5})`;
+                }
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    drawConnections();
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// ========== NAV SCROLL EFFECT ==========
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// ========== MOBILE NAV ==========
+function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ========== SCROLL REVEAL ==========
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ========== COUNTER ANIMATION ==========
+function animateCounters() {
+    document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
+        const target = parseInt(el.getAttribute('data-count'));
+        const duration = 2000;
+        const start = performance.now();
+        
+        function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(target * eased).toLocaleString();
+            if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+    });
+}
+
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            heroObserver.disconnect();
+        }
+    });
+}, { threshold: 0.3 });
+heroObserver.observe(document.querySelector('.hero'));
+
+// ========== FORM HANDLER ==========
+function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '提交成功 ✓';
+    btn.style.background = '#10b981';
+    setTimeout(() => {
+        btn.textContent = '提交合作意向 →';
+        btn.style.background = '';
+        e.target.reset();
+    }, 3000);
+}
+
+// ========== SMOOTH SCROLL ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.getElementById('navLinks').classList.remove('open');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
