@@ -207,16 +207,16 @@ ul { list-style: none; }
 
 /* ========== RISK WARNING ========== */
 .risk-warning {
-  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
-  border: 1px solid #F59E0B;
-  border-radius: var(--radius-lg);
-  padding: var(--space-5) var(--space-6);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: var(--space-2) var(--space-6);
   text-align: center;
-  margin: 0 var(--space-6);
+  margin: 0;
 }
-.risk-warning-content { display: flex; align-items: center; justify-content: center; gap: var(--space-3); }
-.risk-warning-icon { font-size: 20px; }
-.risk-warning-text { font-size: 15px; color: #92400E; font-weight: 500; }
+.risk-warning-content { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.risk-warning-icon { font-size: 11px; opacity: 0.55; }
+.risk-warning-text { font-size: 11px; color: #9CA3AF; font-weight: 400; }
 
 /* ========== CTA ========== */
 .cta { background: linear-gradient(135deg, #5B5FC7 0%, #7B7FD9 100%); color: white; text-align: center; }
@@ -279,8 +279,8 @@ ul { list-style: none; }
 .event-rule-value { font-size: 15px; color: var(--text-primary); font-weight: 500; line-height: 1.5; }
 .event-rule-value strong { color: var(--brand); font-weight: 700; }
 
-.event-notice { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 1px solid #F59E0B; border-radius: var(--radius-md); font-size: 14px; color: #92400E; font-weight: 500; margin-bottom: var(--space-6); }
-.event-notice-icon { font-size: 18px; flex-shrink: 0; }
+.event-notice { display: flex; align-items: center; gap: 6px; padding: var(--space-2) 0; background: transparent; border: none; border-radius: 0; font-size: 12px; color: #9CA3AF; font-weight: 400; margin-bottom: var(--space-4); }
+.event-notice-icon { font-size: 12px; flex-shrink: 0; opacity: 0.6; }
 
 .event-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 .event-btn-primary, .event-btn-secondary { display: inline-flex; align-items: center; gap: var(--space-2); padding: 14px 24px; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; transition: all var(--duration-normal) var(--ease-spring); }
