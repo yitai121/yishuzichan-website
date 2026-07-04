@@ -74,6 +74,9 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-04] 「亿数」吉时献礼｜《卷卷猫 - 端午安康》数字资产寄售限价调整公告
+  URL: https://yishuzichan.cc/posts/77c71869-8c62-4eee-b217-a66c12e6fe00.html
+  摘要: 尊敬的亿数用户： 您好 卷卷猫系列数字资产诞生于 5 月 20 日，今日恰逢农历五月二十，为纪念专属生辰吉日，回馈长久喜爱卷卷猫系列数字资产的广大用户，平台现对
 - [2026-07-04] 「亿数」数字资产平台与动画大电影《白素贞》IP达成数实融合战略合作！
   URL: https://yishuzichan.cc/posts/eb54fe59-95a0-4466-ba3c-6c5327320d8b.html
   摘要: （图文公告，详见静态页）
@@ -131,12 +134,10 @@
 - [2026-07-01] 「亿数」《亿数·山海归序》限定数字资产合成活动公告
   URL: https://yishuzichan.cc/posts/d2c9139b-a0cb-49dd-9ec1-445cd5ba5453.html
   摘要: 尊敬的亿数用户 您好 山海纳万象，时序归本源；秘境启新序，寰宇焕新生。为丰富平台数字文创生态，回馈广大生态共建用户，平台正式开启限定数字资产《亿数·山海归序》合
-- [2026-07-01] 「亿数」《永受嘉福瓦当》限定数字资产合成活动公告
-  URL: https://yishuzichan.cc/posts/b4e88980-cdb1-438d-94fd-eea41a9b2560.html
-  摘要: 尊敬的亿数用户 您好 古瓦承祥纹，嘉福纳万象；国风续古韵，吉藏启新章。为传承传统纹样文化，丰富平台国风数字资产生态，平台正式开启限定数字资产《永受嘉福瓦当》合成
 
 ## 当前 Banner 精选（首页轮播）
 
+- 亿象七月大事件动态预告 — https://yishuzichan.cc/posts/e92ee777-bd0e-4b97-bb43-64fd3245d42a.html
 - 飞鱼引擎扩容 — https://yishuzichan.cc/posts/970afdf9-97bc-46cc-bef3-b5bc990fb45a.html
 - 送飞行卡 — https://yishuzichan.cc/posts/bc42dd23-5a57-4d76-9fc2-16c18872732c.html
 - 飞鱼引擎上线 — https://yishuzichan.cc/posts/0d3a9a75-fb41-4a99-86e0-65e3a3d1dab8.html
@@ -158,4 +159,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-04 13:35 CST
+2026-07-04 16:06 CST
