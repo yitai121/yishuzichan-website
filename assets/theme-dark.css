@@ -185,8 +185,9 @@ body::after {
   z-index: 1;
   pointer-events: none;
 }
-.hero > * { position: relative; z-index: 2; }
+/* 注意：不再使用 `.hero > *` 通配规则，否则会强制把 hero-glow-a/b 变成 relative 挤占文档流，导致首屏空白。仅显式给需要独立层级的子元素设置。 */
 .hero-inner { position: relative; z-index: 3; }
+.hero-glow-a, .hero-glow-b { position: absolute !important; z-index: 1 !important; }
 .hero-bg-dots { display: block !important; opacity: 0.08 !important; }
 .hero-gradient-subtle { display: block !important; }
 
