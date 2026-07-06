@@ -224,7 +224,13 @@ ul { list-style: none; }
               radial-gradient(ellipse 50% 30% at 80% 80%, rgba(212,175,55,0.04) 0%, transparent 50%);
 }
 .hero-inner { position: relative; z-index: 10; max-width: var(--max-width); margin: 0 auto; width: 100%; padding: var(--space-16) var(--space-6); }
-.hero-content { max-width: 640px; margin: 0 auto; text-align: center; }
+.hero-content { max-width: 720px; margin: 0 auto; text-align: center; }
+/* HERO 品牌视觉图（"ES 亿数 · 商业无界增长"），代替旧标题 */
+.hero-brand-visual { max-width: 880px; margin: 0 auto var(--space-6); text-align: center; opacity: 0; transform: translateY(20px); animation: fade-up var(--duration-entrance) var(--ease-entrance) 0.35s forwards; }
+.hero-brand-visual img { width: 100%; height: auto; display: block; -webkit-user-drag: none; user-select: none; }
+@media (max-width: 640px) {
+  .hero-brand-visual { max-width: 92%; }
+}
 .hero-badge {
   display: inline-flex; align-items: center; gap: var(--space-2);
   padding: var(--space-2) var(--space-5) var(--space-2) var(--space-3);
@@ -354,6 +360,8 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+/* 视觉隐藏 hero-title（保留 H1 供屏幕阅读器与 SEO），品牌视觉走 .hero-brand-visual */
+.hero .hero-title { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: 0 !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; }
 </style>
 <link rel="stylesheet" href="./assets/theme-dark.css"> <script type="application/ld+json">
 {
@@ -495,7 +503,7 @@ ul { list-style: none; }
 </div> <!-- ========== NAVIGATION ========== -->
 <nav class="nav" id="mainNav" role="navigation" aria-label="主导航"> <div class="nav-inner"> <a href="index.html" class="nav-logo" aria-label="亿数首页"> <img src="./images/yishu-logo-nav.png" alt="亿数Logo" fetchpriority="high" decoding="async">  </a> <div class="nav-links" id="navLinks" role="menubar"> <a href="about.html">关于我们</a> <a href="products.html">IP矩阵</a> <a href="ecosystem.html">生态版图</a> <a href="news.html">最新资讯</a> <a href="media.html">相关媒体</a> <a href="events.html">线下活动</a> <a href="https://f59962zb6q.coze.site/admin" target="_blank" rel="noopener noreferrer">会议签到</a> <a href="meeting.html" class="nav-btn-meeting" aria-label="在线会议入口"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>在线会议</a> <a href="contact.html">联系我们</a> </div> <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="nav-cta" aria-label="进入亿数">进入亿数</a> <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="菜单" aria-expanded="false" aria-controls="navLinks"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg> </button> </div>
 </nav> <!-- ========== HERO ========== -->
-<section class="hero" aria-label="主视觉区域"> <div class="hero-bg-dots"></div> <div class="hero-gradient-subtle"></div> <div class="hero-inner"> <div class="hero-content"> <div class="hero-badge"> <span class="hero-badge-dot"></span>
+<section class="hero" aria-label="主视觉区域"> <div class="hero-bg-dots"></div> <div class="hero-gradient-subtle"></div> <div class="hero-inner"> <div class="hero-content"> <div class="hero-brand-visual"><img src="./assets/images/hero-brand-bg.png" alt="ES 亿数 · 商业无界增长" loading="eager" decoding="async" width="880" height="440"></div> <div class="hero-badge"> <span class="hero-badge-dot"></span>
         星火·链网接入 · 合规运营
       </div> <h1 class="hero-title"> <span class="hero-title-line"><span class="brand">亿数</span></span> <span class="hero-title-line">以数兴商</span> <span class="hero-title-line"><span class="highlight">链接未来</span></span> </h1> <p class="hero-desc">
         AI驱动的数实融合生态平台，以科技赋能商业，打造10800家AI数字新品牌。合规运营，五证齐全，为数字经济提供坚实基础设施。
