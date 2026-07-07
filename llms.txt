@@ -74,13 +74,14 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-07] 「亿数」《小黄龙》数字资产开放交易
+  URL: https://yishuzichan.cc/posts/30a60937-156b-45e7-9725-44a5ab5c4c8d.html
+  摘要: 尊敬的亿数用户： 您好！ 《小黄龙》数字资产将于2026年07月07日20:00开放寄售，敬请广大用户知悉！ 寄售限价：150通宝积分 《小黄龙》数字资产介绍：
 - [2026-07-07] 「亿数」关于《亿象魔方・晶》交易异常补偿空投公告
   URL: https://yishuzichan.cc/posts/8820f33f-4d67-4e86-9d85-8f05c47fda6b.html
   摘要: 尊敬的亿数用户： 您好！ 此前平台《亿象魔方・晶》数字资产出现系统交易异常问题，本次故障打乱大家正常交易体验，给用户带来不便，我们致以最诚挚的歉意。为弥补本次异
-- [2026-07-07] 亿数疯狂路亚即将上线｜小程序预约享好礼
-  URL: https://yishuzichan.cc/posts/c0bfd56c-952a-4e34-b8f4-728a96c80f65.html
-  摘要: （图文公告，详见静态页）
 - [2026-07-07] 「亿数」亿数疯狂路亚即将上线｜小程序预约享好礼
+  URL: https://yishuzichan.cc/posts/c0bfd56c-952a-4e34-b8f4-728a96c80f65.html
   摘要: （图文公告，详见静态页）
 - [2026-07-07] 「亿数」关于《亿象魔方·晶》开放寄售及限价规则
   URL: https://yishuzichan.cc/posts/f6c12702-9b0b-47ff-98a5-08855f92a8f7.html
@@ -136,6 +137,7 @@
 
 ## 当前 Banner 精选（首页轮播）
 
+- 亿数疯狂路亚即将上线｜小程序预约享好礼 — https://yishuzichan.cc/posts/6ff51c1b-e47a-4c12-9404-68710555130f.html
 - 出发吧夏天萌兽体验卡功能上线公告 — https://yishuzichan.cc/posts/5d5a9441-0eb2-4692-9611-b70ad824423b.html
 - 出发吧夏天七月内容抢先知 — https://yishuzichan.cc/posts/5ea2c6dc-3074-41ef-bb38-70e04865092c.html
 - 亿象七月大事件动态预告 — https://yishuzichan.cc/posts/e92ee777-bd0e-4b97-bb43-64fd3245d42a.html
@@ -145,10 +147,6 @@
 - 上线App Store — https://yishuzichan.cc/posts/6c47771a-6172-4721-9574-1d1ea2771e79.html
 - 飞鱼引擎操作指引 — https://yishuzichan.cc/posts/3ab95b13-6d73-4c6f-aa50-ccbcd122aa3b.html
 - 亿象商城操作指引 — https://yishuzichan.cc/posts/fdc6cef9-993c-4484-b5f4-ca7b64190b27.html
-- 亿数嘉年华大礼包 — https://yishuzichan.cc/posts/44840ab8-b0ca-43ee-ba2f-aafada580ea2.html
-- 亿数文娱身份礼包首发 — https://yishuzichan.cc/posts/10a932ff-3e5b-424b-a4ec-0c5f56ea1284.html
-- 「亿数」亿象超级IP商城上线公告 — https://yishuzichan.cc/posts/9ac2d8d1-2190-42cc-a833-bf122076e655.html
-- 飞鱼引擎玩法规则 — https://yishuzichan.cc/posts/4c93274d-4406-4fff-84e4-7a7de8133c60.html
 - 卷卷猫联名上线 — https://mp.weixin.qq.com/s/JfFAT74g0aTBoYNyytAq1g
 - 亿数1 — https://yishuzichan.cc/
 
@@ -160,4 +158,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-07 15:35 CST
+2026-07-07 16:37 CST
