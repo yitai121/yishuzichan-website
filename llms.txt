@@ -74,6 +74,9 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-11] 亿象全新多项功能上线停服更新
+  URL: https://yishuzichan.cc/posts/1b7c0ef3-cfce-4bbc-951f-b609674e6c3d.html
+  摘要: （图文公告，详见静态页）
 - [2026-07-11] 「亿数」亿象全新多项功能上线停服更新公告
   URL: https://yishuzichan.cc/posts/556f236e-9ae6-48db-8768-2171b4fd0b77.html
   摘要: （图文公告，详见静态页）
@@ -131,19 +134,15 @@
 - [2026-07-06] 「亿数」焕新置换｜《卷卷猫 - 春分》数字资产长期合成兑换活动公告
   URL: https://yishuzichan.cc/posts/6ca10b75-6d9d-4e7a-911e-debe2422655f.html
   摘要: 尊敬的亿数用户： 您好！ 时序流转，节气焕新。《卷卷猫 - 春分》已逐步退出流通市场，仅留存材料用途，流通价值较低。为盘活用户手中闲置数字资产，平台特上线长期合
-- [2026-07-06] 出发吧夏天萌兽体验卡功能上线公告
-  URL: https://yishuzichan.cc/posts/d8accfb0-9767-4cef-908a-2a43af4c3137.html
-  摘要: （图文公告，详见静态页）
 
 ## 当前 Banner 精选（首页轮播）
 
+- 亿象全新多项功能上线停服更新 — https://yishuzichan.cc/posts/556f236e-9ae6-48db-8768-2171b4fd0b77.html
 - 出发吧夏天萌兽大转盘来袭 — https://yishuzichan.cc/posts/fd8ac3ef-953a-424f-b0b0-0df4f164fe83.html
 - 来出发吧夏天夏日狂欢季开启 — https://yishuzichan.cc/posts/1e61e062-7edb-4fed-ba22-4ed002c1f3eb.html
 - 亿数疯狂路亚即将上线｜小程序预约享好礼 — https://yishuzichan.cc/posts/6ff51c1b-e47a-4c12-9404-68710555130f.html
-- 出发吧夏天萌兽体验卡功能上线公告 — https://yishuzichan.cc/posts/5d5a9441-0eb2-4692-9611-b70ad824423b.html
 - 出发吧夏天七月内容抢先知 — https://yishuzichan.cc/posts/5ea2c6dc-3074-41ef-bb38-70e04865092c.html
 - 亿象七月大事件动态预告 — https://yishuzichan.cc/posts/e92ee777-bd0e-4b97-bb43-64fd3245d42a.html
-- 飞鱼引擎扩容 — https://yishuzichan.cc/posts/970afdf9-97bc-46cc-bef3-b5bc990fb45a.html
 - 上线App Store — https://yishuzichan.cc/posts/6c47771a-6172-4721-9574-1d1ea2771e79.html
 - 卷卷猫联名上线 — https://mp.weixin.qq.com/s/JfFAT74g0aTBoYNyytAq1g
 - 亿数1 — https://yishuzichan.cc/
@@ -156,4 +155,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-11 23:58 CST
+2026-07-12 00:08 CST
