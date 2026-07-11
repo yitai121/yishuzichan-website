@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yishuzichan.cc/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://yishuzichan.cc/news.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yishuzichan.cc/about.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yishuzichan.cc/products.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yishuzichan.cc/ecosystem.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yishuzichan.cc/media.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yishuzichan.cc/contact.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -993,6 +993,12 @@
   <url>
     <loc>https://yishuzichan.cc/posts/23c3fe9e-c60d-4f32-8ae3-b3b00ad13fda.html</loc>
     <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yishuzichan.cc/posts/fd8ac3ef-953a-424f-b0b0-0df4f164fe83.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
