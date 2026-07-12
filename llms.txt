@@ -74,6 +74,9 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-12] 亿数文娱身份资产飞行虫洞一期开启
+  URL: https://yishuzichan.cc/posts/500745f6-76fe-42bd-a249-4fde0e8367b2.html
+  摘要: （图文公告，详见静态页）
 - [2026-07-12] 「亿数」《亿数之钥》《亿象魔方•晶》寄售恢复开放
   URL: https://yishuzichan.cc/posts/4b4adec1-ebad-4b68-9b73-0a9d0b596af5.html
   摘要: （图文公告，详见静态页）
@@ -131,12 +134,10 @@
 - [2026-07-07] 「亿数」关于《亿象魔方·晶》开放寄售及限价规则
   URL: https://yishuzichan.cc/posts/f6c12702-9b0b-47ff-98a5-08855f92a8f7.html
   摘要: （图文公告，详见静态页）
-- [2026-07-07] 「亿数」关于《山庭十二辰-寒松雪虎》合成活动新增参与资格的补充公告
-  URL: https://yishuzichan.cc/posts/c089c723-d72e-4c64-bc7b-47ef698f1d27.html
-  摘要: 尊敬的亿数用户： 您好！ 现针对本次限定合成活动参与资格规则进行补充公示，具体补充内容如下： 在原有合成资格基础上，本次《山庭十二辰-寒松雪虎》合成活动新增参与
 
 ## 当前 Banner 精选（首页轮播）
 
+- 亿数文娱身份资产飞行虫洞一期开启 — https://yishuzichan.cc/posts/f6b2323b-4d3b-486b-b8f5-b5ea1420f3eb.html
 - 亿象全新多项功能上线停服更新 — https://yishuzichan.cc/posts/556f236e-9ae6-48db-8768-2171b4fd0b77.html
 - 出发吧夏天萌兽大转盘来袭 — https://yishuzichan.cc/posts/fd8ac3ef-953a-424f-b0b0-0df4f164fe83.html
 - 来出发吧夏天夏日狂欢季开启 — https://yishuzichan.cc/posts/1e61e062-7edb-4fed-ba22-4ed002c1f3eb.html
@@ -155,4 +156,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-12 12:07 CST
+2026-07-12 12:37 CST
