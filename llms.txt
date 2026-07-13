@@ -74,6 +74,12 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-13] 《亿象魔方·晶》飞行虫洞探索活动即将上线
+  URL: https://yishuzichan.cc/posts/e1bcf228-1f26-4600-b578-0008e4039bb7.html
+  摘要: （图文公告，详见静态页）
+- [2026-07-13] 「亿数」关于《亿象魔方·晶》飞行虫洞探索活动即将上线公告
+  URL: https://yishuzichan.cc/posts/fdbf59bf-d52b-44e1-9e21-181980aa12f6.html
+  摘要: （图文公告，详见静态页）
 - [2026-07-12] 「亿数」赞助浙BA开创数字资产与体育IP深度联动新标杆
   URL: https://yishuzichan.cc/posts/a7fb0554-368a-456c-913a-d187ae949ed6.html
   摘要: （图文公告，详见静态页）
@@ -128,15 +134,10 @@
 - [2026-07-07] 「亿数」《蜃龙》数字资产合成活动公告
   URL: https://yishuzichan.cc/posts/2514db01-d1cd-49b5-b76d-c346e2a943dc.html
   摘要: 尊敬的亿数用户： 您好！ 《蜃龙》数字资产合成活动来袭！活动将于2026年07月07日20:00正式开启，详情如下，敬请知悉！ 合成数字资产：《蜃龙》 最大总量
-- [2026-07-07] 「亿数」《小黄龙》数字资产开放交易
-  URL: https://yishuzichan.cc/posts/30a60937-156b-45e7-9725-44a5ab5c4c8d.html
-  摘要: 尊敬的亿数用户： 您好！ 《小黄龙》数字资产将于2026年07月07日20:00开放寄售，敬请广大用户知悉！ 寄售限价：150通宝积分 《小黄龙》数字资产介绍：
-- [2026-07-07] 「亿数」关于《亿象魔方・晶》交易异常补偿空投公告
-  URL: https://yishuzichan.cc/posts/8820f33f-4d67-4e86-9d85-8f05c47fda6b.html
-  摘要: 尊敬的亿数用户： 您好！ 此前平台《亿象魔方・晶》数字资产出现系统交易异常问题，本次故障打乱大家正常交易体验，给用户带来不便，我们致以最诚挚的歉意。为弥补本次异
 
 ## 当前 Banner 精选（首页轮播）
 
+- 《亿象魔方·晶》飞行虫洞探索活动即将上线 — https://yishuzichan.cc/posts/fdbf59bf-d52b-44e1-9e21-181980aa12f6.html
 - 飞鱼引擎星能进阶功能上线 — https://yishuzichan.cc/posts/14cc53d5-aa02-4097-b84a-3bc374aea9bc.html
 - 亿数文娱身份资产飞行虫洞一期开启 — https://yishuzichan.cc/posts/f6b2323b-4d3b-486b-b8f5-b5ea1420f3eb.html
 - 亿象全新多项功能上线停服更新 — https://yishuzichan.cc/posts/556f236e-9ae6-48db-8768-2171b4fd0b77.html
@@ -154,4 +155,4 @@
 数字藏品为文化娱乐产品，不构成投资建议。
 
 ## 最后更新
-2026-07-12 14:25 CST
+2026-07-13 11:37 CST
