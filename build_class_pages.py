@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta name="format-detection" content="telephone=no">
-<title>亿数在线课堂 — 数字藏品知识 · 平台使用指南 · 合规讲堂</title>
-<meta name="description" content="亿数在线课堂——每天为亿数用户直播的数字藏品课堂，涵盖藏品鉴赏、平台使用指南、合规解读、行业趋势。单场支持 1000 人同时在线，私有化部署，界面简洁，微信浏览器即可参加。">
-<meta name="keywords" content="亿数在线课堂,数字藏品课堂,亿数直播,藏品鉴赏,平台指南,合规讲堂,亿数在线会议">
-<meta name="author" content="亿数">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<link rel="canonical" href="https://yishuzichan.cc/meeting.html">
-<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-<link rel="manifest" href="./site.webmanifest">
-<meta name="theme-color" content="#5B5FC7">
-<meta property="og:type" content="website">
-<meta property="og:title" content="亿数在线课堂 — 每天与你相约">
-<meta property="og:description" content="亿数在线课堂：藏品鉴赏、平台指南、合规讲堂，每天一节，微信一键参加。">
-<meta property="og:url" content="https://yishuzichan.cc/meeting.html">
-<meta property="og:site_name" content="亿数">
-<meta property="og:locale" content="zh_CN">
-<style>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+生成「亿数在线课堂」meeting.html + 课堂观看页 room.html
+保留亿数官网浅色专业风格：#5B5FC7 品牌紫 + #D4AF37 金 + 白底
+"""
+import os
+
+ROOT = '/app/data/所有对话/主对话/yishu-website'
+
+NAV_HTML = '''<nav class="nav" id="mainNav" role="navigation" aria-label="主导航"> <div class="nav-inner"> <a href="index.html" class="nav-logo" aria-label="亿数首页"> <img src="./images/yishu-logo-nav.png" alt="亿数Logo" fetchpriority="high" decoding="async"> <span>亿数</span> </a> <div class="nav-links" id="navLinks" role="menubar"> <a href="about.html">关于我们</a> <a href="products.html">IP矩阵</a> <a href="ecosystem.html">生态版图</a> <a href="news.html">最新资讯</a> <a href="media.html">相关媒体</a> <a href="https://f4d6bc8f-9f0d-48c1-bd10-19713f01f1b6.dev.coze.site/" target="_blank" rel="noopener noreferrer">会议签到</a> <a href="meeting.html" class="active nav-btn-meeting" aria-label="在线会议入口"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>在线会议</a> <a href="contact.html">联系我们</a> </div> <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="nav-cta">进入亿数</a> <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="菜单" aria-expanded="false"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg> </button> </div>
+</nav>'''
+
+FOOTER_HTML = '''<footer class="footer" aria-label="页脚"> <div class="container"> <div class="footer-inner"> <div class="footer-brand"> <img src="./images/yishu-logo-nav.png" alt="亿数Logo" loading="lazy" decoding="async"> <span>亿数</span> </div> <div class="footer-copy"> <small>© 2026 亿数 · AI驱动数实融合生态 · 以数兴商，链接未来</small> </div> <nav class="footer-links" aria-label="底部链接"> <a href="https://yishuzichan.cn" target="_blank" rel="noopener noreferrer">交易平台</a> <a href="about.html">关于我们</a> <a href="contact.html">联系方式</a> </nav> </div> </div>
+</footer>'''
+
+BASE_CSS = '''
 :root {
   --brand: #5B5FC7;
   --brand-light: #7B7FD9;
@@ -105,7 +96,13 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 .compliance-icon svg { width: 100%; height: 100%; }
 .compliance-text { font-size: 13.5px; line-height: 1.65; color: #6B5A20; }
 .compliance-text strong { color: #8B6914; font-weight: 700; }
+'''
 
+# ================================================================
+# meeting.html  ——  「亿数在线课堂」入口页
+# ================================================================
+
+MEETING_CSS = BASE_CSS + '''
 /* Hero */
 .class-hero { padding-top: calc(var(--nav-height) + var(--space-16)); padding-bottom: var(--space-16); background: linear-gradient(180deg, rgba(91,95,199,0.06) 0%, transparent 100%); position: relative; overflow: hidden; }
 .class-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%); pointer-events: none; }
@@ -211,12 +208,38 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   .class-hero-stats { gap: var(--space-6); }
   .today-live-header { flex-direction: column; align-items: flex-start; }
 }
-</style>
+'''
+
+MEETING_HTML = '''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="format-detection" content="telephone=no">
+<title>亿数在线课堂 — 数字藏品知识 · 平台使用指南 · 合规讲堂</title>
+<meta name="description" content="亿数在线课堂——每天为亿数用户直播的数字藏品课堂，涵盖藏品鉴赏、平台使用指南、合规解读、行业趋势。单场支持 1000 人同时在线，私有化部署，界面简洁，微信浏览器即可参加。">
+<meta name="keywords" content="亿数在线课堂,数字藏品课堂,亿数直播,藏品鉴赏,平台指南,合规讲堂,亿数在线会议">
+<meta name="author" content="亿数">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://yishuzichan.cc/meeting.html">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+<meta name="theme-color" content="#5B5FC7">
+<meta property="og:type" content="website">
+<meta property="og:title" content="亿数在线课堂 — 每天与你相约">
+<meta property="og:description" content="亿数在线课堂：藏品鉴赏、平台指南、合规讲堂，每天一节，微信一键参加。">
+<meta property="og:url" content="https://yishuzichan.cc/meeting.html">
+<meta property="og:site_name" content="亿数">
+<meta property="og:locale" content="zh_CN">
+<style>__MEETING_CSS__</style>
 </head>
 <body>
 
-<nav class="nav" id="mainNav" role="navigation" aria-label="主导航"> <div class="nav-inner"> <a href="index.html" class="nav-logo" aria-label="亿数首页"> <img src="./images/yishu-logo-nav.png" alt="亿数Logo" fetchpriority="high" decoding="async">  </a> <div class="nav-links" id="navLinks" role="menubar"> <a href="about.html">关于我们</a> <a href="products.html">IP矩阵</a> <a href="ecosystem.html">生态版图</a> <a href="news.html">最新资讯</a> <a href="media.html">相关媒体</a> <a href="events.html">线下活动</a> <a href="https://f4d6bc8f-9f0d-48c1-bd10-19713f01f1b6.dev.coze.site/" target="_blank" rel="noopener noreferrer">会议签到</a> <a href="meeting.html" class="active nav-btn-meeting" aria-label="在线会议入口"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>在线会议</a> <a href="contact.html">联系我们</a> </div> <a href="https://www.yishuzichan.cn/signup?inviteCode=HBEV2B" target="_blank" rel="noopener noreferrer" class="nav-cta">进入亿数</a> <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="菜单" aria-expanded="false"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg> </button> </div>
-</nav>
+__NAV__
 
 <!-- ========== HERO ========== -->
 <section class="class-hero">
@@ -253,6 +276,17 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   </div>
 </section>
 
+<!-- ========== COMPLIANCE BAR ========== -->
+<div class="compliance-bar" role="note" aria-label="课堂规则">
+  <div class="compliance-inner">
+    <div class="compliance-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+    </div>
+    <div class="compliance-text">
+      <strong>课堂内容自律：</strong>请勿讨论涉政 / 涉黄 / 涉暴 / 涉赌 / 涉毒 / 侵权内容。课堂数据不落盘、不做无授权录制，讲师对内容负责。⚠️ 数字藏品为文化娱乐产品，不构成投资建议。
+    </div>
+  </div>
+</div>
 
 <!-- ========== TODAY LIVE ========== -->
 <section class="today-live">
@@ -561,8 +595,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   </div>
 </section>
 
-<footer class="footer" aria-label="页脚"> <div class="container"> <div class="footer-inner"> <div class="footer-brand"> <img src="./images/yishu-logo-footer.png" alt="亿数Logo" loading="lazy" decoding="async">  </div> <div class="footer-copy"> <small>© 2026 亿数 · AI驱动数实融合生态 · 以数兴商，链接未来</small> </div> <nav class="footer-links" aria-label="底部链接"> <a href="https://yishuzichan.cn" target="_blank" rel="noopener noreferrer">交易平台</a> <a href="about.html">关于我们</a> <a href="contact.html">联系方式</a> </nav> </div> </div>
-</footer>
+__FOOTER__
 
 <script>
 // 显示今天日期
@@ -587,6 +620,270 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 })();
 </script>
 
-  <script defer src="assets/particles.js"></script>
 </body>
 </html>
+'''
+
+MEETING_HTML = MEETING_HTML.replace('__MEETING_CSS__', MEETING_CSS).replace('__NAV__', NAV_HTML).replace('__FOOTER__', FOOTER_HTML)
+
+with open(os.path.join(ROOT, 'meeting.html'), 'w', encoding='utf-8') as f:
+    f.write(MEETING_HTML)
+
+print('meeting.html 写入完成，字节数:', os.path.getsize(os.path.join(ROOT, 'meeting.html')))
+
+# ================================================================
+# room.html  ——  课堂观看页（预留播放器 + 弹幕）
+# ================================================================
+
+ROOM_CSS = BASE_CSS + '''
+/* Room Layout */
+.room-body { background: #0a0a1a; color: #f0f0f5; min-height: 100vh; }
+.room-body .nav { background: rgba(10,10,26,0.85); border-bottom-color: rgba(255,255,255,0.08); }
+.room-body .nav-logo, .room-body .nav-links a { color: rgba(255,255,255,0.9); }
+.room-body .nav-links a { color: rgba(255,255,255,0.6); }
+.room-body .nav-links a:hover, .room-body .nav-links a.active { color: white; }
+.room-body .nav-mobile-btn svg { color: white; }
+.room-body .nav-mobile-btn { color: white; }
+
+.room-wrap { max-width: 1400px; margin: 0 auto; padding: calc(var(--nav-height) + var(--space-6)) var(--space-6) var(--space-8); }
+
+.room-hero { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-5); flex-wrap: wrap; gap: var(--space-3); }
+.room-hero-left { display: flex; align-items: center; gap: var(--space-4); flex: 1; min-width: 0; }
+.room-status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; flex-shrink: 0; }
+.room-status-badge.live { background: #ef4444; color: white; }
+.room-status-badge.live .dot { width: 6px; height: 6px; border-radius: 50%; background: white; animation: pulse 1.6s ease-in-out infinite; }
+.room-status-badge.upcoming { background: rgba(212,175,55,0.2); color: var(--gold); border: 1px solid rgba(212,175,55,0.4); }
+.room-status-badge.ended { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(239,68,68,0.25); } 50% { box-shadow: 0 0 0 8px rgba(239,68,68,0.08); } }
+.room-title { font-size: 22px; font-weight: 700; color: white; line-height: 1.4; margin: 0; }
+.room-hero-right { display: flex; align-items: center; gap: var(--space-3); font-size: 13px; color: rgba(255,255,255,0.6); }
+.room-viewers { display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(255,255,255,0.06); border-radius: var(--radius-full); }
+.room-viewers svg { width: 14px; height: 14px; }
+
+.room-main { display: grid; grid-template-columns: 1fr 340px; gap: var(--space-5); }
+
+/* Player */
+.player-wrap { background: #000; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; }
+.player-placeholder { text-align: center; color: rgba(255,255,255,0.7); padding: var(--space-8); }
+.player-placeholder-icon { width: 72px; height: 72px; margin: 0 auto var(--space-4); border-radius: 50%; background: rgba(91,95,199,0.20); display: flex; align-items: center; justify-content: center; color: var(--brand-light); }
+.player-placeholder-icon svg { width: 36px; height: 36px; }
+.player-placeholder-title { font-size: 18px; font-weight: 600; color: white; margin-bottom: var(--space-2); }
+.player-placeholder-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 380px; margin: 0 auto; }
+#video-el { width: 100%; height: 100%; object-fit: contain; background: #000; display: none; }
+.player-controls { display: none; }
+
+/* Player Info */
+.player-info { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-4); }
+.player-teacher { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+.player-teacher-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+.player-teacher-name { font-size: 15px; font-weight: 600; color: white; }
+.player-teacher-title { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+.player-abstract { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.75); }
+.player-abstract strong { color: white; }
+.player-outline { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid rgba(255,255,255,0.06); }
+.player-outline h4 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: var(--space-3); letter-spacing: 0.6px; text-transform: uppercase; }
+.player-outline ul { list-style: none; }
+.player-outline li { padding: 8px 0; font-size: 13.5px; color: rgba(255,255,255,0.72); border-bottom: 1px dashed rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px; }
+.player-outline li:last-child { border-bottom: 0; }
+.player-outline li .time { color: var(--gold); font-family: monospace; font-size: 12px; flex-shrink: 0; }
+
+/* Compliance mini */
+.room-compliance { margin-top: var(--space-5); padding: var(--space-4) var(--space-5); background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); border-radius: var(--radius-md); font-size: 12.5px; color: rgba(212,175,55,0.9); line-height: 1.65; }
+.room-compliance strong { color: var(--gold); }
+
+/* Chat */
+.chat-wrap { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); display: flex; flex-direction: column; height: calc(100vh - var(--nav-height) - 200px); min-height: 520px; overflow: hidden; }
+.chat-header { padding: var(--space-4) var(--space-5); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
+.chat-title { font-size: 14px; font-weight: 600; color: white; display: flex; align-items: center; gap: 8px; }
+.chat-title svg { width: 16px; height: 16px; color: var(--brand-light); }
+.chat-online { font-size: 12px; color: rgba(255,255,255,0.5); }
+.chat-messages { flex: 1; overflow-y: auto; padding: var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+.chat-messages::-webkit-scrollbar { width: 6px; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+.chat-msg { font-size: 13.5px; line-height: 1.55; }
+.chat-msg .user { color: var(--brand-light); font-weight: 600; margin-right: 6px; }
+.chat-msg.official .user { color: var(--gold); }
+.chat-msg .content { color: rgba(255,255,255,0.85); }
+.chat-msg .time { color: rgba(255,255,255,0.35); font-size: 11px; margin-right: 6px; }
+.chat-empty { text-align: center; padding: var(--space-12) var(--space-4); color: rgba(255,255,255,0.4); font-size: 13px; }
+.chat-empty svg { width: 40px; height: 40px; margin: 0 auto var(--space-3); opacity: 0.4; display: block; }
+.chat-input-wrap { padding: var(--space-3) var(--space-4); border-top: 1px solid rgba(255,255,255,0.06); }
+.chat-input-inner { display: flex; gap: 8px; }
+.chat-input { flex: 1; padding: 10px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-full); color: white; font-size: 13.5px; outline: none; transition: border-color var(--duration-fast); }
+.chat-input:focus { border-color: var(--brand-light); }
+.chat-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.chat-input::placeholder { color: rgba(255,255,255,0.35); }
+.chat-send { padding: 10px 18px; background: var(--brand); color: white; border-radius: var(--radius-full); font-size: 13.5px; font-weight: 600; transition: background var(--duration-fast); }
+.chat-send:hover:not(:disabled) { background: var(--brand-dark); }
+.chat-send:disabled { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); cursor: not-allowed; }
+.chat-hint { padding: 6px var(--space-4) 0; font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.5; }
+
+/* Footer */
+.room-body .footer { background: #050510; margin-top: var(--space-12); }
+
+@media (max-width: 1024px) {
+  .room-main { grid-template-columns: 1fr; }
+  .chat-wrap { height: 480px; }
+}
+'''
+
+ROOM_HTML = '''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="format-detection" content="telephone=no">
+<title>课堂直播 — 亿数在线课堂</title>
+<meta name="description" content="亿数在线课堂直播观看页——数字藏品课堂实时播出，1000 人容量，微信一键参与。">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://yishuzichan.cc/room.html">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+<meta name="theme-color" content="#0a0a1a">
+<style>__ROOM_CSS__</style>
+</head>
+<body class="room-body">
+
+__NAV__
+
+<main class="room-wrap">
+  <div class="room-hero">
+    <div class="room-hero-left">
+      <span class="room-status-badge upcoming" id="room-status">
+        <span>直播未开始</span>
+      </span>
+      <h1 class="room-title" id="room-title">《小黄龙》系列鉴赏 · 从合成机制到文化脉络</h1>
+    </div>
+    <div class="room-hero-right">
+      <div class="room-viewers" id="room-viewers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        <span id="viewer-count">0</span> 人观看
+      </div>
+    </div>
+  </div>
+
+  <div class="room-main">
+    <!-- LEFT: Player + Info -->
+    <div class="room-left">
+      <div class="player-wrap">
+        <!-- 播放器占位（后期换成 flv.js） -->
+        <div class="player-placeholder" id="player-placeholder">
+          <div class="player-placeholder-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+          </div>
+          <div class="player-placeholder-title">直播尚未开始</div>
+          <div class="player-placeholder-desc">
+            亿数在线课堂正在完成私有化服务器部署，预计一周内首场开讲。<br>
+            开讲后本页面将自动播放直播信号，无需刷新。
+          </div>
+        </div>
+        <!-- 视频元素（后期启用） -->
+        <video id="video-el" controls autoplay muted playsinline></video>
+      </div>
+
+      <div class="player-info">
+        <div class="player-teacher">
+          <div class="player-teacher-avatar" aria-hidden="true">亿</div>
+          <div>
+            <div class="player-teacher-name">亿数运营团队</div>
+            <div class="player-teacher-title">官方讲师 · 藏品鉴赏组</div>
+          </div>
+        </div>
+        <div class="player-abstract">
+          <strong>课程简介：</strong>从《小黄龙》的设计手稿聊起，为你揭秘这一 IP 背后的创作故事、稀有度体系、合成机制与文化价值。课程涵盖：小黄龙的诞生、五种稀有度的差异、合成路径、以及为什么它成为亿象生态的代表 IP 之一。
+        </div>
+        <div class="player-outline">
+          <h4>课程大纲</h4>
+          <ul>
+            <li><span class="time">00:00</span> <span>开场：为什么是小黄龙</span></li>
+            <li><span class="time">10:00</span> <span>设计手稿背后的文化脉络</span></li>
+            <li><span class="time">30:00</span> <span>五种稀有度的差异与鉴赏要点</span></li>
+            <li><span class="time">55:00</span> <span>合成机制详解 · 一步步演示</span></li>
+            <li><span class="time">80:00</span> <span>Q&A：观众提问答疑</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="room-compliance">
+        <strong>⚠️ 课堂内容自律：</strong>请勿讨论涉政 / 涉黄 / 涉暴 / 涉赌 / 涉毒 / 侵权内容。数字藏品为文化娱乐产品，不构成投资建议。
+      </div>
+    </div>
+
+    <!-- RIGHT: Chat -->
+    <aside class="chat-wrap" aria-label="课堂互动区">
+      <div class="chat-header">
+        <div class="chat-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>课堂互动</span>
+        </div>
+        <div class="chat-online" id="chat-online">— 人在线</div>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <div>直播开始后<br>互动区将自动开启</div>
+        </div>
+      </div>
+      <div class="chat-input-wrap">
+        <div class="chat-input-inner">
+          <input class="chat-input" id="chat-input" type="text" placeholder="直播开始后可发送弹幕..." disabled maxlength="80">
+          <button class="chat-send" id="chat-send" disabled>发送</button>
+        </div>
+        <div class="chat-hint">发言即代表你同意遵守《课堂内容自律》规范。</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+__FOOTER__
+
+<script>
+// mobile nav
+(function(){
+  var btn = document.getElementById('mobileMenuBtn');
+  var nav = document.getElementById('navLinks');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){
+      nav.classList.toggle('show');
+      btn.setAttribute('aria-expanded', nav.classList.contains('show'));
+    });
+  }
+})();
+
+/*
+ * 直播接入点位（预留）
+ * 当 SRS 私有化服务器就绪后，把以下 config 中的 URL 换成实际拉流地址即可自动生效：
+ *
+ * window.YISHU_LIVE_CONFIG = {
+ *   enabled: true,
+ *   streamUrl: 'https://live.yishuzichan.cn/live/room1.flv',  // HTTP-FLV
+ *   backupUrl: 'https://live.yishuzichan.cn/live/room1.m3u8', // HLS 兜底
+ *   chatWs: 'wss://live.yishuzichan.cn/chat',
+ * };
+ *
+ * 页面会自动隐藏 placeholder、显示 video，并连接弹幕 WebSocket。
+ */
+(function initLive(){
+  var cfg = window.YISHU_LIVE_CONFIG;
+  if (!cfg || !cfg.enabled) return;
+  var video = document.getElementById('video-el');
+  var placeholder = document.getElementById('player-placeholder');
+  if (!video || !placeholder) return;
+  // 后期启用时的 stub
+  placeholder.style.display = 'none';
+  video.style.display = 'block';
+  video.src = cfg.backupUrl || cfg.streamUrl;
+})();
+</script>
+
+</body>
+</html>
+'''
+
+ROOM_HTML = ROOM_HTML.replace('__ROOM_CSS__', ROOM_CSS).replace('__NAV__', NAV_HTML).replace('__FOOTER__', FOOTER_HTML)
+
+with open(os.path.join(ROOT, 'room.html'), 'w', encoding='utf-8') as f:
+    f.write(ROOM_HTML)
+
+print('room.html 写入完成，字节数:', os.path.getsize(os.path.join(ROOT, 'room.html')))
