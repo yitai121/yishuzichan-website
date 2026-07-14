@@ -74,6 +74,9 @@
 
 亿数官方公告静态页均已收录，路径格式：https://yishuzichan.cc/posts/{id}.html
 
+- [2026-07-14] 「亿数」疯狂路亚《愤怒的小鱼竿》重新申购特别说明
+  URL: https://yishuzichan.cc/posts/b8bd928a-22c0-48ee-9a76-64bc3be9fe1c.html
+  摘要: 疯狂路亚生态旗下《愤怒的小鱼竿》数字资产重新开放申购，请广大用户及时关注参与规则与时间安排。 ⚠️ 数字藏品为文化娱乐产品，不构成投资建议。
 - [2026-07-13] 「亿数」《党建》杂志报道数字藏品
   URL: https://yishuzichan.cc/posts/6c01e7a6-2077-416b-af0d-4251bad5d187.html
   摘要: （图文公告，详见静态页）
